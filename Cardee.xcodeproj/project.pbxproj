@@ -1,0 +1,328 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E87F36001EA6036D00AC4DA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F35FF1EA6036D00AC4DA4 /* AppDelegate.swift */; };
+		E87F36021EA6036D00AC4DA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F36011EA6036D00AC4DA4 /* ViewController.swift */; };
+		E87F36051EA6036D00AC4DA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E87F36031EA6036D00AC4DA4 /* Main.storyboard */; };
+		E87F36081EA6036D00AC4DA4 /* Cardee.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E87F36061EA6036D00AC4DA4 /* Cardee.xcdatamodeld */; };
+		E87F360A1EA6036D00AC4DA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E87F36091EA6036D00AC4DA4 /* Assets.xcassets */; };
+		E87F360D1EA6036D00AC4DA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E87F360B1EA6036D00AC4DA4 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E87F35FC1EA6036D00AC4DA4 /* Cardee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cardee.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E87F35FF1EA6036D00AC4DA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E87F36011EA6036D00AC4DA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E87F36041EA6036D00AC4DA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E87F36071EA6036D00AC4DA4 /* Cardee.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cardee.xcdatamodel; sourceTree = "<group>"; };
+		E87F36091EA6036D00AC4DA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E87F360C1EA6036D00AC4DA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E87F360E1EA6036D00AC4DA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E87F35F91EA6036D00AC4DA4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E87F35F31EA6036D00AC4DA4 = {
+			isa = PBXGroup;
+			children = (
+				E87F35FE1EA6036D00AC4DA4 /* Cardee */,
+				E87F35FD1EA6036D00AC4DA4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E87F35FD1EA6036D00AC4DA4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E87F35FC1EA6036D00AC4DA4 /* Cardee.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E87F35FE1EA6036D00AC4DA4 /* Cardee */ = {
+			isa = PBXGroup;
+			children = (
+				E87F35FF1EA6036D00AC4DA4 /* AppDelegate.swift */,
+				E87F36011EA6036D00AC4DA4 /* ViewController.swift */,
+				E87F36031EA6036D00AC4DA4 /* Main.storyboard */,
+				E87F36091EA6036D00AC4DA4 /* Assets.xcassets */,
+				E87F360B1EA6036D00AC4DA4 /* LaunchScreen.storyboard */,
+				E87F360E1EA6036D00AC4DA4 /* Info.plist */,
+				E87F36061EA6036D00AC4DA4 /* Cardee.xcdatamodeld */,
+			);
+			path = Cardee;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E87F35FB1EA6036D00AC4DA4 /* Cardee */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E87F36111EA6036D00AC4DA4 /* Build configuration list for PBXNativeTarget "Cardee" */;
+			buildPhases = (
+				E87F35F81EA6036D00AC4DA4 /* Sources */,
+				E87F35F91EA6036D00AC4DA4 /* Frameworks */,
+				E87F35FA1EA6036D00AC4DA4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cardee;
+			productName = Cardee;
+			productReference = E87F35FC1EA6036D00AC4DA4 /* Cardee.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E87F35F41EA6036D00AC4DA4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Alexander Lisovik";
+				TargetAttributes = {
+					E87F35FB1EA6036D00AC4DA4 = {
+						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = RQ4NX29V75;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = E87F35F71EA6036D00AC4DA4 /* Build configuration list for PBXProject "Cardee" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E87F35F31EA6036D00AC4DA4;
+			productRefGroup = E87F35FD1EA6036D00AC4DA4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E87F35FB1EA6036D00AC4DA4 /* Cardee */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E87F35FA1EA6036D00AC4DA4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E87F360D1EA6036D00AC4DA4 /* LaunchScreen.storyboard in Resources */,
+				E87F360A1EA6036D00AC4DA4 /* Assets.xcassets in Resources */,
+				E87F36051EA6036D00AC4DA4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E87F35F81EA6036D00AC4DA4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E87F36081EA6036D00AC4DA4 /* Cardee.xcdatamodeld in Sources */,
+				E87F36021EA6036D00AC4DA4 /* ViewController.swift in Sources */,
+				E87F36001EA6036D00AC4DA4 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E87F36031EA6036D00AC4DA4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E87F36041EA6036D00AC4DA4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E87F360B1EA6036D00AC4DA4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E87F360C1EA6036D00AC4DA4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E87F360F1EA6036D00AC4DA4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E87F36101EA6036D00AC4DA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E87F36121EA6036D00AC4DA4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RQ4NX29V75;
+				INFOPLIST_FILE = Cardee/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mac.test.Cardee;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		E87F36131EA6036D00AC4DA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RQ4NX29V75;
+				INFOPLIST_FILE = Cardee/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mac.test.Cardee;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E87F35F71EA6036D00AC4DA4 /* Build configuration list for PBXProject "Cardee" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E87F360F1EA6036D00AC4DA4 /* Debug */,
+				E87F36101EA6036D00AC4DA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E87F36111EA6036D00AC4DA4 /* Build configuration list for PBXNativeTarget "Cardee" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E87F36121EA6036D00AC4DA4 /* Debug */,
+				E87F36131EA6036D00AC4DA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E87F36061EA6036D00AC4DA4 /* Cardee.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E87F36071EA6036D00AC4DA4 /* Cardee.xcdatamodel */,
+			);
+			currentVersion = E87F36071EA6036D00AC4DA4 /* Cardee.xcdatamodel */;
+			path = Cardee.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E87F35F41EA6036D00AC4DA4 /* Project object */;
+}
