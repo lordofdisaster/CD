@@ -7,23 +7,101 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E6C2E42BCADA0484D873AF0D /* Pods_Cardee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C56DFBB096498260E3F2FDBD /* Pods_Cardee.framework */; };
+		E80CAC851EBB08530087B919 /* CardeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80CAC841EBB08530087B919 /* CardeeViewController.swift */; };
+		E80CAC881EBB0A3C0087B919 /* MyCarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80CAC871EBB0A3C0087B919 /* MyCarsViewController.swift */; };
+		E80CAC8C1EBB0B030087B919 /* CarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80CAC8B1EBB0B030087B919 /* CarTableViewCell.swift */; };
+		E80CAC8F1EBB52A40087B919 /* Mazda.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E80CAC8E1EBB52A40087B919 /* Mazda.jpg */; };
+		E823DDB31EBE0C5B006C92DF /* AddCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E823DDB21EBE0C5B006C92DF /* AddCarViewController.swift */; };
+		E823DDB71EBE0D6D006C92DF /* AddCarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E823DDB61EBE0D6D006C92DF /* AddCarTableViewCell.swift */; };
+		E823DDB91EBE235E006C92DF /* AddVehicleTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E823DDB81EBE235E006C92DF /* AddVehicleTypeViewController.swift */; };
+		E823DDBB1EBE3268006C92DF /* VehicleTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E823DDBA1EBE3268006C92DF /* VehicleTypeTableViewCell.swift */; };
+		E823DDBD1EBE459A006C92DF /* NextButtonObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E823DDBC1EBE459A006C92DF /* NextButtonObject.swift */; };
+		E823DDBF1EBE47A2006C92DF /* NextButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E823DDBE1EBE47A2006C92DF /* NextButtonView.swift */; };
+		E823DDC21EBF69B4006C92DF /* InsuranceInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E823DDC11EBF69B4006C92DF /* InsuranceInfoViewController.swift */; };
+		E823DDC41EBF6A53006C92DF /* InsuranceInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E823DDC31EBF6A53006C92DF /* InsuranceInfoTableViewCell.swift */; };
+		E823DDC71EBF79A1006C92DF /* InsuranceInfoExampleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E823DDC61EBF79A1006C92DF /* InsuranceInfoExampleTableViewCell.swift */; };
+		E823DDC91EBF86CD006C92DF /* AddCarInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E823DDC81EBF86CD006C92DF /* AddCarInfoViewController.swift */; };
+		E823DDCB1EBF87ED006C92DF /* AddCarInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E823DDCA1EBF87ED006C92DF /* AddCarInfoTableViewCell.swift */; };
+		E823DDCD1EBFA6EA006C92DF /* AddCarVerificationImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E823DDCC1EBFA6EA006C92DF /* AddCarVerificationImageViewController.swift */; };
+		E823DDD21EBFB592006C92DF /* AddCarLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E823DDD11EBFB592006C92DF /* AddCarLocationViewController.swift */; };
+		E823DDD51EC04F24006C92DF /* CarLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E823DDD41EC04F24006C92DF /* CarLocationView.swift */; };
+		E823DDD71EC05503006C92DF /* HideExactLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E823DDD61EC05503006C92DF /* HideExactLocationView.swift */; };
+		E823DDDB1EC09651006C92DF /* AddDocumentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E823DDDA1EC09651006C92DF /* AddDocumentsTableViewCell.swift */; };
+		E823DDDD1EC09C67006C92DF /* AddCarDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E823DDDC1EC09C67006C92DF /* AddCarDocumentsViewController.swift */; };
+		E823DDDF1EC0AAA7006C92DF /* AddPersonalDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E823DDDE1EC0AAA7006C92DF /* AddPersonalDocumentsViewController.swift */; };
+		E823DDE11EC0B466006C92DF /* AddContactInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E823DDE01EC0B466006C92DF /* AddContactInfoViewController.swift */; };
+		E82ECFA11EB090F600685F0F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82ECFA01EB090F600685F0F /* SignUpView.swift */; };
 		E87F36001EA6036D00AC4DA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F35FF1EA6036D00AC4DA4 /* AppDelegate.swift */; };
-		E87F36021EA6036D00AC4DA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F36011EA6036D00AC4DA4 /* ViewController.swift */; };
+		E87F36021EA6036D00AC4DA4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F36011EA6036D00AC4DA4 /* LoginViewController.swift */; };
 		E87F36051EA6036D00AC4DA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E87F36031EA6036D00AC4DA4 /* Main.storyboard */; };
 		E87F36081EA6036D00AC4DA4 /* Cardee.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E87F36061EA6036D00AC4DA4 /* Cardee.xcdatamodeld */; };
 		E87F360A1EA6036D00AC4DA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E87F36091EA6036D00AC4DA4 /* Assets.xcassets */; };
 		E87F360D1EA6036D00AC4DA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E87F360B1EA6036D00AC4DA4 /* LaunchScreen.storyboard */; };
+		E87F36171EA6059500AC4DA4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F36161EA6059500AC4DA4 /* LoginView.swift */; };
+		E87F361B1EA6060C00AC4DA4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F361A1EA6060C00AC4DA4 /* Constants.swift */; };
+		E87F361E1EA6112500AC4DA4 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F361D1EA6112500AC4DA4 /* LoginTextField.swift */; };
+		E87F36201EA62A7100AC4DA4 /* SocianLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F361F1EA62A7100AC4DA4 /* SocianLoginView.swift */; };
+		E87F36231EA62FF200AC4DA4 /* SocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F36221EA62FF200AC4DA4 /* SocialButton.swift */; };
+		E88E3EEB1EB48BDC00D4AD16 /* LauncherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88E3EEA1EB48BDC00D4AD16 /* LauncherViewController.swift */; };
+		E8B21B631EB1D66C007E90A9 /* OwnerProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B21B621EB1D66C007E90A9 /* OwnerProfileViewController.swift */; };
+		E8B21B661EB1D7E0007E90A9 /* OwnerInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B21B651EB1D7E0007E90A9 /* OwnerInfoTableViewCell.swift */; };
+		E8B21B681EB1E3B1007E90A9 /* OwnerFeaturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B21B671EB1E3B1007E90A9 /* OwnerFeaturesView.swift */; };
+		E8E72AFE1EB309E900FEC460 /* OwnerDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E72AFD1EB309E900FEC460 /* OwnerDescriptionTableViewCell.swift */; };
+		E8E72B001EB314B500FEC460 /* OwnerCarReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E72AFF1EB314B500FEC460 /* OwnerCarReviewTableViewCell.swift */; };
+		E8E72B021EB32AE900FEC460 /* OwnerCarsCarouselTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E72B011EB32AE900FEC460 /* OwnerCarsCarouselTableViewCell.swift */; };
+		E8E72B041EB3308900FEC460 /* CarCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E72B031EB3308900FEC460 /* CarCarouselView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4732730EB245677CC1EE2BD8 /* Pods-Cardee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cardee.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cardee/Pods-Cardee.release.xcconfig"; sourceTree = "<group>"; };
+		C56DFBB096498260E3F2FDBD /* Pods_Cardee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cardee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8E59CFEF8ECE584958F598A /* Pods-Cardee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cardee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cardee/Pods-Cardee.debug.xcconfig"; sourceTree = "<group>"; };
+		E80CAC841EBB08530087B919 /* CardeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardeeViewController.swift; sourceTree = "<group>"; };
+		E80CAC871EBB0A3C0087B919 /* MyCarsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCarsViewController.swift; sourceTree = "<group>"; };
+		E80CAC8B1EBB0B030087B919 /* CarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarTableViewCell.swift; sourceTree = "<group>"; };
+		E80CAC8E1EBB52A40087B919 /* Mazda.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Mazda.jpg; sourceTree = "<group>"; };
+		E823DDB21EBE0C5B006C92DF /* AddCarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCarViewController.swift; sourceTree = "<group>"; };
+		E823DDB61EBE0D6D006C92DF /* AddCarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCarTableViewCell.swift; sourceTree = "<group>"; };
+		E823DDB81EBE235E006C92DF /* AddVehicleTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddVehicleTypeViewController.swift; sourceTree = "<group>"; };
+		E823DDBA1EBE3268006C92DF /* VehicleTypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleTypeTableViewCell.swift; sourceTree = "<group>"; };
+		E823DDBC1EBE459A006C92DF /* NextButtonObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextButtonObject.swift; sourceTree = "<group>"; };
+		E823DDBE1EBE47A2006C92DF /* NextButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextButtonView.swift; sourceTree = "<group>"; };
+		E823DDC11EBF69B4006C92DF /* InsuranceInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsuranceInfoViewController.swift; sourceTree = "<group>"; };
+		E823DDC31EBF6A53006C92DF /* InsuranceInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsuranceInfoTableViewCell.swift; sourceTree = "<group>"; };
+		E823DDC61EBF79A1006C92DF /* InsuranceInfoExampleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsuranceInfoExampleTableViewCell.swift; sourceTree = "<group>"; };
+		E823DDC81EBF86CD006C92DF /* AddCarInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCarInfoViewController.swift; sourceTree = "<group>"; };
+		E823DDCA1EBF87ED006C92DF /* AddCarInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCarInfoTableViewCell.swift; sourceTree = "<group>"; };
+		E823DDCC1EBFA6EA006C92DF /* AddCarVerificationImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCarVerificationImageViewController.swift; sourceTree = "<group>"; };
+		E823DDD11EBFB592006C92DF /* AddCarLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCarLocationViewController.swift; sourceTree = "<group>"; };
+		E823DDD41EC04F24006C92DF /* CarLocationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarLocationView.swift; sourceTree = "<group>"; };
+		E823DDD61EC05503006C92DF /* HideExactLocationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideExactLocationView.swift; sourceTree = "<group>"; };
+		E823DDDA1EC09651006C92DF /* AddDocumentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDocumentsTableViewCell.swift; sourceTree = "<group>"; };
+		E823DDDC1EC09C67006C92DF /* AddCarDocumentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCarDocumentsViewController.swift; sourceTree = "<group>"; };
+		E823DDDE1EC0AAA7006C92DF /* AddPersonalDocumentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPersonalDocumentsViewController.swift; sourceTree = "<group>"; };
+		E823DDE01EC0B466006C92DF /* AddContactInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactInfoViewController.swift; sourceTree = "<group>"; };
+		E82ECFA01EB090F600685F0F /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		E87F35FC1EA6036D00AC4DA4 /* Cardee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cardee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E87F35FF1EA6036D00AC4DA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E87F36011EA6036D00AC4DA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E87F36011EA6036D00AC4DA4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E87F36041EA6036D00AC4DA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E87F36071EA6036D00AC4DA4 /* Cardee.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cardee.xcdatamodel; sourceTree = "<group>"; };
 		E87F36091EA6036D00AC4DA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E87F360C1EA6036D00AC4DA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E87F360E1EA6036D00AC4DA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E87F36161EA6059500AC4DA4 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		E87F361A1EA6060C00AC4DA4 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E87F361D1EA6112500AC4DA4 /* LoginTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
+		E87F361F1EA62A7100AC4DA4 /* SocianLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocianLoginView.swift; sourceTree = "<group>"; };
+		E87F36221EA62FF200AC4DA4 /* SocialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialButton.swift; sourceTree = "<group>"; };
+		E88E3EEA1EB48BDC00D4AD16 /* LauncherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LauncherViewController.swift; sourceTree = "<group>"; };
+		E8B21B621EB1D66C007E90A9 /* OwnerProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerProfileViewController.swift; sourceTree = "<group>"; };
+		E8B21B651EB1D7E0007E90A9 /* OwnerInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerInfoTableViewCell.swift; sourceTree = "<group>"; };
+		E8B21B671EB1E3B1007E90A9 /* OwnerFeaturesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerFeaturesView.swift; sourceTree = "<group>"; };
+		E8E72AFD1EB309E900FEC460 /* OwnerDescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerDescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		E8E72AFF1EB314B500FEC460 /* OwnerCarReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerCarReviewTableViewCell.swift; sourceTree = "<group>"; };
+		E8E72B011EB32AE900FEC460 /* OwnerCarsCarouselTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerCarsCarouselTableViewCell.swift; sourceTree = "<group>"; };
+		E8E72B031EB3308900FEC460 /* CarCarouselView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCarouselView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +109,151 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6C2E42BCADA0484D873AF0D /* Pods_Cardee.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B53410537C83A1AB9BC07AE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D8E59CFEF8ECE584958F598A /* Pods-Cardee.debug.xcconfig */,
+				4732730EB245677CC1EE2BD8 /* Pods-Cardee.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		92324F2467F2CCB49AF1A331 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C56DFBB096498260E3F2FDBD /* Pods_Cardee.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E80CAC831EBB08280087B919 /* General Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E80CAC841EBB08530087B919 /* CardeeViewController.swift */,
+			);
+			name = "General Controller";
+			sourceTree = "<group>";
+		};
+		E80CAC861EBB0A2B0087B919 /* My Cars */ = {
+			isa = PBXGroup;
+			children = (
+				E80CAC891EBB0AE90087B919 /* Views */,
+				E80CAC871EBB0A3C0087B919 /* MyCarsViewController.swift */,
+			);
+			name = "My Cars";
+			sourceTree = "<group>";
+		};
+		E80CAC891EBB0AE90087B919 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E80CAC8A1EBB0AF20087B919 /* Cells */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		E80CAC8A1EBB0AF20087B919 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E80CAC8B1EBB0B030087B919 /* CarTableViewCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		E80CAC8D1EBB52990087B919 /* Temp */ = {
+			isa = PBXGroup;
+			children = (
+				E80CAC8E1EBB52A40087B919 /* Mazda.jpg */,
+			);
+			name = Temp;
+			sourceTree = "<group>";
+		};
+		E823DDB11EBE0B4C006C92DF /* Add Car */ = {
+			isa = PBXGroup;
+			children = (
+				E823DDB41EBE0D4A006C92DF /* Views */,
+				E823DDB21EBE0C5B006C92DF /* AddCarViewController.swift */,
+				E823DDB81EBE235E006C92DF /* AddVehicleTypeViewController.swift */,
+				E823DDC11EBF69B4006C92DF /* InsuranceInfoViewController.swift */,
+				E823DDC81EBF86CD006C92DF /* AddCarInfoViewController.swift */,
+				E823DDCC1EBFA6EA006C92DF /* AddCarVerificationImageViewController.swift */,
+				E823DDD11EBFB592006C92DF /* AddCarLocationViewController.swift */,
+				E823DDDC1EC09C67006C92DF /* AddCarDocumentsViewController.swift */,
+				E823DDDE1EC0AAA7006C92DF /* AddPersonalDocumentsViewController.swift */,
+				E823DDE01EC0B466006C92DF /* AddContactInfoViewController.swift */,
+			);
+			name = "Add Car";
+			sourceTree = "<group>";
+		};
+		E823DDB41EBE0D4A006C92DF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E823DDB51EBE0D55006C92DF /* Cells */,
+				E823DDD31EC04EFF006C92DF /* Car Location */,
+				E823DDBE1EBE47A2006C92DF /* NextButtonView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		E823DDB51EBE0D55006C92DF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E823DDC51EBF797D006C92DF /* Insurance Info */,
+				E823DDB61EBE0D6D006C92DF /* AddCarTableViewCell.swift */,
+				E823DDBA1EBE3268006C92DF /* VehicleTypeTableViewCell.swift */,
+				E823DDCA1EBF87ED006C92DF /* AddCarInfoTableViewCell.swift */,
+				E823DDDA1EC09651006C92DF /* AddDocumentsTableViewCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		E823DDC01EBE530C006C92DF /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				E823DDD01EBFA78B006C92DF /* Add Car */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
+		E823DDC51EBF797D006C92DF /* Insurance Info */ = {
+			isa = PBXGroup;
+			children = (
+				E823DDC31EBF6A53006C92DF /* InsuranceInfoTableViewCell.swift */,
+				E823DDC61EBF79A1006C92DF /* InsuranceInfoExampleTableViewCell.swift */,
+			);
+			name = "Insurance Info";
+			sourceTree = "<group>";
+		};
+		E823DDD01EBFA78B006C92DF /* Add Car */ = {
+			isa = PBXGroup;
+			children = (
+				E823DDBC1EBE459A006C92DF /* NextButtonObject.swift */,
+			);
+			name = "Add Car";
+			sourceTree = "<group>";
+		};
+		E823DDD31EC04EFF006C92DF /* Car Location */ = {
+			isa = PBXGroup;
+			children = (
+				E823DDD41EC04F24006C92DF /* CarLocationView.swift */,
+				E823DDD61EC05503006C92DF /* HideExactLocationView.swift */,
+			);
+			name = "Car Location";
+			sourceTree = "<group>";
+		};
 		E87F35F31EA6036D00AC4DA4 = {
 			isa = PBXGroup;
 			children = (
 				E87F35FE1EA6036D00AC4DA4 /* Cardee */,
 				E87F35FD1EA6036D00AC4DA4 /* Products */,
+				0B53410537C83A1AB9BC07AE /* Pods */,
+				92324F2467F2CCB49AF1A331 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,8 +268,11 @@
 		E87F35FE1EA6036D00AC4DA4 /* Cardee */ = {
 			isa = PBXGroup;
 			children = (
+				E823DDC01EBE530C006C92DF /* Modules */,
+				E80CAC8D1EBB52990087B919 /* Temp */,
+				E87F36191EA605FE00AC4DA4 /* Helpers */,
+				E87F36141EA6057200AC4DA4 /* Controllers */,
 				E87F35FF1EA6036D00AC4DA4 /* AppDelegate.swift */,
-				E87F36011EA6036D00AC4DA4 /* ViewController.swift */,
 				E87F36031EA6036D00AC4DA4 /* Main.storyboard */,
 				E87F36091EA6036D00AC4DA4 /* Assets.xcassets */,
 				E87F360B1EA6036D00AC4DA4 /* LaunchScreen.storyboard */,
@@ -67,6 +282,102 @@
 			path = Cardee;
 			sourceTree = "<group>";
 		};
+		E87F36141EA6057200AC4DA4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E80CAC831EBB08280087B919 /* General Controller */,
+				E88E3EE91EB48BC500D4AD16 /* Laucher */,
+				E87F36151EA6058300AC4DA4 /* Login */,
+				E8B21B611EB1D642007E90A9 /* Owner Profile */,
+				E80CAC861EBB0A2B0087B919 /* My Cars */,
+				E823DDB11EBE0B4C006C92DF /* Add Car */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		E87F36151EA6058300AC4DA4 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E87F36011EA6036D00AC4DA4 /* LoginViewController.swift */,
+				E87F36181EA6059E00AC4DA4 /* Views */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		E87F36181EA6059E00AC4DA4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E87F36241EA6311100AC4DA4 /* Textfield */,
+				E87F36211EA62FDA00AC4DA4 /* Social View */,
+				E87F36161EA6059500AC4DA4 /* LoginView.swift */,
+				E82ECFA01EB090F600685F0F /* SignUpView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		E87F36191EA605FE00AC4DA4 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E87F361A1EA6060C00AC4DA4 /* Constants.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		E87F36211EA62FDA00AC4DA4 /* Social View */ = {
+			isa = PBXGroup;
+			children = (
+				E87F361F1EA62A7100AC4DA4 /* SocianLoginView.swift */,
+				E87F36221EA62FF200AC4DA4 /* SocialButton.swift */,
+			);
+			name = "Social View";
+			sourceTree = "<group>";
+		};
+		E87F36241EA6311100AC4DA4 /* Textfield */ = {
+			isa = PBXGroup;
+			children = (
+				E87F361D1EA6112500AC4DA4 /* LoginTextField.swift */,
+			);
+			name = Textfield;
+			sourceTree = "<group>";
+		};
+		E88E3EE91EB48BC500D4AD16 /* Laucher */ = {
+			isa = PBXGroup;
+			children = (
+				E88E3EEA1EB48BDC00D4AD16 /* LauncherViewController.swift */,
+			);
+			name = Laucher;
+			sourceTree = "<group>";
+		};
+		E8B21B611EB1D642007E90A9 /* Owner Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E8B21B641EB1D788007E90A9 /* Views */,
+				E8B21B621EB1D66C007E90A9 /* OwnerProfileViewController.swift */,
+			);
+			name = "Owner Profile";
+			sourceTree = "<group>";
+		};
+		E8B21B641EB1D788007E90A9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E8E72AFC1EB309BF00FEC460 /* Cells */,
+				E8B21B671EB1E3B1007E90A9 /* OwnerFeaturesView.swift */,
+				E8E72B031EB3308900FEC460 /* CarCarouselView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		E8E72AFC1EB309BF00FEC460 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E8B21B651EB1D7E0007E90A9 /* OwnerInfoTableViewCell.swift */,
+				E8E72AFD1EB309E900FEC460 /* OwnerDescriptionTableViewCell.swift */,
+				E8E72B011EB32AE900FEC460 /* OwnerCarsCarouselTableViewCell.swift */,
+				E8E72AFF1EB314B500FEC460 /* OwnerCarReviewTableViewCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +385,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E87F36111EA6036D00AC4DA4 /* Build configuration list for PBXNativeTarget "Cardee" */;
 			buildPhases = (
+				AD38A0893C9F6E24C8EE3D4B /* [CP] Check Pods Manifest.lock */,
 				E87F35F81EA6036D00AC4DA4 /* Sources */,
 				E87F35F91EA6036D00AC4DA4 /* Frameworks */,
 				E87F35FA1EA6036D00AC4DA4 /* Resources */,
+				7F7E474686335EA1B31DFFC6 /* [CP] Embed Pods Frameworks */,
+				5B2BBD435ADEE33BC0F36C9A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,20 +443,105 @@
 			files = (
 				E87F360D1EA6036D00AC4DA4 /* LaunchScreen.storyboard in Resources */,
 				E87F360A1EA6036D00AC4DA4 /* Assets.xcassets in Resources */,
+				E80CAC8F1EBB52A40087B919 /* Mazda.jpg in Resources */,
 				E87F36051EA6036D00AC4DA4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5B2BBD435ADEE33BC0F36C9A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cardee/Pods-Cardee-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7F7E474686335EA1B31DFFC6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cardee/Pods-Cardee-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AD38A0893C9F6E24C8EE3D4B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E87F35F81EA6036D00AC4DA4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E823DDB71EBE0D6D006C92DF /* AddCarTableViewCell.swift in Sources */,
+				E823DDB31EBE0C5B006C92DF /* AddCarViewController.swift in Sources */,
+				E8B21B631EB1D66C007E90A9 /* OwnerProfileViewController.swift in Sources */,
+				E823DDBF1EBE47A2006C92DF /* NextButtonView.swift in Sources */,
+				E82ECFA11EB090F600685F0F /* SignUpView.swift in Sources */,
+				E8E72B021EB32AE900FEC460 /* OwnerCarsCarouselTableViewCell.swift in Sources */,
+				E87F361B1EA6060C00AC4DA4 /* Constants.swift in Sources */,
+				E823DDDF1EC0AAA7006C92DF /* AddPersonalDocumentsViewController.swift in Sources */,
+				E823DDBB1EBE3268006C92DF /* VehicleTypeTableViewCell.swift in Sources */,
 				E87F36081EA6036D00AC4DA4 /* Cardee.xcdatamodeld in Sources */,
-				E87F36021EA6036D00AC4DA4 /* ViewController.swift in Sources */,
+				E80CAC881EBB0A3C0087B919 /* MyCarsViewController.swift in Sources */,
+				E823DDCD1EBFA6EA006C92DF /* AddCarVerificationImageViewController.swift in Sources */,
+				E87F36021EA6036D00AC4DA4 /* LoginViewController.swift in Sources */,
+				E87F36201EA62A7100AC4DA4 /* SocianLoginView.swift in Sources */,
+				E87F36231EA62FF200AC4DA4 /* SocialButton.swift in Sources */,
+				E823DDC91EBF86CD006C92DF /* AddCarInfoViewController.swift in Sources */,
+				E823DDC21EBF69B4006C92DF /* InsuranceInfoViewController.swift in Sources */,
+				E823DDE11EC0B466006C92DF /* AddContactInfoViewController.swift in Sources */,
+				E8B21B681EB1E3B1007E90A9 /* OwnerFeaturesView.swift in Sources */,
+				E8E72B001EB314B500FEC460 /* OwnerCarReviewTableViewCell.swift in Sources */,
+				E823DDD71EC05503006C92DF /* HideExactLocationView.swift in Sources */,
+				E823DDD51EC04F24006C92DF /* CarLocationView.swift in Sources */,
+				E823DDB91EBE235E006C92DF /* AddVehicleTypeViewController.swift in Sources */,
+				E88E3EEB1EB48BDC00D4AD16 /* LauncherViewController.swift in Sources */,
+				E823DDDD1EC09C67006C92DF /* AddCarDocumentsViewController.swift in Sources */,
+				E823DDC71EBF79A1006C92DF /* InsuranceInfoExampleTableViewCell.swift in Sources */,
+				E8B21B661EB1D7E0007E90A9 /* OwnerInfoTableViewCell.swift in Sources */,
+				E8E72AFE1EB309E900FEC460 /* OwnerDescriptionTableViewCell.swift in Sources */,
+				E80CAC8C1EBB0B030087B919 /* CarTableViewCell.swift in Sources */,
+				E87F361E1EA6112500AC4DA4 /* LoginTextField.swift in Sources */,
+				E823DDCB1EBF87ED006C92DF /* AddCarInfoTableViewCell.swift in Sources */,
+				E87F36171EA6059500AC4DA4 /* LoginView.swift in Sources */,
 				E87F36001EA6036D00AC4DA4 /* AppDelegate.swift in Sources */,
+				E823DDC41EBF6A53006C92DF /* InsuranceInfoTableViewCell.swift in Sources */,
+				E823DDD21EBFB592006C92DF /* AddCarLocationViewController.swift in Sources */,
+				E823DDDB1EC09651006C92DF /* AddDocumentsTableViewCell.swift in Sources */,
+				E80CAC851EBB08530087B919 /* CardeeViewController.swift in Sources */,
+				E8E72B041EB3308900FEC460 /* CarCarouselView.swift in Sources */,
+				E823DDBD1EBE459A006C92DF /* NextButtonObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,12 +664,14 @@
 		};
 		E87F36121EA6036D00AC4DA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8E59CFEF8ECE584958F598A /* Pods-Cardee.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = RQ4NX29V75;
 				INFOPLIST_FILE = Cardee/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mac.test.Cardee;
+				PRODUCT_BUNDLE_IDENTIFIER = com.labracode.cardee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -278,12 +679,14 @@
 		};
 		E87F36131EA6036D00AC4DA4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4732730EB245677CC1EE2BD8 /* Pods-Cardee.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = RQ4NX29V75;
 				INFOPLIST_FILE = Cardee/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mac.test.Cardee;
+				PRODUCT_BUNDLE_IDENTIFIER = com.labracode.cardee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -308,6 +711,7 @@
 				E87F36131EA6036D00AC4DA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
