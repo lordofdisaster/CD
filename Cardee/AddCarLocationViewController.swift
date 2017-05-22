@@ -20,7 +20,7 @@ class AddCarLocationViewController: UIViewController, GMSMapViewDelegate, CLLoca
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Car Location"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(save))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(save))
         
         // Init map
         
@@ -66,17 +66,16 @@ class AddCarLocationViewController: UIViewController, GMSMapViewDelegate, CLLoca
         self.locationManager.delegate = self
         self.locationManager.startUpdatingLocation()
         
-        // Init next button
-        
-        let nextButton = NextButtonObject()
-        nextButton.addButton(on: self.view)
-        var newFrame = nextButton.backView.frame
-        newFrame.origin.y -= 62
-        nextButton.backView.frame = newFrame
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .redo, target: self, action: #selector(self.back))
+    }
+    
+    func back() {
+        let vc = self.navigationController?.viewControllers[1] as! AddCarViewController
+        self.navigationController?.popToViewController(vc, animated: true)
     }
 
     func save() {
-        print("Save")
+        self.performSegue(withIdentifier: "nextSegue", sender: self)
     }
     
     func moveMapToCurrentLocation() {

@@ -34,14 +34,17 @@ class LoginViewController: UIViewController {
     
     func loginAction() {
         print("Login")
+        self.performSegue(withIdentifier: "openCarListSegue", sender: self)
     }
     
     func loginWithFacebookAction() {
         print("Login FB")
+        self.performSegue(withIdentifier: "openCarListSegue", sender: self)
     }
     
     func loginWithGoogleAction() {
         print("Login G+")
+        self.performSegue(withIdentifier: "openCarListSegue", sender: self)
     }
     
     func startSignUpAction() {

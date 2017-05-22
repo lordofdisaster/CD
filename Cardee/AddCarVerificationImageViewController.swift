@@ -19,12 +19,16 @@ class AddCarVerificationImageViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = "My Cars"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(save))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(save))
         
         self.carPhotoImageView.clipsToBounds = true
-        
-        let backButton = NextButtonObject()
-        backButton.addButton(on: self.view)
+    
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .redo, target: self, action: #selector(self.back))
+    }
+    
+    func back() {
+        let vc = self.navigationController?.viewControllers[1] as! AddCarViewController
+        self.navigationController?.popToViewController(vc, animated: true)
     }
 
     @IBAction func addCarPhotoAction(_ sender: UIButton) {
@@ -32,7 +36,7 @@ class AddCarVerificationImageViewController: UIViewController {
     }
     
     func save() {
-        print("Save")
+        self.performSegue(withIdentifier: "nextSegue", sender: self)
     }
     
     //MARK: Memory Warning

@@ -12,6 +12,7 @@ class AddCarInfoTableViewCell: UITableViewCell {
     
     var infoTextField: UITextField!
     var infoLabel: UILabel!
+    var infoButton: UIButton!
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -27,6 +28,7 @@ class AddCarInfoTableViewCell: UITableViewCell {
         self.infoTextField.textColor = Color.grayText
         self.infoTextField.tintColor = Color.darkBlue
         self.infoTextField.placeholder = "Info Placeholder"
+        self.infoTextField.returnKeyType = .next;
         
         let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: infoTextFieldHeight))
         
@@ -36,12 +38,21 @@ class AddCarInfoTableViewCell: UITableViewCell {
         self.infoLabel.numberOfLines = 2
         self.infoLabel.text = "Hourly"
         
-        leftView.addSubview(infoLabel)
+        leftView.addSubview(self.infoLabel)
+        
+        self.infoButton = UIButton(type: .system)
+        self.infoButton.frame = CGRect(x: infoTextFieldX + 120, y: infoTextFieldY, width: Int(infoTextFieldWidth - 120), height: infoTextFieldHeight)
+        self.infoButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightThin)
+        self.infoButton.setTitleColor(Color.blue, for: .normal)
+        self.infoButton.contentHorizontalAlignment = .left
+        self.infoButton.setTitle("Please Select", for: .normal)
+        self.infoButton.isHidden = true
         
         self.infoTextField.leftView = leftView
         self.infoTextField.leftViewMode = .always
         
         self.contentView.addSubview(self.infoTextField)
+        self.contentView.addSubview(self.infoButton)
     }
     
     required init?(coder aDecoder: NSCoder) {

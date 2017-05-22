@@ -19,7 +19,7 @@ class InsuranceInfoViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = "My Cars"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(save))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(save))
         
         self.tableView = UITableView(frame: CGRect(x: 0, y: 0, width: Screen.width, height: Screen.height - CGFloat(System.navigationBarHeight) - CGFloat(System.statusBarHeight)))
         self.tableView.delegate = self
@@ -36,13 +36,16 @@ class InsuranceInfoViewController: UIViewController {
         
         self.controlsDataSource = [true, true, false, false, false]
         
-        
-        let backButton = NextButtonObject()
-        backButton.addButton(on: self.view)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .redo, target: self, action: #selector(self.back))
+    }
+    
+    func back() {
+        let vc = self.navigationController?.viewControllers[1] as! AddCarViewController
+        self.navigationController?.popToViewController(vc, animated: true)
     }
 
     func save() {
-        print("Save")
+        self.performSegue(withIdentifier: "nextSegue", sender: self)
     }
     
     func showPicker(_ sender: UIButton) {

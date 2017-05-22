@@ -18,6 +18,10 @@ class OwnerProfileViewController: CardeeViewController {
         self.initializeTableView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
     //MARK: Car Carousel Action
     
     func selectCarFromCarousel(_ sender: UIButton) {
