@@ -95,5 +95,4 @@ extension AccountDetailsViewController: UITableViewDelegate, UITableViewDataSour
         }
         
     }
-    
 }

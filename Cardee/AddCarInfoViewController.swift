@@ -14,27 +14,52 @@ class AddCarInfoViewController: UIViewController {
     var tableView: UITableView!
     var infoDataSource = [String]()
     var placeHolderDataSource = [String]()
+    var carInfo = CarInfo()
+    var textFieldTag = 0
 
+    //MARK: Controller Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Car Info"
         
-        self.title = "My Cars"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(save))
+        self.initializeTableView()
+        self.initializeDataSource()
+        self.setDefaultSelections()
         
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(self.goToNextStep))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "chevron_left"), style: .plain, target: self, action: #selector(self.goToParent))
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NewCar.sharedInstance.carInfo = self.carInfo
+    }
+
+    //MARK: Initializers
+    
+    func initializeTableView() {
         self.tableView = UITableView(frame: CGRect(x: 0, y: 0, width: Screen.width, height: Screen.height - CGFloat(System.navigationBarHeight) - CGFloat(System.statusBarHeight)))
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.keyboardDismissMode = .onDrag
         self.tableView.register(AddCarInfoTableViewCell.self, forCellReuseIdentifier: "AddCarInfoCellIdentifier")
-        
         self.tableView.tableFooterView = UIView()
         self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 90, right: 0)
         self.view.addSubview(self.tableView)
-        
+    }
+    
+    func initializeDataSource() {
         self.infoDataSource = ["Car Brand", "Car Model", "Year of Manufacture", "Car Titile", "License Plate Number", "Seating Capacity", "Engine Capacity", "Transmission", "Body Type(s)"]
         self.placeHolderDataSource = ["E.g. Toyota, Honda, BMW etc.", "E.g. Altis, Camry, Prius etc.", "", "E.g. Toyota Camry, BMW 3 Hybrid etc.", "E.g. SJX8938Y", "", "", "", ""]
+    }
     
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .redo, target: self, action: #selector(self.back))
+    //MARK: Actions
+    
+    func setDefaultSelections() {
+        if let filledCarInfo = NewCar.sharedInstance.carInfo {
+            self.carInfo = filledCarInfo
+        }
     }
     
     func showPicker(_ sender: UIButton) {
@@ -55,25 +80,43 @@ class AddCarInfoViewController: UIViewController {
             pickerDataSource = ["Automatic", "Manual"]
             break
         case 8:
-            pickerDataSource = ["SUV", "Sedan", "Will be more soon"]
+            pickerDataSource = ["SUV", "Sedan"]
             break
         default:
             break
         }
-        ActionSheetStringPicker.show(withTitle: "Choose", rows: pickerDataSource, initialSelection: 2, doneBlock: { (picker, index, value) in
-            print("Done")
+        ActionSheetStringPicker.show(withTitle: "Choose", rows: pickerDataSource, initialSelection: 0, doneBlock: { (picker, index, value) in
+            if sender.tag == 2 {
+                self.carInfo.yearOfManufacture = value! as? String
+            }
+            if sender.tag == 5 {
+                self.carInfo.seatingCapacity = (value! as AnyObject).integerValue
+            }
+            if sender.tag == 6 {
+                self.carInfo.engineCapacity = value! as? String
+            }
+            if sender.tag == 7 {
+                self.carInfo.transmission = Transmission(rawValue: index)
+                print(self.carInfo.transmission!)
+            }
+            if sender.tag == 8 {
+                self.carInfo.bodyType = BodyType(rawValue: index)
+                print(self.carInfo.bodyType!)
+            }
             sender.setTitle(value! as? String, for: .normal)
         }, cancel: { (picker) in
             print("Cancel")
         }, origin: sender)
     }
     
-    func back() {
+    //MARK: Navigation Actions
+    
+    func goToParent() {
         let vc = self.navigationController?.viewControllers[1] as! AddCarViewController
         self.navigationController?.popToViewController(vc, animated: true)
     }
     
-    func save() {
+    func goToNextStep() {
         self.performSegue(withIdentifier: "nextSegue", sender: self)
     }
     
@@ -100,14 +143,67 @@ extension AddCarInfoViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AddCarInfoCellIdentifier", for: indexPath) as! AddCarInfoTableViewCell
         cell.infoLabel.text = self.infoDataSource[indexPath.row]
         cell.infoTextField.delegate = self
-        cell.infoTextField.tag = indexPath.row
         cell.infoTextField.placeholder = self.placeHolderDataSource[indexPath.row]
+        
         if indexPath.row == 2 || indexPath.row == 5 || indexPath.row == 6 || indexPath.row == 7 || indexPath.row == 8 {
-            //cell.infoTextField.isHidden = true
             cell.infoButton.isHidden = false
             cell.infoButton.tag = indexPath.row
             cell.infoButton.addTarget(self, action: #selector(self.showPicker(_:)), for: .touchUpInside)
+        } else {
+            cell.infoTextField.tag = textFieldTag
+            textFieldTag += 1
         }
+        
+        switch indexPath.row {
+        case 0:
+            if let textFieldInfo = self.carInfo.carBrand {
+                cell.infoTextField.text = textFieldInfo
+            }
+            break
+        case 1:
+            if let textFieldInfo = self.carInfo.carModel {
+                cell.infoTextField.text = textFieldInfo
+            }
+            break
+        case 2:
+            if let buttonInfo = self.carInfo.yearOfManufacture {
+                cell.infoButton.setTitle(buttonInfo, for: .normal)
+            }
+            break
+        case 3:
+            if let textFieldInfo = self.carInfo.carTitle {
+                cell.infoTextField.text = textFieldInfo
+            }
+            break
+        case 4:
+            if let textFieldInfo = self.carInfo.licensePlateNumber {
+                cell.infoTextField.text = textFieldInfo
+            }
+            break
+        case 5:
+            if let buttonInfo = self.carInfo.seatingCapacity {
+                cell.infoButton.setTitle("\(buttonInfo)", for: .normal)
+            }
+            break
+        case 6:
+            if let buttonInfo = self.carInfo.engineCapacity {
+                cell.infoButton.setTitle("\(buttonInfo)", for: .normal)
+            }
+            break
+        case 7:
+            if let buttonInfo = self.carInfo.transmission {
+                cell.infoButton.setTitle("\(buttonInfo)".capitalized, for: .normal)
+            }
+            break
+        case 8:
+            if let buttonInfo = self.carInfo.bodyType {
+                cell.infoButton.setTitle("\(buttonInfo)".capitalized, for: .normal)
+            }
+            break
+        default:
+            break
+        }
+        
         return cell
     }
 }
@@ -120,5 +216,26 @@ extension AddCarInfoViewController: UITextFieldDelegate {
             textField.resignFirstResponder()
         }
         return false
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let editedString = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+        switch textField.tag {
+        case 0:
+            self.carInfo.carBrand = editedString
+            break
+        case 1:
+            self.carInfo.carModel = editedString
+            break
+        case 2:
+            self.carInfo.carTitle = editedString
+            break
+        case 3:
+            self.carInfo.licensePlateNumber = editedString
+            break
+        default:
+            break
+        }
+        return true
     }
 }

@@ -24,7 +24,7 @@ class ProfileListItemTableViewCell: UITableViewCell {
         let itemImageViewY = 60/2 - itemImageViewSize/2
         
         self.itemImageView = UIImageView(frame: CGRect(x: itemImageViewX, y: itemImageViewY, width: itemImageViewSize, height: itemImageViewSize))
-        self.itemImageView.backgroundColor = UIColor.gray
+        self.itemImageView.contentMode = .scaleAspectFit
         
         // Item name label
         

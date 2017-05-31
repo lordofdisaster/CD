@@ -66,7 +66,7 @@ class ProfileHeaderTableViewCell: UITableViewCell {
         let forwardImageViewHeight = 16
         
         self.forwardImageView = UIImageView(frame: CGRect(x: Int(forwardImageViewX), y: forwardImageViewY, width: forwardImageViewWidth, height: forwardImageViewHeight))
-        self.forwardImageView.backgroundColor = UIColor.gray
+        self.forwardImageView.image = #imageLiteral(resourceName: "chevron_right")
         
         self.contentView.addSubview(self.avatarImageView)
         self.contentView.addSubview(self.nameLabel)

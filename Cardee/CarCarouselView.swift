@@ -52,7 +52,9 @@ class CarCarouselView: UIView {
         let ratingImageViewSize = 10
         
         self.ratingImageView = UIImageView(frame: CGRect(x: Int(ratingImageViewX), y: Int(ratingImageViewY), width: ratingImageViewSize, height: ratingImageViewSize))
-        self.ratingImageView.backgroundColor = UIColor.yellow
+        self.ratingImageView.contentMode = .scaleAspectFit
+        self.ratingImageView.image = #imageLiteral(resourceName: "star")
+
         
         // Rating label
         

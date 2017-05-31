@@ -80,7 +80,7 @@ class AddDocumentsTableViewCell: UITableViewCell {
         self.countLabel = UILabel(frame: self.countBackgroundView.bounds)
         self.countLabel.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightRegular)
         self.countLabel.textColor = UIColor.white
-        self.countLabel.text = "10 images"
+        self.countLabel.text = "0 images"
         self.countLabel.textAlignment = .center
         
         // Adding subviews

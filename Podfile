@@ -8,4 +8,5 @@ target 'Cardee' do
 	pod 'GoogleMaps'
   	pod 'GooglePlaces'
     pod 'ActionSheetPicker-3.0', '~> 2.2.0'
+    pod 'FSCalendar'
 end

@@ -11,7 +11,7 @@ import UIKit
 class InsuranceInfoExampleTableViewCell: UITableViewCell {
     
     var infoLabel: UILabel!
-    var exampleView: UIView!
+    var exampleTextView: UITextView!
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -32,33 +32,22 @@ class InsuranceInfoExampleTableViewCell: UITableViewCell {
         
         // Example view
         
-        let exampleViewTopOffset = 13
-        let exampleViewX = 20
-        let exampleViewY = exampleViewTopOffset + infoLabelY + infoLabelHeight
-        let exampleViewWidth = Screen.width - CGFloat(2 * infoLabelX)
-        let exampleViewHeight = 100
+        let exampleTextViewTopOffset = 13
+        let exampleTextViewX = 20
+        let exampleTextViewY = exampleTextViewTopOffset + infoLabelY + infoLabelHeight
+        let exampleTextViewWidth = Screen.width - CGFloat(2 * infoLabelX)
+        let exampleTextViewHeight = 100
         
-        self.exampleView = UIView(frame: CGRect(x: exampleViewX, y: exampleViewY, width: Int(exampleViewWidth), height: exampleViewHeight))
-        self.exampleView.layer.borderColor = #colorLiteral(red: 0.7333333333, green: 0.7333333333, blue: 0.7333333333, alpha: 1).cgColor
-        self.exampleView.layer.borderWidth = 1
-        self.exampleView.layer.cornerRadius = 3
-        
-        // Example label
-        
-        let exampleLabelX = 13
-        let exampleLabelY = 10
-        let exampleLabelWidth = Screen.width - CGFloat(2 * infoLabelX)
-        let exampleLabelHeight = exampleViewHeight - 2 * exampleLabelY
-        
-        let exampleLabel = UILabel(frame: CGRect(x: exampleLabelX, y: exampleLabelY, width: Int(exampleLabelWidth - CGFloat(2 * exampleLabelX)), height: exampleLabelHeight))
-        exampleLabel.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightRegular)
-        exampleLabel.textColor = #colorLiteral(red: 0.7333333333, green: 0.7333333333, blue: 0.7333333333, alpha: 1)
-        exampleLabel.numberOfLines = 4
-        exampleLabel.text = "Example\nExcess - $1,000 (per section)]\nIf accident occurs in Malaysia - $2,000\nIf driver is below the age of 25 - $1,500"
-        
-        exampleView.addSubview(exampleLabel)
+        self.exampleTextView = UITextView(frame: CGRect(x: exampleTextViewX, y: exampleTextViewY, width: Int(exampleTextViewWidth), height: exampleTextViewHeight))
+        self.exampleTextView.layer.borderColor = #colorLiteral(red: 0.7333333333, green: 0.7333333333, blue: 0.7333333333, alpha: 1).cgColor
+        self.exampleTextView.layer.borderWidth = 1
+        self.exampleTextView.layer.cornerRadius = 3
+        self.exampleTextView.textColor = #colorLiteral(red: 0.7333333333, green: 0.7333333333, blue: 0.7333333333, alpha: 1)
+        self.exampleTextView.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightRegular)
+        //self.exampleTextView.text = 
+
         self.contentView.addSubview(self.infoLabel)
-        self.contentView.addSubview(self.exampleView)
+        self.contentView.addSubview(self.exampleTextView)
     }
     
     required init?(coder aDecoder: NSCoder) {

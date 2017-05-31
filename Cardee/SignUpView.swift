@@ -28,6 +28,7 @@ class SignUpView: UIView {
         self.backButton = UIButton(type: .system)
         self.backButton.frame = CGRect(x: 20, y: 22, width: 30, height: 30)
         self.backButton.backgroundColor = UIColor.white
+        self.backButton.setImage(#imageLiteral(resourceName: "chevron_left"), for: .normal)
         
         // Almost done label
         

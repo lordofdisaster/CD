@@ -37,6 +37,10 @@
 		E8255AB31ECEDE050030AFA7 /* RenterProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8255AB21ECEDE050030AFA7 /* RenterProfileViewController.swift */; };
 		E8255AB71ECEDECE0030AFA7 /* RenterProfileHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8255AB61ECEDECE0030AFA7 /* RenterProfileHeaderTableViewCell.swift */; };
 		E82ECFA11EB090F600685F0F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82ECFA01EB090F600685F0F /* SignUpView.swift */; };
+		E862A1CA1ED4237C00AE84FF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E862A1C91ED4237C00AE84FF /* SettingsViewController.swift */; };
+		E862A1CD1ED4273300AE84FF /* BrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E862A1CC1ED4273300AE84FF /* BrowseViewController.swift */; };
+		E862A1D01ED430F200AE84FF /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E862A1CF1ED430F200AE84FF /* CalendarViewController.swift */; };
+		E862A1D61ED43E6900AE84FF /* DIYCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E862A1D51ED43E6900AE84FF /* DIYCalendarCell.swift */; };
 		E873B6E01ED308840031692E /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E873B6DF1ED308840031692E /* ButtonTableViewCell.swift */; };
 		E873B6E21ED30C4D0031692E /* PaymentMethodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E873B6E11ED30C4D0031692E /* PaymentMethodTableViewCell.swift */; };
 		E87F36001EA6036D00AC4DA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F35FF1EA6036D00AC4DA4 /* AppDelegate.swift */; };
@@ -59,6 +63,14 @@
 		E8E72B001EB314B500FEC460 /* OwnerCarReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E72AFF1EB314B500FEC460 /* OwnerCarReviewTableViewCell.swift */; };
 		E8E72B021EB32AE900FEC460 /* OwnerCarsCarouselTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E72B011EB32AE900FEC460 /* OwnerCarsCarouselTableViewCell.swift */; };
 		E8E72B041EB3308900FEC460 /* CarCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E72B031EB3308900FEC460 /* CarCarouselView.swift */; };
+		E8EC9F141EDDF86C004AF6A0 /* NewCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC9F131EDDF86C004AF6A0 /* NewCar.swift */; };
+		E8EC9F181EDDFCF6004AF6A0 /* InsuranceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC9F171EDDFCF6004AF6A0 /* InsuranceInfo.swift */; };
+		E8EC9F1A1EDE86AA004AF6A0 /* CarInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC9F191EDE86AA004AF6A0 /* CarInfo.swift */; };
+		E8EC9F1C1EDEA09F004AF6A0 /* CarVerification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC9F1B1EDEA09F004AF6A0 /* CarVerification.swift */; };
+		E8EC9F1E1EDEA9F6004AF6A0 /* CarLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC9F1D1EDEA9F6004AF6A0 /* CarLocation.swift */; };
+		E8EC9F201EDEAE6B004AF6A0 /* CarDocuments.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC9F1F1EDEAE6B004AF6A0 /* CarDocuments.swift */; };
+		E8EC9F221EDEB651004AF6A0 /* PersonalDocuments.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC9F211EDEB651004AF6A0 /* PersonalDocuments.swift */; };
+		E8EC9F241EDEBDCA004AF6A0 /* ContactInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC9F231EDEBDCA004AF6A0 /* ContactInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +106,11 @@
 		E8255AB21ECEDE050030AFA7 /* RenterProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenterProfileViewController.swift; sourceTree = "<group>"; };
 		E8255AB61ECEDECE0030AFA7 /* RenterProfileHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenterProfileHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		E82ECFA01EB090F600685F0F /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		E862A1C91ED4237C00AE84FF /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E862A1CC1ED4273300AE84FF /* BrowseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseViewController.swift; sourceTree = "<group>"; };
+		E862A1CF1ED430F200AE84FF /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		E862A1D11ED4318700AE84FF /* Cardee-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cardee-Bridging-Header.h"; sourceTree = "<group>"; };
+		E862A1D51ED43E6900AE84FF /* DIYCalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIYCalendarCell.swift; sourceTree = "<group>"; };
 		E873B6DF1ED308840031692E /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
 		E873B6E11ED30C4D0031692E /* PaymentMethodTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethodTableViewCell.swift; sourceTree = "<group>"; };
 		E87F35FC1EA6036D00AC4DA4 /* Cardee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cardee.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +135,14 @@
 		E8E72AFF1EB314B500FEC460 /* OwnerCarReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerCarReviewTableViewCell.swift; sourceTree = "<group>"; };
 		E8E72B011EB32AE900FEC460 /* OwnerCarsCarouselTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerCarsCarouselTableViewCell.swift; sourceTree = "<group>"; };
 		E8E72B031EB3308900FEC460 /* CarCarouselView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCarouselView.swift; sourceTree = "<group>"; };
+		E8EC9F131EDDF86C004AF6A0 /* NewCar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCar.swift; sourceTree = "<group>"; };
+		E8EC9F171EDDFCF6004AF6A0 /* InsuranceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsuranceInfo.swift; sourceTree = "<group>"; };
+		E8EC9F191EDE86AA004AF6A0 /* CarInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarInfo.swift; sourceTree = "<group>"; };
+		E8EC9F1B1EDEA09F004AF6A0 /* CarVerification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarVerification.swift; sourceTree = "<group>"; };
+		E8EC9F1D1EDEA9F6004AF6A0 /* CarLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarLocation.swift; sourceTree = "<group>"; };
+		E8EC9F1F1EDEAE6B004AF6A0 /* CarDocuments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarDocuments.swift; sourceTree = "<group>"; };
+		E8EC9F211EDEB651004AF6A0 /* PersonalDocuments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalDocuments.swift; sourceTree = "<group>"; };
+		E8EC9F231EDEBDCA004AF6A0 /* ContactInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,6 +320,7 @@
 				E8255AB41ECEDEB30030AFA7 /* Views */,
 				E8255AB21ECEDE050030AFA7 /* RenterProfileViewController.swift */,
 				E88013DC1ED2B4EE00F41CC2 /* AccountDetailsViewController.swift */,
+				E862A1C91ED4237C00AE84FF /* SettingsViewController.swift */,
 			);
 			name = "Renter Profile";
 			sourceTree = "<group>";
@@ -315,6 +341,24 @@
 				E873B6E11ED30C4D0031692E /* PaymentMethodTableViewCell.swift */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		E862A1CB1ED4272100AE84FF /* Browse */ = {
+			isa = PBXGroup;
+			children = (
+				E862A1CE1ED430E400AE84FF /* Calendar */,
+				E862A1CC1ED4273300AE84FF /* BrowseViewController.swift */,
+			);
+			name = Browse;
+			sourceTree = "<group>";
+		};
+		E862A1CE1ED430E400AE84FF /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				E862A1CF1ED430F200AE84FF /* CalendarViewController.swift */,
+				E862A1D51ED43E6900AE84FF /* DIYCalendarCell.swift */,
+			);
+			name = Calendar;
 			sourceTree = "<group>";
 		};
 		E87F35F31EA6036D00AC4DA4 = {
@@ -342,12 +386,14 @@
 				E80CAC8D1EBB52990087B919 /* Temp */,
 				E87F36191EA605FE00AC4DA4 /* Helpers */,
 				E87F36141EA6057200AC4DA4 /* Controllers */,
+				E8EC9F121EDDF7DB004AF6A0 /* Models */,
 				E87F35FF1EA6036D00AC4DA4 /* AppDelegate.swift */,
 				E87F36031EA6036D00AC4DA4 /* Main.storyboard */,
 				E87F36091EA6036D00AC4DA4 /* Assets.xcassets */,
 				E87F360B1EA6036D00AC4DA4 /* LaunchScreen.storyboard */,
 				E87F360E1EA6036D00AC4DA4 /* Info.plist */,
 				E87F36061EA6036D00AC4DA4 /* Cardee.xcdatamodeld */,
+				E862A1D11ED4318700AE84FF /* Cardee-Bridging-Header.h */,
 			);
 			path = Cardee;
 			sourceTree = "<group>";
@@ -355,6 +401,7 @@
 		E87F36141EA6057200AC4DA4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E862A1CB1ED4272100AE84FF /* Browse */,
 				E8255AB11ECEDDF00030AFA7 /* Renter Profile */,
 				E8255AA81ECDD9930030AFA7 /* More */,
 				E80CAC831EBB08280087B919 /* General Controller */,
@@ -448,6 +495,37 @@
 				E8E72AFF1EB314B500FEC460 /* OwnerCarReviewTableViewCell.swift */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		E8EC9F121EDDF7DB004AF6A0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E8EC9F151EDDFCCE004AF6A0 /* New Car */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		E8EC9F151EDDFCCE004AF6A0 /* New Car */ = {
+			isa = PBXGroup;
+			children = (
+				E8EC9F161EDDFCDF004AF6A0 /* Data */,
+				E8EC9F131EDDF86C004AF6A0 /* NewCar.swift */,
+			);
+			name = "New Car";
+			sourceTree = "<group>";
+		};
+		E8EC9F161EDDFCDF004AF6A0 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				E8EC9F171EDDFCF6004AF6A0 /* InsuranceInfo.swift */,
+				E8EC9F191EDE86AA004AF6A0 /* CarInfo.swift */,
+				E8EC9F1B1EDEA09F004AF6A0 /* CarVerification.swift */,
+				E8EC9F1D1EDEA9F6004AF6A0 /* CarLocation.swift */,
+				E8EC9F1F1EDEAE6B004AF6A0 /* CarDocuments.swift */,
+				E8EC9F211EDEB651004AF6A0 /* PersonalDocuments.swift */,
+				E8EC9F231EDEBDCA004AF6A0 /* ContactInfo.swift */,
+			);
+			name = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -577,6 +655,7 @@
 			files = (
 				E823DDB71EBE0D6D006C92DF /* AddCarTableViewCell.swift in Sources */,
 				E823DDB31EBE0C5B006C92DF /* AddCarViewController.swift in Sources */,
+				E8EC9F221EDEB651004AF6A0 /* PersonalDocuments.swift in Sources */,
 				E8B21B631EB1D66C007E90A9 /* OwnerProfileViewController.swift in Sources */,
 				E823DDBF1EBE47A2006C92DF /* NextButtonView.swift in Sources */,
 				E8255AAF1ECDDA290030AFA7 /* ProfileListItemTableViewCell.swift in Sources */,
@@ -587,22 +666,33 @@
 				E823DDBB1EBE3268006C92DF /* VehicleTypeTableViewCell.swift in Sources */,
 				E87F36081EA6036D00AC4DA4 /* Cardee.xcdatamodeld in Sources */,
 				E80CAC881EBB0A3C0087B919 /* MyCarsViewController.swift in Sources */,
+				E8EC9F1C1EDEA09F004AF6A0 /* CarVerification.swift in Sources */,
 				E823DDCD1EBFA6EA006C92DF /* AddCarVerificationImageViewController.swift in Sources */,
 				E87F36021EA6036D00AC4DA4 /* LoginViewController.swift in Sources */,
 				E8255AAA1ECDD9B00030AFA7 /* MoreProfileViewController.swift in Sources */,
 				E87F36201EA62A7100AC4DA4 /* SocianLoginView.swift in Sources */,
+				E8EC9F1A1EDE86AA004AF6A0 /* CarInfo.swift in Sources */,
 				E87F36231EA62FF200AC4DA4 /* SocialButton.swift in Sources */,
+				E8EC9F181EDDFCF6004AF6A0 /* InsuranceInfo.swift in Sources */,
 				E823DDC91EBF86CD006C92DF /* AddCarInfoViewController.swift in Sources */,
+				E8EC9F241EDEBDCA004AF6A0 /* ContactInfo.swift in Sources */,
 				E823DDC21EBF69B4006C92DF /* InsuranceInfoViewController.swift in Sources */,
 				E873B6E01ED308840031692E /* ButtonTableViewCell.swift in Sources */,
+				E862A1CD1ED4273300AE84FF /* BrowseViewController.swift in Sources */,
 				E823DDE11EC0B466006C92DF /* AddContactInfoViewController.swift in Sources */,
 				E8B21B681EB1E3B1007E90A9 /* OwnerFeaturesView.swift in Sources */,
+				E8EC9F141EDDF86C004AF6A0 /* NewCar.swift in Sources */,
+				E8EC9F1E1EDEA9F6004AF6A0 /* CarLocation.swift in Sources */,
 				E8E72B001EB314B500FEC460 /* OwnerCarReviewTableViewCell.swift in Sources */,
+				E862A1CA1ED4237C00AE84FF /* SettingsViewController.swift in Sources */,
 				E823DDD71EC05503006C92DF /* HideExactLocationView.swift in Sources */,
 				E823DDD51EC04F24006C92DF /* CarLocationView.swift in Sources */,
 				E8255AAD1ECDDA090030AFA7 /* ProfileHeaderTableViewCell.swift in Sources */,
+				E862A1D61ED43E6900AE84FF /* DIYCalendarCell.swift in Sources */,
 				E823DDB91EBE235E006C92DF /* AddVehicleTypeViewController.swift in Sources */,
+				E8EC9F201EDEAE6B004AF6A0 /* CarDocuments.swift in Sources */,
 				E88013DD1ED2B4EE00F41CC2 /* AccountDetailsViewController.swift in Sources */,
+				E862A1D01ED430F200AE84FF /* CalendarViewController.swift in Sources */,
 				E88E3EEB1EB48BDC00D4AD16 /* LauncherViewController.swift in Sources */,
 				E823DDDD1EC09C67006C92DF /* AddCarDocumentsViewController.swift in Sources */,
 				E823DDC71EBF79A1006C92DF /* InsuranceInfoExampleTableViewCell.swift in Sources */,
@@ -693,6 +783,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -736,6 +827,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -753,6 +845,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.labracode.cardee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "./Cardee/Cardee-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -768,6 +861,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.labracode.cardee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "./Cardee/Cardee-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

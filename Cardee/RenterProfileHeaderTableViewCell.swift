@@ -30,6 +30,7 @@ class RenterProfileHeaderTableViewCell: UITableViewCell {
         self.avatarImageView = UIImageView(frame: CGRect(x: avatarImageViewX, y: avatarImageViewY, width: avatarImageViewSize, height: avatarImageViewSize))
         self.avatarImageView.layer.cornerRadius = CGFloat(avatarImageViewSize/2)
         self.avatarImageView.backgroundColor = UIColor.gray
+        self.avatarImageView.contentMode = .scaleAspectFill
         
         // Name label
         
@@ -53,7 +54,8 @@ class RenterProfileHeaderTableViewCell: UITableViewCell {
         let starImageViewSize = 16
         
         self.starImageView = UIImageView(frame: CGRect(x: starImageViewX, y: starImageViewY, width: starImageViewSize, height: starImageViewSize))
-        self.starImageView.backgroundColor = UIColor.yellow
+        self.starImageView.contentMode = .scaleAspectFit
+        self.starImageView.image = #imageLiteral(resourceName: "star")
         
         // Rating label
         
@@ -77,7 +79,8 @@ class RenterProfileHeaderTableViewCell: UITableViewCell {
         let tripsImageHeight = 16
         
         self.tripsImageView = UIImageView(frame: CGRect(x: tripsImageX, y: tripsImageY, width: tripsImageWidth, height: tripsImageHeight))
-        self.tripsImageView.backgroundColor = Color.blue
+        self.tripsImageView.contentMode = .scaleAspectFit
+        self.tripsImageView.image = #imageLiteral(resourceName: "trips")
         
         // Trips label
         

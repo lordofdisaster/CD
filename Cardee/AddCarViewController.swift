@@ -21,6 +21,11 @@ class AddCarViewController: CardeeViewController {
         self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+    }
+    
     //MARK: Actions
     
     func addCarInfo(_ sender: UIButton) {
@@ -59,6 +64,10 @@ class AddCarViewController: CardeeViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    deinit {
+        NewCar.sharedInstance.dispose()
+    }
 }
 
 //MARK: TableView Delegate + DataSource
@@ -78,6 +87,75 @@ extension AddCarViewController: UITableViewDelegate, UITableViewDataSource {
         cell.fillInfoButton.setTitle("Add", for: .normal)
         cell.fillInfoButton.addTarget(self, action: #selector(addCarInfo(_:)), for: .touchUpInside)
         cell.fillInfoButton.tag = indexPath.row
+        cell.filledInfoImageView.isHidden = true
+        
+        if indexPath.row == 0 && (NewCar.sharedInstance.vehicleType != nil) {
+            cell.filledInfoImageView.isHidden = false
+        }
+        
+        if indexPath.row == 1 {
+            if let insuranceInfo = NewCar.sharedInstance.insuranceInfo {
+                if insuranceInfo.isFilled() {
+                    cell.filledInfoImageView.isHidden = false
+                }
+            }
+        }
+        
+        if indexPath.row == 2 {
+            if let carInfo = NewCar.sharedInstance.carInfo {
+                if carInfo.isFilled() {
+                    cell.filledInfoImageView.isHidden = false
+                }
+            }
+        }
+        
+        if indexPath.row == 3 {
+            if let carVerification = NewCar.sharedInstance.carVerification {
+                if carVerification.isFilled() {
+                    cell.filledInfoImageView.isHidden = false
+                }
+            }
+        }
+        
+        if indexPath.row == 4 {
+            if let carLocation = NewCar.sharedInstance.carLocation {
+                if carLocation.isFilled() {
+                    cell.filledInfoImageView.isHidden = false
+                }
+            }
+        }
+        
+        if indexPath.row == 5 {
+            if let carDocuments = NewCar.sharedInstance.carDocuments {
+                if carDocuments.isFilled() {
+                    cell.filledInfoImageView.isHidden = false
+                }
+            }
+        }
+        
+        if indexPath.row == 6 {
+            if let personalDocuments = NewCar.sharedInstance.personalDocuments {
+                if personalDocuments.isFilled() {
+                    cell.filledInfoImageView.isHidden = false
+                }
+            }
+        }
+        
+        if indexPath.row == 7 {
+            if let contactInfo = NewCar.sharedInstance.contactInfo {
+                if contactInfo.isFilled() {
+                    cell.filledInfoImageView.isHidden = false
+                }
+            }
+        }
+        
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        print("Ready to submit: \(NewCar.sharedInstance.isFilled())")
+        return UIView()
+    }
+    
+
 }

@@ -10,7 +10,6 @@ import UIKit
 
 class VehicleTypeTableViewCell: UITableViewCell {
 
-    var layerButton: UIButton!
     var borderView: UIView!
     var typeNameLabel: UILabel!
     var typeImageView: UIImageView!
@@ -20,16 +19,6 @@ class VehicleTypeTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = .none
         
-        // Layer button
-        
-        let layerButtonX = 15
-        let layerButtonY = 15
-        let layerButtonWidth = Screen.width - CGFloat(layerButtonX * 2)
-        let layerButtonHeight = 55
-        
-        self.layerButton = UIButton(type: .system)
-        self.layerButton.frame = CGRect(x: layerButtonX, y: layerButtonY, width: Int(layerButtonWidth), height: layerButtonHeight)
-        
         // Border view
         
         let borderViewX = 15
@@ -38,8 +27,8 @@ class VehicleTypeTableViewCell: UITableViewCell {
         let borderViewHeight = 55
         
         self.borderView = UIView(frame: CGRect(x: borderViewX, y: borderViewY, width: Int(borderViewWidth), height: borderViewHeight))
-        self.borderView.layer.borderWidth = 1
-        self.borderView.layer.borderColor = Color.darkBlue.cgColor
+        self.borderView.layer.borderWidth = 0.5
+        self.borderView.layer.borderColor = Color.darkGray.cgColor
         self.borderView.layer.cornerRadius = 3
         
         // Type name label
@@ -51,19 +40,18 @@ class VehicleTypeTableViewCell: UITableViewCell {
         
         self.typeNameLabel = UILabel(frame: CGRect(x: typeNameLabelX, y: typeNameLabelY, width: Int(typeNameLabelWidth), height: typeNameLabelHeight))
         self.typeNameLabel.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightRegular)
-        self.typeNameLabel.textColor = Color.darkBlue
-        self.typeNameLabel.text = "Commercial Vehicle"
+        self.typeNameLabel.textColor = Color.darkGray
         
         // Type image view
         
-        let typeImageViewWidth = 30
-        let typeImageViewHeight = 30
+        let typeImageViewWidth = 35
+        let typeImageViewHeight = 35
         let typeImageViewX = CGFloat(borderViewX) + borderViewWidth - 36 - CGFloat(typeImageViewWidth)
         
         let typeImageViewY = (borderViewHeight - typeImageViewWidth)/2
         
         self.typeImageView = UIImageView(frame: CGRect(x: Int(typeImageViewX), y: typeImageViewY, width: typeImageViewWidth, height: typeImageViewHeight))
-        self.typeImageView.backgroundColor = Color.blue
+        self.typeImageView.contentMode = .scaleAspectFit
         
         // Footer label
         
@@ -76,19 +64,28 @@ class VehicleTypeTableViewCell: UITableViewCell {
         self.footerLabel = UILabel(frame: CGRect(x: footerLabelX, y: footerLabelY, width: Int(footerLabelWidth), height: footerLabelHeight))
         self.footerLabel.font = UIFont.systemFont(ofSize: 12)
         self.footerLabel.textColor = Color.lightGrayText
-        self.footerLabel.text = "Private-hire cars registered for Grab or Uber Use"
         self.footerLabel.numberOfLines = 2
-        self.footerLabel.sizeToFit()
 
         self.contentView.addSubview(self.borderView)
         self.borderView.addSubview(self.typeNameLabel)
         self.borderView.addSubview(self.typeImageView)
         self.contentView.addSubview(self.footerLabel)
-        self.contentView.addSubview(self.layerButton)
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        if selected {
+            self.borderView.layer.borderColor = Color.darkBlue.cgColor
+            self.typeImageView.tintColor = Color.darkBlue
+            self.typeNameLabel.textColor = Color.darkBlue
+        } else {
+            self.borderView.layer.borderColor = Color.darkGray.cgColor
+            self.typeImageView.tintColor = Color.lightGray
+            self.typeNameLabel.textColor = Color.darkGray
+        }
     }
 
 }

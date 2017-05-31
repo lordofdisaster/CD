@@ -31,6 +31,8 @@ class OwnerInfoTableViewCell: UITableViewCell {
         self.avatarImageView.layer.cornerRadius = CGFloat(avatarImageViewSize/2)
         self.avatarImageView.backgroundColor = UIColor.black
         self.avatarImageView.clipsToBounds = true
+        self.avatarImageView.image = #imageLiteral(resourceName: "avatar")
+        self.avatarImageView.contentMode = .scaleAspectFill
         
         // Username label
         
@@ -52,7 +54,9 @@ class OwnerInfoTableViewCell: UITableViewCell {
         let starImageViewSize = 17
         
         let starImageView = UIImageView(frame: CGRect(x: starImageViewX, y: starImageViewY, width: starImageViewSize, height: starImageViewSize))
-        starImageView.backgroundColor = UIColor.yellow
+        starImageView.contentMode = .scaleAspectFit
+        starImageView.image = #imageLiteral(resourceName: "star")
+
         
         // Rating label
         

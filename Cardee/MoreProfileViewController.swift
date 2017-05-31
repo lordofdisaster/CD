@@ -11,6 +11,8 @@ import UIKit
 class MoreProfileViewController: UIViewController {
 
     var tableView: UITableView!
+    var menuLabels = [String]()
+    var menuIcons = [UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,8 @@ class MoreProfileViewController: UIViewController {
         fotview.textAlignment = .center
         fotview.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightBold)
         
+        self.menuIcons = [#imageLiteral(resourceName: "account"), #imageLiteral(resourceName: "settings"), #imageLiteral(resourceName: "live_chat"), #imageLiteral(resourceName: "cardee"), #imageLiteral(resourceName: "switch_to_owner")]
+        self.menuLabels = ["Account", "Settings", "Live Chat", "Cardee", "Switch To Owner"]
         
         self.tableView.tableFooterView = fotview
         self.view.addSubview(self.tableView)
@@ -64,8 +68,10 @@ extension MoreProfileViewController: UITableViewDelegate, UITableViewDataSource 
             self.performSegue(withIdentifier: "showRenterProfileSegue", sender: self)
         } else if indexPath.row == 5 {
             self.performSegue(withIdentifier: "showOwnerProfileSegue", sender: self)
-        } else {
+        } else if indexPath.row == 2 {
             self.performSegue(withIdentifier: "showAccountDetailsSegue", sender: self)
+        } else {
+            self.performSegue(withIdentifier: "showSettingsSegue", sender: self)
         }
     }
     
@@ -73,12 +79,12 @@ extension MoreProfileViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileHeaderCellIdentifier", for: indexPath) as! ProfileHeaderTableViewCell
+            cell.avatarImageView.image = #imageLiteral(resourceName: "avatar")
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileListItemCellIdentifier", for: indexPath) as! ProfileListItemTableViewCell
-            if indexPath.row == 5 {
-                cell.itemNameLabel.text = "Switch To Owner"
-            }
+            cell.itemImageView.image = self.menuIcons[indexPath.row - 1]
+            cell.itemNameLabel.text = self.menuLabels[indexPath.row - 1]
             return cell
         }
     }

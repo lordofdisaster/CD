@@ -59,6 +59,7 @@ extension RenterProfileViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "RenterProfileHeaderCellIdentifier", for: indexPath) as! RenterProfileHeaderTableViewCell
+            cell.avatarImageView.image = #imageLiteral(resourceName: "avatar")
             return cell
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "OwnerDescriptionTableViewCell", for: indexPath) as! OwnerDescriptionTableViewCell

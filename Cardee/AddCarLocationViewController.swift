@@ -16,11 +16,14 @@ class AddCarLocationViewController: UIViewController, GMSMapViewDelegate, CLLoca
     var mapView = GMSMapView()
     var carLocationView: CarLocationView!
     var hideExactLocationView: HideExactLocationView!
+    
+    var carLocation = CarLocation()
+    
+    //MARK: Controller Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Car Location"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(save))
         
         // Init map
         
@@ -50,43 +53,73 @@ class AddCarLocationViewController: UIViewController, GMSMapViewDelegate, CLLoca
         currentLocationButton.layer.shadowRadius = 5
         currentLocationButton.layer.shadowOpacity = 0.5
         currentLocationButton.addTarget(self, action: #selector(moveMapToCurrentLocation), for: .touchUpInside)
+        currentLocationButton.setImage(#imageLiteral(resourceName: "current_location"), for: .normal)
+        currentLocationButton.imageEdgeInsets = UIEdgeInsets(top: 13, left: 13, bottom: 13, right: 13)
         self.view.addSubview(currentLocationButton)
         
         // Init map pin
         
-        let pinImageView = UIImageView(frame: CGRect(origin: CGPoint(x: self.mapView.center.x - 19.5, y: self.mapView.center.y - 19.5), size: CGSize(width: 39.0, height: 39.0)))
-        pinImageView.backgroundColor = UIColor.white
-        pinImageView.layer.cornerRadius = 19.5
-        pinImageView.layer.borderColor = Color.darkBlue.cgColor
-        pinImageView.layer.borderWidth = 1
-        self.mapView.addSubview(pinImageView)
+        let pinView = UIView(frame: CGRect(x: self.mapView.center.x - 19.5, y: self.mapView.center.y - 19.5, width: 40, height: 40))
+        pinView.backgroundColor = UIColor.white
+        pinView.layer.cornerRadius = 20
+        pinView.layer.borderColor = Color.darkBlue.cgColor
+        pinView.layer.borderWidth = 1
+        
+        let pinImageView = UIImageView(frame: CGRect(x: 10, y: 10, width: 20, height: 20))
+        pinImageView.image = #imageLiteral(resourceName: "car_location")
+        pinImageView.contentMode = .scaleAspectFit
+        
+        pinView.addSubview(pinImageView)
+        
+        self.mapView.addSubview(pinView)
         
         // Init location manager
         
         self.locationManager.delegate = self
         self.locationManager.startUpdatingLocation()
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .redo, target: self, action: #selector(self.back))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(self.goToNextStep))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "chevron_left"), style: .plain, target: self, action: #selector(self.goToParent))
     }
     
-    func back() {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NewCar.sharedInstance.carLocation = self.carLocation
+    }
+    
+    //MARK: Actions
+    
+    func setDefaultSelection() {
+        if let carLocation = NewCar.sharedInstance.carLocation {
+            self.carLocation = carLocation
+            let camera = GMSCameraPosition.camera(withLatitude: (self.carLocation.carLocationCoordinate!.latitude), longitude:(self.carLocation.carLocationCoordinate!.longitude), zoom: 14)
+            mapView.animate(to: camera)
+            self.reverseGeocodeCoordinate(coordinate: self.carLocation.carLocationCoordinate!)
+        }
+    }
+    
+    //MARK: Navigation Actions
+    
+    func goToParent() {
         let vc = self.navigationController?.viewControllers[1] as! AddCarViewController
         self.navigationController?.popToViewController(vc, animated: true)
     }
 
-    func save() {
+    func goToNextStep() {
         self.performSegue(withIdentifier: "nextSegue", sender: self)
     }
     
     func moveMapToCurrentLocation() {
         let location = mapView.myLocation
-        let camera = GMSCameraPosition.camera(withLatitude: (location?.coordinate.latitude)!, longitude:(location?.coordinate.longitude)!, zoom: 14)
+        let camera = GMSCameraPosition.camera(withLatitude: (location?.coordinate.latitude)!, longitude:(location?.coordinate.longitude)!, zoom: 17)
         self.mapView.animate(to: camera)
     }
+    
     // Transform coord to name
     
     func reverseGeocodeCoordinate(coordinate: CLLocationCoordinate2D) {
         let geocoder = GMSGeocoder()
+        self.carLocation.carLocationCoordinate = coordinate
         print(coordinate)
         self.carLocationView.addressLabel.text = "Loading..."
         geocoder.reverseGeocodeCoordinate(coordinate) { response, error in
@@ -114,8 +147,9 @@ class AddCarLocationViewController: UIViewController, GMSMapViewDelegate, CLLoca
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.last
-        let camera = GMSCameraPosition.camera(withLatitude: (location?.coordinate.latitude)!, longitude:(location?.coordinate.longitude)!, zoom: 14)
+        let camera = GMSCameraPosition.camera(withLatitude: (location?.coordinate.latitude)!, longitude:(location?.coordinate.longitude)!, zoom: 17)
         mapView.animate(to: camera)
         self.locationManager.stopUpdatingLocation()
+        self.setDefaultSelection()
     }
 }
