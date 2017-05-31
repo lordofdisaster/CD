@@ -23,7 +23,7 @@ class MyCarsViewController: CardeeViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(CarTableViewCell.self, forCellReuseIdentifier: "CarCellIdentifier")
-        
+        self.tableView.backgroundColor = Color.lightGray
         self.tableView.tableFooterView = UIView()
         self.tableView.separatorStyle = .none
         self.view.addSubview(self.tableView)
@@ -57,5 +57,9 @@ extension MyCarsViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CarCellIdentifier", for: indexPath) as! CarTableViewCell
         cell.carImageView.image = UIImage(named: "Mazda.jpg")
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "showDetailCar", sender: self)
     }
 }

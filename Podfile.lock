@@ -8,19 +8,22 @@ PODS:
     - GoogleMaps/Base
   - GooglePlaces (2.2.0):
     - GoogleMaps/Base (= 2.2.0)
+  - PageMenu (2.0.0)
 
 DEPENDENCIES:
   - ActionSheetPicker-3.0 (~> 2.2.0)
   - FSCalendar
   - GoogleMaps
   - GooglePlaces
+  - PageMenu
 
 SPEC CHECKSUMS:
   ActionSheetPicker-3.0: d11a4c12c6aaf704b8a3f56d179198c99f3e41e6
   FSCalendar: e95995a746acae531c4a7dd636b8393233125ec5
   GoogleMaps: 104c418d61ab8a05dff06ed0784c25ea9d37da45
   GooglePlaces: bca867d5e9da15384c794b945e4226848bc6e9d9
+  PageMenu: 9c38fd7e0d9ef4b1408320f55bb907bbc0e538dc
 
-PODFILE CHECKSUM: 596880b2a14313387a0cd87fa328344db967247b
+PODFILE CHECKSUM: 4265ce53a815ec1ec54858c8c5f608e96adcf1cb
 
 COCOAPODS: 1.2.0
