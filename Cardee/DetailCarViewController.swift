@@ -20,6 +20,14 @@ class DetailCarViewController: UIViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 71, right: 0)
     }
+    
+    func editCarLocation() {
+        self.performSegue(withIdentifier: "editLocationSegue", sender: self)
+    }
+    
+    func editDescriptionInfo() {
+        self.performSegue(withIdentifier: "editDescriptionSegue", sender: self)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -58,12 +66,14 @@ extension DetailCarViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.exactLocationLabel.isHidden = false
                 cell.titleLabel.text = "Location"
                 cell.descriptionLabel.text = "3 Rivervale Link, The Rivervale"
+                cell.editButton.addTarget(self, action: #selector(self.editCarLocation), for: .touchUpInside)
                 break
             case 3:
                 cell.iconView.backgroundColor = Color.green
                 cell.iconImageView.image = #imageLiteral(resourceName: "description")
                 cell.titleLabel.text = "Description"
                 cell.descriptionLabel.text = "Its simply a Range Rover and its amazing. Very clean and beautiful. All Wheel Drive. 385HP V8 Engine. 21 inch Premium Wheels Navigation, Bluetooth, Aux plug, Satellite radio.\n\nBlack Leather Interior - Heated Front and Rear Seats, Heated steering wheel.\n\nPlease enjoy it responsibly. Strictly no smoking and no eating!"
+                cell.editButton.addTarget(self, action: #selector(self.editDescriptionInfo), for: .touchUpInside)
                 break
             default:
                 break
