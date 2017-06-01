@@ -432,7 +432,7 @@
 				E8255AB11ECEDDF00030AFA7 /* Renter Profile */,
 				E8255AA81ECDD9930030AFA7 /* More */,
 				E80CAC831EBB08280087B919 /* General Controller */,
-				E88E3EE91EB48BC500D4AD16 /* Laucher */,
+				E88E3EE91EB48BC500D4AD16 /* Launcher */,
 				E87F36151EA6058300AC4DA4 /* Login */,
 				E8B21B611EB1D642007E90A9 /* Owner Profile */,
 				E80CAC861EBB0A2B0087B919 /* My Cars */,
@@ -495,12 +495,12 @@
 			name = "Edit Detail Car Info";
 			sourceTree = "<group>";
 		};
-		E88E3EE91EB48BC500D4AD16 /* Laucher */ = {
+		E88E3EE91EB48BC500D4AD16 /* Launcher */ = {
 			isa = PBXGroup;
 			children = (
 				E88E3EEA1EB48BDC00D4AD16 /* LauncherViewController.swift */,
 			);
-			name = Laucher;
+			name = Launcher;
 			sourceTree = "<group>";
 		};
 		E8B21B611EB1D642007E90A9 /* Owner Profile */ = {

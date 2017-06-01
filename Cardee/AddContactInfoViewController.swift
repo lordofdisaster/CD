@@ -26,7 +26,7 @@ class AddContactInfoViewController: UIViewController {
         self.initializeTableView()
         self.setDefaultSelections()
     
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(self.goToNextStep))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.goToParent))
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "chevron_left"), style: .plain, target: self, action: #selector(self.goToParent))
     }
     
@@ -63,10 +63,6 @@ class AddContactInfoViewController: UIViewController {
     func goToParent() {
         let vc = self.navigationController?.viewControllers[1] as! AddCarViewController
         self.navigationController?.popToViewController(vc, animated: true)
-    }
-
-    func goToNextStep() {
-        print("Save")
     }
     
     //MARK: Memory Warning
