@@ -81,6 +81,11 @@ extension AddCarViewController: UITableViewDelegate, UITableViewDataSource {
         return 8
     }
     
+    func setupFilledIdentifiers(cell: AddCarTableViewCell) {
+        cell.filledInfoImageView.isHidden = false
+        cell.fillInfoButton.setTitle("Edit", for: .normal)
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AddCarCellIdentifier", for: indexPath) as! AddCarTableViewCell
         cell.infoKeyLabel.text = "\(indexPath.row + 1). \(self.infoKeysArray[indexPath.row])"
@@ -90,13 +95,13 @@ extension AddCarViewController: UITableViewDelegate, UITableViewDataSource {
         cell.filledInfoImageView.isHidden = true
         
         if indexPath.row == 0 && (NewCar.sharedInstance.vehicleType != nil) {
-            cell.filledInfoImageView.isHidden = false
+            self.setupFilledIdentifiers(cell: cell)
         }
         
         if indexPath.row == 1 {
             if let insuranceInfo = NewCar.sharedInstance.insuranceInfo {
                 if insuranceInfo.isFilled() {
-                    cell.filledInfoImageView.isHidden = false
+                    self.setupFilledIdentifiers(cell: cell)
                 }
             }
         }
@@ -104,7 +109,7 @@ extension AddCarViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 2 {
             if let carInfo = NewCar.sharedInstance.carInfo {
                 if carInfo.isFilled() {
-                    cell.filledInfoImageView.isHidden = false
+                    self.setupFilledIdentifiers(cell: cell)
                 }
             }
         }
@@ -112,7 +117,7 @@ extension AddCarViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 3 {
             if let carVerification = NewCar.sharedInstance.carVerification {
                 if carVerification.isFilled() {
-                    cell.filledInfoImageView.isHidden = false
+                    self.setupFilledIdentifiers(cell: cell)
                 }
             }
         }
@@ -120,7 +125,7 @@ extension AddCarViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 4 {
             if let carLocation = NewCar.sharedInstance.carLocation {
                 if carLocation.isFilled() {
-                    cell.filledInfoImageView.isHidden = false
+                    self.setupFilledIdentifiers(cell: cell)
                 }
             }
         }
@@ -128,7 +133,7 @@ extension AddCarViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 5 {
             if let carDocuments = NewCar.sharedInstance.carDocuments {
                 if carDocuments.isFilled() {
-                    cell.filledInfoImageView.isHidden = false
+                    self.setupFilledIdentifiers(cell: cell)
                 }
             }
         }
@@ -136,7 +141,7 @@ extension AddCarViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 6 {
             if let personalDocuments = NewCar.sharedInstance.personalDocuments {
                 if personalDocuments.isFilled() {
-                    cell.filledInfoImageView.isHidden = false
+                    self.setupFilledIdentifiers(cell: cell)
                 }
             }
         }
@@ -144,7 +149,7 @@ extension AddCarViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 7 {
             if let contactInfo = NewCar.sharedInstance.contactInfo {
                 if contactInfo.isFilled() {
-                    cell.filledInfoImageView.isHidden = false
+                    self.setupFilledIdentifiers(cell: cell)
                 }
             }
         }
@@ -156,6 +161,4 @@ extension AddCarViewController: UITableViewDelegate, UITableViewDataSource {
         print("Ready to submit: \(NewCar.sharedInstance.isFilled())")
         return UIView()
     }
-    
-
 }
