@@ -9,7 +9,7 @@
 final class NewCar {
     
     private init() {}
-    static let sharedInstance = NewCar()
+    static let shared = NewCar()
     
     var vehicleType: VehicleType?
     var insuranceInfo: InsuranceInfo?

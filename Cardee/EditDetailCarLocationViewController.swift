@@ -84,13 +84,13 @@ class EditDetailCarLocationViewController: CardeeViewController, GMSMapViewDeleg
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        NewCar.sharedInstance.carLocation = self.carLocation
+        NewCar.shared.carLocation = self.carLocation
     }
     
     //MARK: Actions
     
     func setDefaultSelection() {
-        if let carLocation = NewCar.sharedInstance.carLocation {
+        if let carLocation = NewCar.shared.carLocation {
             self.carLocation = carLocation
             let camera = GMSCameraPosition.camera(withLatitude: (self.carLocation.carLocationCoordinate!.latitude), longitude:(self.carLocation.carLocationCoordinate!.longitude), zoom: 14)
             mapView.animate(to: camera)

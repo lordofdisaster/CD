@@ -321,6 +321,9 @@
                                         <integer key="value" value="3"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addCar:" destination="1Ab-Is-DT3" eventType="touchUpInside" id="j6i-UK-wLg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xdn-9Q-2Ce">
                                 <rect key="frame" x="303" y="477" width="47" height="47"/>
@@ -1635,10 +1638,10 @@
             </objects>
             <point key="canvasLocation" x="3309" y="1148"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Cardee Tab Bar Controller-->
         <scene sceneID="lFy-sg-Qj0">
             <objects>
-                <tabBarController id="TXE-dE-WjF" sceneMemberID="viewController">
+                <tabBarController id="TXE-dE-WjF" customClass="CardeeTabBarController" customModule="Cardee" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" itemPositioning="fill" id="kQa-86-CbT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

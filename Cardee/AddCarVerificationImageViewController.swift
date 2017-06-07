@@ -30,13 +30,13 @@ class AddCarVerificationImageViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        NewCar.sharedInstance.carVerification = self.carVerification
+        NewCar.shared.carVerification = self.carVerification
     }
     
     //MARK: Actions
     
     func setDefaultSelection() {
-        if let carVerification = NewCar.sharedInstance.carVerification {
+        if let carVerification = NewCar.shared.carVerification {
             self.carVerification = carVerification
             if let carImage = self.carVerification.carImage {
                 self.carPhotoImageView.image = carImage

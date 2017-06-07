@@ -1,26 +1,9 @@
 import Foundation
 import UIKit
 
-enum DocumentType: Int {
-    case car = 0
-    case personal
-}
-
-enum VehicleType: Int {
-    case personal = 0
-    case uber
-    case taxi
-    case commercial
-}
-
-enum Transmission: Int {
-    case automatic = 0
-    case manual
-}
-
-enum BodyType: Int {
-    case suv = 0
-    case sedan
+enum SocialType: String {
+    case facebook = "FACEBOOK"
+    case google = "GOOGLE"
 }
 
 struct Screen {
@@ -32,7 +15,7 @@ struct System {
     static let keyboardHeight = 216
     static let navigationBarHeight = 44
     static let statusBarHeight = 20
-    static let tabBarHeight = 50
+    static let tabBarHeight = 56
     static let switchNativeSize = (width: 51, height: 31)
 }
 
@@ -52,19 +35,6 @@ struct Color {
     static let lightGray = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1)
     static let darkGray = #colorLiteral(red: 0.5921568627, green: 0.5921568627, blue: 0.5921568627, alpha: 1)
     static let green = #colorLiteral(red: 0.09803921569, green: 0.7254901961, blue: 0.6784313725, alpha: 1)
-}
-
-struct Login {
-    static let loginString = "Login"
-    static let signUpString = "Sign up"
-    static let emailString = "Email"
-    static let passwordString = "Password"
-    static let noAccountString = "No account? Sign up now."
-    static let alreadyHaveAccountString = "I already have an account."
-    static let chooseImageString = "Choose Image"
-    static let cameraString = "Camera"
-    static let galleryString = "Gallery"
-    static let cancelString = "Cancel"
 }
 
 

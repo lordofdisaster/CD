@@ -33,7 +33,7 @@ class InsuranceInfoViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.getAccidentIssueText()
-        NewCar.sharedInstance.insuranceInfo = self.insuranceInfo
+        NewCar.shared.insuranceInfo = self.insuranceInfo
     }
     
     //MARK: Initializers
@@ -63,7 +63,7 @@ class InsuranceInfoViewController: UIViewController {
     }
     
     func setDefaultSelections() {
-        if let selectedInsuranceInfo = NewCar.sharedInstance.insuranceInfo {
+        if let selectedInsuranceInfo = NewCar.shared.insuranceInfo {
             self.insuranceInfo = selectedInsuranceInfo
             
             // Comprehensive Insurance

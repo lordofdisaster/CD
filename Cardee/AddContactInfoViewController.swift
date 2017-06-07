@@ -32,7 +32,7 @@ class AddContactInfoViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        NewCar.sharedInstance.contactInfo = self.contactInfo
+        NewCar.shared.contactInfo = self.contactInfo
     }
     
     //MARK: Initializers
@@ -53,7 +53,7 @@ class AddContactInfoViewController: UIViewController {
     //MARK: Actions
     
     func setDefaultSelections() {
-        if let filledContactInfo = NewCar.sharedInstance.contactInfo {
+        if let filledContactInfo = NewCar.shared.contactInfo {
             self.contactInfo = filledContactInfo
         }
     }

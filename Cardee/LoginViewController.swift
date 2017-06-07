@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import MBProgressHUD
+import FacebookCore
+import FacebookLogin
 
 class LoginViewController: UIViewController {
     
@@ -33,13 +36,39 @@ class LoginViewController: UIViewController {
     //MARK: Actions
     
     func loginAction() {
-        print("Login")
-        self.performSegue(withIdentifier: "openCarListSegue", sender: self)
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        AlamofireManager.loginWith(username: "alex", password: "12345") { success, error in
+            MBProgressHUD.hide(for: self.view, animated: true)
+            if success {
+                self.performSegue(withIdentifier: "openCarListSegue", sender: self)
+            } else {
+                CardeeAlert.showAlert(withTitle: "Error", message: error!, sender: self)
+            }
+        }
     }
     
     func loginWithFacebookAction() {
-        print("Login FB")
-        self.performSegue(withIdentifier: "openCarListSegue", sender: self)
+        let loginManager = LoginManager()
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        loginManager.logIn([.publicProfile], viewController: self) { loginResult in
+            MBProgressHUD.hide(for: self.view, animated: true)
+            switch loginResult {
+            case .failed(let error):
+                CardeeAlert.showAlert(withTitle: "Error", message: error as! String, sender: self)
+                break
+            case .cancelled:
+                CardeeAlert.showAlert(withTitle: "Error", message: "You cancelled login", sender: self)
+                break
+            case .success(_, _, let accessToken):
+                AlamofireManager.loginWithSocial(type: .facebook, token: accessToken.authenticationToken, expirationDate: accessToken.expirationDate) { success, error in
+                    if success {
+                        self.performSegue(withIdentifier: "openCarListSegue", sender: self)
+                    } else {
+                        CardeeAlert.showAlert(withTitle: "Error", message: error!, sender: self)
+                    }
+                }
+            }
+        }
     }
     
     func loginWithGoogleAction() {

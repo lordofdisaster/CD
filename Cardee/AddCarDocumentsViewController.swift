@@ -33,13 +33,13 @@ class AddCarDocumentsViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        NewCar.sharedInstance.carDocuments = self.carDocuments
+        NewCar.shared.carDocuments = self.carDocuments
     }
     
     //MARK: Actions
     
     func setDefaultSelections() {
-        if let carDocuments = NewCar.sharedInstance.carDocuments {
+        if let carDocuments = NewCar.shared.carDocuments {
             self.carDocuments = carDocuments
         }
     }

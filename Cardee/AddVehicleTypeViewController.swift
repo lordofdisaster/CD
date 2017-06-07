@@ -14,7 +14,7 @@ class AddVehicleTypeViewController: UIViewController {
     var typeImages = [UIImage]()
     var typeTitles = [String]()
     var typeDescriptions = [String]()
-    let newCar = NewCar.sharedInstance
+    let newCar = NewCar.shared
 
     //MARK: Controller Lifecycle
     
@@ -96,6 +96,6 @@ extension AddVehicleTypeViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NewCar.sharedInstance.vehicleType = VehicleType(rawValue: indexPath.row)
+        NewCar.shared.vehicleType = VehicleType(rawValue: indexPath.row + 1)
     }
 }

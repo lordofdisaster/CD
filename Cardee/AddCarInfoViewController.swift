@@ -33,7 +33,7 @@ class AddCarInfoViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        NewCar.sharedInstance.carInfo = self.carInfo
+        NewCar.shared.carInfo = self.carInfo
     }
 
     //MARK: Initializers
@@ -57,7 +57,7 @@ class AddCarInfoViewController: UIViewController {
     //MARK: Actions
     
     func setDefaultSelections() {
-        if let filledCarInfo = NewCar.sharedInstance.carInfo {
+        if let filledCarInfo = NewCar.shared.carInfo {
             self.carInfo = filledCarInfo
         }
     }
@@ -66,8 +66,8 @@ class AddCarInfoViewController: UIViewController {
         var pickerDataSource = [String]()
         switch sender.tag {
         case 2:
-            for i in 0..<30 {
-                pickerDataSource.append("\(1987 + i)")
+            for i in 0..<10 {
+                pickerDataSource.append("\(2007 + i)")
             }
             break
         case 5:
@@ -80,7 +80,7 @@ class AddCarInfoViewController: UIViewController {
             pickerDataSource = ["Automatic", "Manual"]
             break
         case 8:
-            pickerDataSource = ["SUV", "Sedan"]
+            pickerDataSource = ["Sedan", "Liftback", "SUV", "Hatchback", "Wagon", "Coupe", "Convertible", "Minivan", "Pickup", "Van", "Limousin"]
             break
         default:
             break
@@ -96,11 +96,11 @@ class AddCarInfoViewController: UIViewController {
                 self.carInfo.engineCapacity = value! as? String
             }
             if sender.tag == 7 {
-                self.carInfo.transmission = Transmission(rawValue: index)
+                self.carInfo.transmission = Transmission(rawValue: index + 1)
                 print(self.carInfo.transmission!)
             }
             if sender.tag == 8 {
-                self.carInfo.bodyType = BodyType(rawValue: index)
+                self.carInfo.bodyType = BodyType(rawValue: index + 1)
                 print(self.carInfo.bodyType!)
             }
             sender.setTitle(value! as? String, for: .normal)

@@ -27,12 +27,23 @@ class CarTableViewCell: UITableViewCell {
         
         self.selectionStyle = .none
         
+        // Separator view
+        
+        let separatorViewTopOffset = 25
+        let separatorViewX = 0
+        let separatorViewY = 0
+        let separatorViewWidth = Screen.width
+        let separatorViewHeight = 13
+        
+        self.separatorView = UIView(frame: CGRect(x: CGFloat(separatorViewX), y: CGFloat(separatorViewY), width: separatorViewWidth, height: CGFloat(separatorViewHeight)))
+        self.separatorView.backgroundColor = Color.lightGray
+        
         // Car image view
         
         let carImageViewX = 0
-        let carImageViewY = 0
+        let carImageViewY = separatorViewHeight
         let carImageViewWidth = Screen.width
-        let carImageViewHeight = Screen.width/2.3
+        let carImageViewHeight = CGFloat(202.0)
         
         self.carImageView = UIImageView(frame: CGRect(x: CGFloat(carImageViewX), y: CGFloat(carImageViewY), width: carImageViewWidth, height: carImageViewHeight))
         self.carImageView.backgroundColor = UIColor.lightGray
@@ -53,7 +64,7 @@ class CarTableViewCell: UITableViewCell {
         
         let carNameLabelX = 13
         let carNameLabelY = 0
-        let carNameLabelWidth = carViewWidth/2
+        let carNameLabelWidth = carViewWidth/1.5
         let carNameLabelHeight = carViewHeight
         
         self.carNameLabel = UILabel(frame: CGRect(x: carNameLabelX, y: carNameLabelY, width: Int(carNameLabelWidth), height: carNameLabelHeight))
@@ -61,11 +72,11 @@ class CarTableViewCell: UITableViewCell {
         self.carNameLabel.textColor = UIColor.white
         self.carNameLabel.text = "Mazda 3 2016"
         
-        // Car name label
+        // Car number label
         
-        let carNumberLabelX = carViewWidth/2
+        let carNumberLabelX = CGFloat(carNameLabelX) + carNameLabelWidth
         let carNumberLabelY = 0
-        let carNumberLabelWidth = carViewWidth/2 - CGFloat(carNameLabelX)
+        let carNumberLabelWidth = carViewWidth - carNumberLabelX - 13
         let carNumberLabelHeight = carViewHeight
         
         self.carNumberLabel = UILabel(frame: CGRect(x: Int(carNumberLabelX), y: carNumberLabelY, width: Int(carNumberLabelWidth), height: carNumberLabelHeight))
@@ -144,16 +155,7 @@ class CarTableViewCell: UITableViewCell {
         self.editButton.setTitleColor(Color.blue, for: .normal)
         self.editButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         
-        // Separator view
         
-        let separatorViewTopOffset = 25
-        let separatorViewX = 0
-        let separatorViewY = availableDaysY + CGFloat(availableDaysHeight) + CGFloat(separatorViewTopOffset)
-        let separatorViewWidth = Screen.width
-        let separatorViewHeight = 13
-        
-        self.separatorView = UIView(frame: CGRect(x: CGFloat(separatorViewX), y: separatorViewY, width: separatorViewWidth, height: CGFloat(separatorViewHeight)))
-        self.separatorView.backgroundColor = Color.lightGray
         
         // Adding to content view
         

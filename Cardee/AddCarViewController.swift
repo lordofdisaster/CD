@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class AddCarViewController: CardeeViewController {
     
@@ -28,6 +29,17 @@ class AddCarViewController: CardeeViewController {
     
     //MARK: Actions
     
+    @IBAction func addCar(_ sender: Any) {
+        MBProgressHUD.showAdded(to: (self.navigationController?.view)!, animated: true)
+        AlamofireManager.addCar() { success, error in
+            MBProgressHUD.hide(for: (self.navigationController?.view)!, animated: true)
+            if success {
+                CardeeAlert.showAlert(withTitle: "Success", message: "Your car was succesfully added", sender: self)
+            } else {
+                CardeeAlert.showAlert(withTitle: "Error", message: error!, sender: self)
+            }
+        }
+    }
     func addCarInfo(_ sender: UIButton) {
         switch sender.tag {
         case 0:
@@ -66,7 +78,7 @@ class AddCarViewController: CardeeViewController {
     }
     
     deinit {
-        NewCar.sharedInstance.dispose()
+        NewCar.shared.dispose()
     }
 }
 
@@ -94,12 +106,12 @@ extension AddCarViewController: UITableViewDelegate, UITableViewDataSource {
         cell.fillInfoButton.tag = indexPath.row
         cell.filledInfoImageView.isHidden = true
         
-        if indexPath.row == 0 && (NewCar.sharedInstance.vehicleType != nil) {
+        if indexPath.row == 0 && (NewCar.shared.vehicleType != nil) {
             self.setupFilledIdentifiers(cell: cell)
         }
         
         if indexPath.row == 1 {
-            if let insuranceInfo = NewCar.sharedInstance.insuranceInfo {
+            if let insuranceInfo = NewCar.shared.insuranceInfo {
                 if insuranceInfo.isFilled() {
                     self.setupFilledIdentifiers(cell: cell)
                 }
@@ -107,7 +119,7 @@ extension AddCarViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         if indexPath.row == 2 {
-            if let carInfo = NewCar.sharedInstance.carInfo {
+            if let carInfo = NewCar.shared.carInfo {
                 if carInfo.isFilled() {
                     self.setupFilledIdentifiers(cell: cell)
                 }
@@ -115,7 +127,7 @@ extension AddCarViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         if indexPath.row == 3 {
-            if let carVerification = NewCar.sharedInstance.carVerification {
+            if let carVerification = NewCar.shared.carVerification {
                 if carVerification.isFilled() {
                     self.setupFilledIdentifiers(cell: cell)
                 }
@@ -123,7 +135,7 @@ extension AddCarViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         if indexPath.row == 4 {
-            if let carLocation = NewCar.sharedInstance.carLocation {
+            if let carLocation = NewCar.shared.carLocation {
                 if carLocation.isFilled() {
                     self.setupFilledIdentifiers(cell: cell)
                 }
@@ -131,7 +143,7 @@ extension AddCarViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         if indexPath.row == 5 {
-            if let carDocuments = NewCar.sharedInstance.carDocuments {
+            if let carDocuments = NewCar.shared.carDocuments {
                 if carDocuments.isFilled() {
                     self.setupFilledIdentifiers(cell: cell)
                 }
@@ -139,7 +151,7 @@ extension AddCarViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         if indexPath.row == 6 {
-            if let personalDocuments = NewCar.sharedInstance.personalDocuments {
+            if let personalDocuments = NewCar.shared.personalDocuments {
                 if personalDocuments.isFilled() {
                     self.setupFilledIdentifiers(cell: cell)
                 }
@@ -147,7 +159,7 @@ extension AddCarViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         if indexPath.row == 7 {
-            if let contactInfo = NewCar.sharedInstance.contactInfo {
+            if let contactInfo = NewCar.shared.contactInfo {
                 if contactInfo.isFilled() {
                     self.setupFilledIdentifiers(cell: cell)
                 }
@@ -158,7 +170,7 @@ extension AddCarViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        print("Ready to submit: \(NewCar.sharedInstance.isFilled())")
+        print("Ready to submit: \(NewCar.shared.isFilled())")
         return UIView()
     }
 }

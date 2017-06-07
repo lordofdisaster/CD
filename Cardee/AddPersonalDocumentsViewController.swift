@@ -33,13 +33,13 @@ class AddPersonalDocumentsViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        NewCar.sharedInstance.personalDocuments = self.personalDocuments
+        NewCar.shared.personalDocuments = self.personalDocuments
     }
     
     //MARK: Actions
     
     func setDefaultSelections() {
-        if let personalDocuments = NewCar.sharedInstance.personalDocuments {
+        if let personalDocuments = NewCar.shared.personalDocuments {
             self.personalDocuments = personalDocuments
         }
     }

@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 import GoogleMaps
+import FacebookCore
+import GoogleSignIn
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,12 +19,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        //var configureError: NSError?
+        
+        //GGLContext.sharedInstance().configureWithError(&configureError)
+        //assert(configureError == nil, "Error configuring Google services: \(configureError)")
+        
         self.initializeGoogleMaps()
         return true
     }
     
     func initializeGoogleMaps() {
         GMSServices.provideAPIKey(Global.googleMapsAPIKey)
+    }
+    
+    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
+        if (error == nil) {
+            let userId = user.userID
+            let idToken = user.authentication.idToken
+            let fullName = user.profile.name
+            let givenName = user.profile.givenName
+            let familyName = user.profile.familyName
+            let email = user.profile.email
+            // ...
+        } else {
+            print("\(error.localizedDescription)")
+        }
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        var handled = false
+        handled = SDKApplicationDelegate.shared.application(app, open: url, options: options)
+        handled = GIDSignIn.sharedInstance().handle(url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+        return handled
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -95,4 +125,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
+
+
 
