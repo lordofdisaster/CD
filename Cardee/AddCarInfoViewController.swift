@@ -71,7 +71,7 @@ class AddCarInfoViewController: UIViewController {
             }
             break
         case 5:
-            pickerDataSource = ["1", "2", "3", "4", "5", "6", "7", "8"]
+            pickerDataSource = ["2", "3", "4", "5", "6", "7", "8"]
             break
         case 6:
             pickerDataSource = ["0.7", "1.0", "1.6", "1.8", "2.0", "2.5", "3.0", "Will be more soon"]
