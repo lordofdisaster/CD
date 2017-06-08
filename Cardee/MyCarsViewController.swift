@@ -8,18 +8,31 @@
 
 import UIKit
 import MBProgressHUD
+import AlamofireImage
+import Alamofire
 
 class MyCarsViewController: CardeeViewController {
     
     var tableView: UITableView!
     var cars = [SimpleCar]()
+    var refreshControl: UIRefreshControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = "My Cars"
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add Car", style: .plain, target: self, action: #selector(addCar))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add Car", style: .plain, target: self, action: #selector(self.addCar))
+        
+        
+        MBProgressHUD.showAdded(to: (self.navigationController?.view)!, animated: true)
+        AlamofireManager.getOwnerProfile() { success, error in
+            MBProgressHUD.hide(for: (self.navigationController?.view)!, animated: true)
+            self.cars.removeAll()
+            self.cars = OwnerProfile.shared.cars
+            self.tableView.reloadData()
+        }
+        
         
         self.tableView = UITableView(frame: CGRect(x: 0, y: 0, width: Screen.width, height: Screen.height - CGFloat(System.tabBarHeight) - CGFloat(System.navigationBarHeight) - CGFloat(System.statusBarHeight)))
         self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 13, 0)
@@ -30,17 +43,19 @@ class MyCarsViewController: CardeeViewController {
         self.tableView.tableFooterView = UIView()
         self.tableView.separatorStyle = .none
         self.view.addSubview(self.tableView)
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Refresh...")
+        self.refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        self.tableView.addSubview(self.refreshControl)
+    }
+    
+    func refresh(_ sender: UIRefreshControl) {
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        MBProgressHUD.showAdded(to: (self.navigationController?.view)!, animated: true)
-        AlamofireManager.getOwnerProfile() { success, error in
-            MBProgressHUD.hide(for: (self.navigationController?.view)!, animated: true)
-            self.cars.removeAll()
-            self.cars = OwnerProfile.shared.cars
-            self.tableView.reloadData()
-        }
     }
     
     //MARK: Actions
@@ -53,6 +68,15 @@ class MyCarsViewController: CardeeViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let indexPathRow = (sender as! IndexPath).row
+        if segue.identifier == "showDetailCar" {
+            if let detailCarViewController = segue.destination as? VCViewController {
+                detailCarViewController.carId = self.cars[indexPathRow].carId!
+            }
+        }
     }
 }
 
@@ -70,16 +94,11 @@ extension MyCarsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CarCellIdentifier", for: indexPath) as! CarTableViewCell
         
-        if let image = self.cars[indexPath.row].carImageObject {
-            cell.carImageView.image = image
-        } else {
-            let url = URL(string: self.cars[indexPath.row].carImage)
-            DispatchQueue.global().async {
-                let data = try? Data(contentsOf: url!)
-                DispatchQueue.main.async {
-                    cell.carImageView.image = UIImage(data: data!)
-                    self.cars[indexPath.row].carImageObject = cell.carImageView.image
-                }
+        if let imageUrl = URL(string: self.cars[indexPath.row].carImage!) {
+            cell.carImageView.af_setImage(withURL: imageUrl, placeholderImage: UIImage(), filter: nil, progress: { progress in
+                print("Progress \(progress)")
+            }, imageTransition: .crossDissolve(0.2), runImageTransitionIfCached: false) { data in
+                print(data)
             }
         }
         
@@ -102,6 +121,6 @@ extension MyCarsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "showDetailCar", sender: self)
+        self.performSegue(withIdentifier: "showDetailCar", sender: indexPath)
     }
 }

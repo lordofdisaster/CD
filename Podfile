@@ -11,6 +11,7 @@ target 'Cardee' do
     pod 'FSCalendar'
     pod 'PageMenu'
     pod 'Alamofire', '~> 4.4'
+    pod 'AlamofireImage', '~> 3.1'
     pod 'SwiftyJSON'
     pod 'MBProgressHUD', '~> 1.0.0'
     pod 'KeychainSwift', '~> 8.0'

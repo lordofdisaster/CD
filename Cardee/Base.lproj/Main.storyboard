@@ -1210,8 +1210,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="239.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mazda.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="cty-1T-fvd">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cty-1T-fvd">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="239.5"/>
+                                                    <color key="backgroundColor" red="0.74602901939999999" green="0.76824331280000002" blue="0.788264513" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zgP-So-uwN">
                                                     <rect key="frame" x="0.0" y="203" width="375" height="36"/>
@@ -1222,7 +1223,7 @@
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 of 4" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Sr-1S-cK4">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 of 1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Sr-1S-cK4">
                                                             <rect key="frame" x="262" y="0.0" width="100" height="36"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="100" id="E4q-PR-fRx"/>
@@ -1268,6 +1269,10 @@
                                                 <constraint firstAttribute="bottom" secondItem="cty-1T-fvd" secondAttribute="bottom" id="hsh-A4-cMc"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="carImageView" destination="cty-1T-fvd" id="JxX-MH-7iP"/>
+                                            <outlet property="carTitle" destination="i33-aZ-ftx" id="4JS-0w-QPe"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DetailCarInfoIdentifier" rowHeight="130" id="t5s-fP-PZc" customClass="DetailCarInfoTableViewCell" customModule="Cardee" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="268" width="375" height="130"/>
@@ -1375,8 +1380,8 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="eh2-kb-KfO" id="E7F-B2-IaC"/>
-                        <segue destination="dxK-Ku-Fbb" kind="presentation" identifier="editDescriptionSegue" id="FaD-1b-IZ6"/>
-                        <segue destination="EqC-ye-ADH" kind="presentation" identifier="editLocationSegue" id="0Cd-l4-7NU"/>
+                        <segue destination="dxK-Ku-Fbb" kind="presentation" identifier="editDescriptionSegue" modalPresentationStyle="currentContext" id="FaD-1b-IZ6"/>
+                        <segue destination="EqC-ye-ADH" kind="presentation" identifier="editLocationSegue" modalPresentationStyle="currentContext" id="0Cd-l4-7NU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hOR-ys-Wye" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1772,7 +1777,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Mazda.jpg" width="626" height="382"/>
         <image name="availability" width="29" height="29"/>
         <image name="browse" width="28" height="24"/>
         <image name="car_location" width="35" height="27"/>

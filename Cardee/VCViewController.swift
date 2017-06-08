@@ -9,9 +9,11 @@
 import UIKit
 import PageMenu
 
+
 class VCViewController: CardeeViewController {
     
     var pageMenu: CAPSPageMenu?
+    var carId = Int()
     
     @IBOutlet weak var bookingButton: UIButton!
     
@@ -23,6 +25,7 @@ class VCViewController: CardeeViewController {
         var controllerArray = [UIViewController]()
         let detailCarViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailCarViewControllerIdentifier") as! DetailCarViewController
         detailCarViewController.title = "CAR"
+        detailCarViewController.carId = self.carId
         
         let detailRentalViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailRentalViewControllerIdentifier") as! DetailRentalViewController
         detailRentalViewController.title = "RENTAL"
@@ -47,9 +50,10 @@ class VCViewController: CardeeViewController {
         self.addChildViewController(self.pageMenu!)
         self.view.addSubview(self.pageMenu!.view)
         self.pageMenu?.didMove(toParentViewController: self)
-    
+        //self.pageMenu?.setStartIndexToPage(index: 1)
         
         self.view.bringSubview(toFront: self.bookingButton)
+        
     }
 
     override func didReceiveMemoryWarning() {

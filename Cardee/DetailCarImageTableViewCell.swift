@@ -10,6 +10,9 @@ import UIKit
 
 class DetailCarImageTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var carImageView: UIImageView!
+    @IBOutlet weak var carTitle: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -14,8 +14,7 @@ class SimpleCar: NSObject {
     //var carAvailabilityHourly
     //var carAvailabilityDaily
     var carTitle: String!
-    var carImage: String!
-    var carImageObject: UIImage?
+    var carImage: String?
     var licensePlateNumber: String!
     var yearManufacture: String!
 

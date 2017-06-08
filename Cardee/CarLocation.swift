@@ -12,6 +12,9 @@ import CoreLocation
 class CarLocation: NSObject {
     
     var carLocationCoordinate: CLLocationCoordinate2D?
+    var address: String!
+    var town: String!
+    var isExactLocationHidden: Bool!
     
     var isNotEmpty = false
     

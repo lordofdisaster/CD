@@ -14,12 +14,17 @@ import KeychainSwift
 class AlamofireManager: NSObject {
 
     typealias booleanCompletionHandler = (Bool, String?) -> Swift.Void
+    typealias objectCompletionHandler = (Any, String?) -> Swift.Void
     
-    public static let sharedManager: SessionManager = {
+    public static let SharedManager: SessionManager = {
         let configuration = URLSessionConfiguration.ephemeral
         let manager = Alamofire.SessionManager(configuration: configuration)
+        let contentTypes: Set<String> = ["Content-Type", "binary/octet-stream"]
+        DataRequest.addAcceptableImageContentTypes(contentTypes)
         return manager
     }()
+    
+    public static let keychain = KeychainSwift()
     
     //MARK: Authentication
     
@@ -31,7 +36,6 @@ class AlamofireManager: NSObject {
         ]
         
         let url = baseUrl + apiEndpoints.login
-        let keychain = KeychainSwift()
         
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             let result = JSON(response.data!)
@@ -39,7 +43,7 @@ class AlamofireManager: NSObject {
                 keychain.set(result["data"].stringValue, forKey: "access_token")
                 completionHandler!(true, nil)
             } else {
-                completionHandler!(false, result["error"].stringValue)
+                completionHandler!(false, result["data"]["errors"]["description"].stringValue)
             }
         }
     }
@@ -53,9 +57,8 @@ class AlamofireManager: NSObject {
         ] as [String : Any]
         
         let url = baseUrl + apiEndpoints.socialLogin
-        let keychain = KeychainSwift()
         
-        sharedManager.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+        SharedManager.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             let result = JSON(response.data!)
             if result["success"].boolValue {
                 keychain.set(result["data"].stringValue, forKey: "access_token")
@@ -69,7 +72,7 @@ class AlamofireManager: NSObject {
     //MARK: Cars
     
     class func addCar(completionHandler: booleanCompletionHandler? = nil) {
-        let keychain = KeychainSwift()
+    
         let parameters = [
             "type_vehicle_id": NewCar.shared.vehicleType!.rawValue,
             "is_insurance_comprehensive": NewCar.shared.insuranceInfo!.comprehensiveInsurance,
@@ -111,7 +114,7 @@ class AlamofireManager: NSObject {
             "Authorization": keychain.get("access_token")!
         ]
         
-        sharedManager.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+        SharedManager.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             print(response)
             let result = JSON(response.data!)
             if result["success"].boolValue {
@@ -121,17 +124,90 @@ class AlamofireManager: NSObject {
             }
         }
     }
+    
+    class func getCarWith(id: Int, completionHandler: objectCompletionHandler? = nil) {
+        
+        let url = baseUrl + apiEndpoints.cars + "/\(id)"
+        let headers = [
+            "Authorization": self.keychain.get("access_token")!
+        ]
+        
+        SharedManager.request(url, method: .get, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            print("Detail car: \(response)")
+            let result = JSON(response.data!)
+            if result["success"].boolValue {
+                let car = Car()
+                car.carId = result["data"]["car_details"]["car_id"].intValue
+                car.carTitle = result["data"]["car_details"]["car_title"].stringValue
+                car.licensePlateNumber = result["data"]["car_details"]["license_plate_number"].stringValue
+                car.yearManufacture = result["data"]["car_details"]["year_manufacture"].stringValue
+                car.carImage = result["data"]["car_details"]["car_image"].stringValue
+                car.address = result["data"]["car_details"]["address"].stringValue
+                car.town = result["data"]["car_details"]["town"].stringValue
+                car.isExactLocationHidden = result["data"]["car_details"]["is_hide_exact_location"].boolValue
+                car.carDescription = result["data"]["car_details"]["description"].stringValue
+                car.latitude = result["data"]["car_details"]["latitude"].doubleValue
+                car.longitude = result["data"]["car_details"]["longitude"].doubleValue
+                completionHandler!(car, nil)
+            } else {
+                completionHandler!(false, result["data"]["errors"]["description"].stringValue)
+            }
+        }
+    }
+    
+    class func change(description: String, forCarWith id: Int, completionHandler: booleanCompletionHandler? = nil) {
+        let url = baseUrl + apiEndpoints.cars + "/\(id)" + "/description"
+        let headers = [
+            "Authorization": self.keychain.get("access_token")!
+        ]
+        let parameters = [
+            "note": description
+        ]
+        
+        SharedManager.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            let result = JSON(response.data!)
+            if result["success"].boolValue {
+                completionHandler!(true, nil)
+            } else {
+                completionHandler!(false, result["data"]["errors"]["description"].stringValue)
+            }
+        }
+    }
+    
+    class func change(location: CarLocation, forCarWith id: Int, completinHandler: booleanCompletionHandler? = nil) {
+        let url = baseUrl + apiEndpoints.cars + "/\(id)" + "/location"
+        
+        let headers = [
+            "Authorization": self.keychain.get("access_token")!
+        ]
+        let parameters = [
+            "longitude": location.carLocationCoordinate!.longitude,
+            "latitude": location.carLocationCoordinate!.latitude,
+            "town": location.town,
+            "address": location.address,
+            "is_hide_exact_location": location.isExactLocationHidden
+        ] as [String: Any]
+        
+        SharedManager.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            let result = JSON(response.data!)
+            if result["success"].boolValue {
+                completinHandler!(true, nil)
+            } else {
+                completinHandler!(false, result["data"]["errors"]["description"].stringValue)
+            }
+        }
+    }
 
     //MARK: Profile
     
     class func getOwnerProfile(completionHandler: booleanCompletionHandler? = nil) {
-        let keychain = KeychainSwift()
+        
         let url = baseUrl + apiEndpoints.ownerProfile
         let headers = [
-            "Authorization": keychain.get("access_token")!
+            "Authorization": self.keychain.get("access_token")!
         ]
         
-        sharedManager.request(url, method: .get, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+        SharedManager.request(url, method: .get, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             print(response)
             let result = JSON(response.data!)
             if result["success"].boolValue {
@@ -151,14 +227,10 @@ class AlamofireManager: NSObject {
                     simpleCar.carImage = result["data"]["cars"][i]["car_details"]["car_image"].stringValue
                     OwnerProfile.shared.cars.append(simpleCar)
                 }
-                
-                
                 completionHandler!(true, nil)
             } else {
                 completionHandler!(false, result["data"]["errors"]["description"].stringValue)
             }
         }
     }
-
-
 }

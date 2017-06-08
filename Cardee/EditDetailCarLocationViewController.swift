@@ -9,6 +9,7 @@
 import UIKit
 import GoogleMaps
 import GooglePlaces
+import MBProgressHUD
 
 class EditDetailCarLocationViewController: CardeeViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
     
@@ -16,14 +17,23 @@ class EditDetailCarLocationViewController: CardeeViewController, GMSMapViewDeleg
     var mapView = GMSMapView()
     var carLocationView: CarLocationView!
     var hideExactLocationView: HideExactLocationView!
-    
     var carLocation = CarLocation()
     
+    var car: Car!
+    var present: DetailCarViewController!
+    
     //MARK: Controller Lifecycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.present = (self.presentingViewController! as! UINavigationController).viewControllers[1].childViewControllers[0].childViewControllers[0] as! DetailCarViewController
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Car Location"
+        
+        self.carLocation.carLocationCoordinate = CLLocationCoordinate2DMake(self.car.latitude, self.car.longitude)
         
         // Init map
         
@@ -41,6 +51,9 @@ class EditDetailCarLocationViewController: CardeeViewController, GMSMapViewDeleg
         // Init hide location view
         
         self.hideExactLocationView = HideExactLocationView(frame: CGRect(x: 0, y: self.view.frame.height - 62 - CGFloat(System.navigationBarHeight) - CGFloat(System.statusBarHeight), width: Screen.width, height: 62))
+        self.hideExactLocationView.hideExactLocationSwitch.addTarget(self, action: #selector(self.changeHideExactLocationValue(_:)), for: .valueChanged)
+        self.hideExactLocationView.hideExactLocationSwitch.isOn = self.car.isExactLocationHidden
+        self.carLocation.isExactLocationHidden = self.car.isExactLocationHidden
         self.view.addSubview(self.hideExactLocationView)
         
         // Current location button
@@ -80,22 +93,21 @@ class EditDetailCarLocationViewController: CardeeViewController, GMSMapViewDeleg
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(self.saveInfo))
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "close"), style: .plain, target: self, action: #selector(self.goBack))
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NewCar.shared.carLocation = self.carLocation
+        
+        
+        self.setDefaultSelection()
     }
     
     //MARK: Actions
     
+    func changeHideExactLocationValue(_ sender: UISwitch) {
+        self.carLocation.isExactLocationHidden = sender.isOn
+    }
+    
     func setDefaultSelection() {
-        if let carLocation = NewCar.shared.carLocation {
-            self.carLocation = carLocation
-            let camera = GMSCameraPosition.camera(withLatitude: (self.carLocation.carLocationCoordinate!.latitude), longitude:(self.carLocation.carLocationCoordinate!.longitude), zoom: 14)
-            mapView.animate(to: camera)
-            self.reverseGeocodeCoordinate(coordinate: self.carLocation.carLocationCoordinate!)
-        }
+        let camera = GMSCameraPosition.camera(withLatitude: (self.carLocation.carLocationCoordinate!.latitude), longitude:(self.carLocation.carLocationCoordinate!.longitude), zoom: 17)
+        self.mapView.animate(to: camera)
+        self.reverseGeocodeCoordinate(coordinate: self.carLocation.carLocationCoordinate!)
     }
     
     //MARK: Navigation Actions
@@ -105,7 +117,22 @@ class EditDetailCarLocationViewController: CardeeViewController, GMSMapViewDeleg
     }
     
     func saveInfo() {
-        self.dismiss(animated: true, completion: nil)
+        MBProgressHUD.showAdded(to: (self.navigationController?.view)!, animated: true)
+        AlamofireManager.change(location: self.carLocation, forCarWith: self.car.carId) { success, error in
+            MBProgressHUD.hide(for: (self.navigationController?.view)!, animated: true)
+            if success {
+                self.car.longitude = self.carLocation.carLocationCoordinate?.longitude
+                self.car.latitude = self.carLocation.carLocationCoordinate?.latitude
+                self.car.town = self.carLocation.town
+                self.car.address = self.carLocation.address
+                self.car.isExactLocationHidden = self.carLocation.isExactLocationHidden
+                self.dismiss(animated: true) {
+                    self.present.updateCarInfo(car: self.car)
+                }
+            } else {
+                CardeeAlert.showAlert(withTitle: "Error", message: error!, sender: self)
+            }
+        }
     }
     
     func moveMapToCurrentLocation() {
@@ -125,6 +152,8 @@ class EditDetailCarLocationViewController: CardeeViewController, GMSMapViewDeleg
             if let address = response?.firstResult() {
                 let lines = address.lines!
                 self.carLocationView.addressLabel.text = lines.joined(separator: "\n")
+                self.carLocation.address = lines[0]
+                self.carLocation.town = lines[1]
                 UIView.animate(withDuration: 0.25) {
                     self.view.layoutIfNeeded()
                 }

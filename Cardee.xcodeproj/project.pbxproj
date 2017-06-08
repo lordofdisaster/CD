@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E6C2E42BCADA0484D873AF0D /* Pods_Cardee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C56DFBB096498260E3F2FDBD /* Pods_Cardee.framework */; };
+		E80BD6201EE9596800775CE6 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80BD61F1EE9596800775CE6 /* Car.swift */; };
 		E80CAC851EBB08530087B919 /* CardeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80CAC841EBB08530087B919 /* CardeeViewController.swift */; };
 		E80CAC881EBB0A3C0087B919 /* MyCarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80CAC871EBB0A3C0087B919 /* MyCarsViewController.swift */; };
 		E80CAC8C1EBB0B030087B919 /* CarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80CAC8B1EBB0B030087B919 /* CarTableViewCell.swift */; };
@@ -99,6 +100,7 @@
 		4732730EB245677CC1EE2BD8 /* Pods-Cardee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cardee.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cardee/Pods-Cardee.release.xcconfig"; sourceTree = "<group>"; };
 		C56DFBB096498260E3F2FDBD /* Pods_Cardee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cardee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8E59CFEF8ECE584958F598A /* Pods-Cardee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cardee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cardee/Pods-Cardee.debug.xcconfig"; sourceTree = "<group>"; };
+		E80BD61F1EE9596800775CE6 /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		E80CAC841EBB08530087B919 /* CardeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardeeViewController.swift; sourceTree = "<group>"; };
 		E80CAC871EBB0A3C0087B919 /* MyCarsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCarsViewController.swift; sourceTree = "<group>"; };
 		E80CAC8B1EBB0B030087B919 /* CarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarTableViewCell.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				E82193ED1EE7F7F600D14753 /* SimpleCar.swift */,
+				E80BD61F1EE9596800775CE6 /* Car.swift */,
 			);
 			name = Cars;
 			sourceTree = "<group>";
@@ -494,7 +497,7 @@
 			isa = PBXGroup;
 			children = (
 				E88BC6811EDFD3A700199ECD /* Edit Detail Car Info */,
-				E8EC9F271EDEE5AC004AF6A0 /* Detail Car */,
+				E8EC9F271EDEE5AC004AF6A0 /* Detailed Car */,
 				E862A1CB1ED4272100AE84FF /* Browse */,
 				E8255AB11ECEDDF00030AFA7 /* Renter Profile */,
 				E8255AA81ECDD9930030AFA7 /* More */,
@@ -658,14 +661,14 @@
 			name = Data;
 			sourceTree = "<group>";
 		};
-		E8EC9F271EDEE5AC004AF6A0 /* Detail Car */ = {
+		E8EC9F271EDEE5AC004AF6A0 /* Detailed Car */ = {
 			isa = PBXGroup;
 			children = (
 				E8C19C971EDEEE2300BF59F7 /* Views */,
-				E8EC9F281EDEE5C7004AF6A0 /* DetailCarViewController.swift */,
 				E8C19C9D1EDF0A9300BF59F7 /* DetailRentalViewController.swift */,
+				E8EC9F281EDEE5C7004AF6A0 /* DetailCarViewController.swift */,
 			);
-			name = "Detail Car";
+			name = "Detailed Car";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -840,6 +843,7 @@
 				E823DDE11EC0B466006C92DF /* AddContactInfoViewController.swift in Sources */,
 				E8B21B681EB1E3B1007E90A9 /* OwnerFeaturesView.swift in Sources */,
 				E8EC9F141EDDF86C004AF6A0 /* NewCar.swift in Sources */,
+				E80BD6201EE9596800775CE6 /* Car.swift in Sources */,
 				E8EC9F1E1EDEA9F6004AF6A0 /* CarLocation.swift in Sources */,
 				E8E72B001EB314B500FEC460 /* OwnerCarReviewTableViewCell.swift in Sources */,
 				E862A1CA1ED4237C00AE84FF /* SettingsViewController.swift in Sources */,
