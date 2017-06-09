@@ -28,12 +28,12 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
         view.backgroundColor = UIColor.white
         self.view = view
         
-        let height: CGFloat = UIDevice.current.model.hasPrefix("iPad") ? 400 : 400
-        let calendar = FSCalendar(frame: CGRect(x: 0, y: 200, width: view.frame.size.width, height: height))
+        let calendar = FSCalendar(frame: CGRect(x: 0, y: 30, width: view.frame.size.width, height: 400))
         calendar.dataSource = self
         calendar.delegate = self
         calendar.allowsMultipleSelection = true
         view.addSubview(calendar)
+        
         self.calendar = calendar
         
         calendar.calendarHeaderView.backgroundColor = UIColor.white
@@ -42,8 +42,10 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
         calendar.swipeToChooseGesture.isEnabled = true
         calendar.appearance.caseOptions = FSCalendarCaseOptions.weekdayUsesSingleUpperCase
         calendar.scrollDirection = .vertical
-        calendar.appearance.weekdayTextColor = Color.grayText
+        calendar.clipsToBounds = true
+        //calendar.appearance.weekdayTextColor = Color.grayText
         calendar.appearance.headerTitleColor = Color.grayText
+        
     }
     
     override func viewDidLoad() {
@@ -52,13 +54,13 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
         self.title = "FSCalendar"
 
         let dates = [
-            self.gregorian.date(byAdding: .day, value: -1, to: Date()),
-            Date(),
             self.gregorian.date(byAdding: .day, value: 1, to: Date())
         ]
+        
         dates.forEach { (date) in
             self.calendar.select(date, scrollToDate: false)
         }
+        
         self.calendar.accessibilityIdentifier = "calendar"
     }
     
@@ -79,12 +81,29 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
         return CGPoint(x: 0, y: 3)
     }
     
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleSelectionColorFor date: Date) -> UIColor? {
+        return UIColor.white
+    }
+    
+//    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
+//        let checkDate = self.gregorian.date(byAdding: .day, value: -1, to: Date())
+//        if date >= checkDate! && date < calendar.currentPage {
+//            return Color.grayText
+//        } else {
+//            return UIColor.lightGray
+//        }
+//    }
+    
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
         self.calendar.frame.size.height = bounds.height
     }
     
-    func calendar(_ calendar: FSCalendar, shouldSelect date: Date, at monthPosition: FSCalendarMonthPosition)   -> Bool {
+    func calendar(_ calendar: FSCalendar, shouldSelect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
         return monthPosition == .current
+    }
+    
+    func minimumDate(for calendar: FSCalendar) -> Date {
+        return Date()
     }
     
     func calendar(_ calendar: FSCalendar, shouldDeselect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
@@ -121,7 +140,7 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
             diyCell.layer.borderColor = UIColor.lightGray.cgColor
             diyCell.layer.borderWidth = 0.5
             diyCell.layer.cornerRadius = diyCell.contentView.bounds.width/2
-            diyCell.titleLabel.textColor = Color.grayText
+            //diyCell.titleLabel.textColor = Color.grayText
         }
 
         // Configure selection layer

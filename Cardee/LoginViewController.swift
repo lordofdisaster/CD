@@ -36,8 +36,9 @@ class LoginViewController: UIViewController {
     //MARK: Actions
     
     func loginAction() {
+        self.view.endEditing(true)
         MBProgressHUD.showAdded(to: self.view, animated: true)
-        AlamofireManager.loginWith(username: "alex", password: "12345") { success, error in
+        AlamofireManager.loginWith(username: self.loginView.emailTextField.text!, password: self.loginView.passwordTextField.text!) { success, error in
             MBProgressHUD.hide(for: self.view, animated: true)
             if success {
                 self.performSegue(withIdentifier: "openCarListSegue", sender: self)
@@ -50,7 +51,7 @@ class LoginViewController: UIViewController {
     func loginWithFacebookAction() {
         let loginManager = LoginManager()
         MBProgressHUD.showAdded(to: self.view, animated: true)
-        loginManager.logIn([.publicProfile], viewController: self) { loginResult in
+        loginManager.logIn([.publicProfile, .email, .custom("user_birthday")], viewController: self) { loginResult in
             MBProgressHUD.hide(for: self.view, animated: true)
             switch loginResult {
             case .failed(let error):
@@ -89,7 +90,20 @@ class LoginViewController: UIViewController {
     }
     
     func signUpAction() {
-        print("Sign Up")
+        self.view.endEditing(true)
+        if !(self.signUpView.yourNameTextField.text?.isEmpty)! {
+            MBProgressHUD.showAdded(to: self.view, animated: true)
+            AlamofireManager.signUpWith(username: self.loginView.emailTextField.text!, password: self.loginView.passwordTextField.text!, name: self.signUpView.yourNameTextField.text!, picture: self.signUpView.youPhotoImageView.image) { success, error in
+                MBProgressHUD.hide(for: self.view, animated: true)
+                if success {
+                    self.performSegue(withIdentifier: "openCarListSegue", sender: self)
+                } else {
+                    CardeeAlert.showAlert(withTitle: "Error", message: error!, sender: self)
+                }
+            }
+        } else {
+            CardeeAlert.showAlert(withTitle: "Error", message: "Please enter your name", sender: self)
+        }
     }
     
     func forgotPasswordAction() {
@@ -114,6 +128,7 @@ class LoginViewController: UIViewController {
         self.loginView.passwordTextField.attributedPlaceholder = NSAttributedString(string: Login.passwordString, attributes: [NSForegroundColorAttributeName: Color.lightBlue])
         self.loginView.forgotPasswordButton.isHidden = false
         self.loginView.loginButton.setTitle(Login.loginString, for: .normal)
+        self.loginView.loginButton.removeTarget(nil, action: nil, for: .allEvents)
         self.loginView.loginButton.addTarget(self, action: #selector(self.loginAction), for: .touchUpInside)
         self.loginView.socialLoginView.isHidden = false
         self.loginView.termsAndPolicyButton.isHidden = true
@@ -124,6 +139,7 @@ class LoginViewController: UIViewController {
         self.loginView.signUpButton.setTitle(Login.alreadyHaveAccountString, for: .normal)
         self.loginView.forgotPasswordButton.isHidden = true
         self.loginView.loginButton.setTitle(Login.signUpString, for: .normal)
+        self.loginView.loginButton.removeTarget(nil, action: nil, for: .allEvents)
         self.loginView.loginButton.addTarget(self, action: #selector(self.nextSignUpAction), for: .touchUpInside)
         self.isUserWantSignUp = false
         self.loginView.socialLoginView.isHidden = false
@@ -139,6 +155,7 @@ class LoginViewController: UIViewController {
             self.signUpView.addGestureRecognizer(self.tapGestureRecognizer)
             let chooseAvatarGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.chooseImage))
             self.signUpView.youPhotoImageView.addGestureRecognizer(chooseAvatarGestureRecognizer)
+            self.signUpView.getStartedButton.addTarget(self, action: #selector(self.signUpAction), for: .touchUpInside)
             self.signUpView.backButton.addTarget(self, action: #selector(self.backToLoginAction), for: .touchUpInside)
         }
         self.loginView.isHidden = true
@@ -151,6 +168,10 @@ class LoginViewController: UIViewController {
     func initLoginView() {
         self.tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
         self.loginView = LoginView(frame: CGRect(x: 0, y: 0, width: Screen.width, height: Screen.height))
+        //Test
+        self.loginView.emailTextField.text = "alex"
+        self.loginView.passwordTextField.text = "12345"
+        //
         self.loginView.addGestureRecognizer(self.tapGestureRecognizer)
         self.view.addSubview(self.loginView)
         self.loginView.loginButton.addTarget(self, action: #selector(self.loginAction), for: .touchUpInside)

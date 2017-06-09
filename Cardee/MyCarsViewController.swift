@@ -71,8 +71,8 @@ class MyCarsViewController: CardeeViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let indexPathRow = (sender as! IndexPath).row
         if segue.identifier == "showDetailCar" {
+            let indexPathRow = (sender as! IndexPath).row
             if let detailCarViewController = segue.destination as? VCViewController {
                 detailCarViewController.carId = self.cars[indexPathRow].carId!
             }

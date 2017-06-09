@@ -22,6 +22,17 @@ class DetailRentalViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    //MARK: Actions
+    
+    func editDate() {
+        let calendarViewController = CalendarViewController()
+        self.navigationController?.pushViewController(calendarViewController, animated: true)
+    }
+    
+    func editTime() {
+        
+    }
 }
 
 extension DetailRentalViewController: UITableViewDelegate, UITableViewDataSource {
@@ -46,6 +57,8 @@ extension DetailRentalViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "DetailRentalAvailabilityIdentifier", for: indexPath) as! DetailRentalAvailabilityTableViewCell
+            cell.editDateButton.addTarget(self, action: #selector(self.editDate), for: .touchUpInside)
+            cell.editTimeButton.addTarget(self, action: #selector(self.editTime), for: .touchUpInside)
             return cell
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "DetailRentalSettingsIdentifier", for: indexPath) as! DetailRentalSettingsTableViewCell

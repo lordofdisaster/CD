@@ -26,8 +26,8 @@ class SignUpView: UIView {
         // Back Button
         
         self.backButton = UIButton(type: .system)
-        self.backButton.frame = CGRect(x: 20, y: 22, width: 30, height: 30)
-        self.backButton.backgroundColor = UIColor.white
+        self.backButton.tintColor = UIColor.white
+        self.backButton.frame = CGRect(x: 10, y: 30, width: 30, height: 30)
         self.backButton.setImage(#imageLiteral(resourceName: "chevron_left"), for: .normal)
         
         // Almost done label
@@ -61,6 +61,7 @@ class SignUpView: UIView {
         let photoImageY = addPhotoLabelY + addPhotoLabelHeight + photoImageTopOffset
         
         self.youPhotoImageView = UIImageView(frame: CGRect(x: photoImageX, y: photoImageY, width: photoImageSize, height: photoImageSize))
+        self.youPhotoImageView.contentMode = .scaleAspectFit
         self.youPhotoImageView.backgroundColor = Color.lightBlue
         self.youPhotoImageView.layer.cornerRadius = 40
         self.youPhotoImageView.layer.masksToBounds = true

@@ -10,6 +10,9 @@ import UIKit
 
 class DetailRentalAvailabilityTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var editDateButton: UIButton!
+    @IBOutlet weak var editTimeButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

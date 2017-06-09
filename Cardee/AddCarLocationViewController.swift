@@ -41,6 +41,7 @@ class AddCarLocationViewController: UIViewController, GMSMapViewDelegate, CLLoca
         // Init hide location view
         
         self.hideExactLocationView = HideExactLocationView(frame: CGRect(x: 0, y: self.view.frame.height - 62 - CGFloat(System.navigationBarHeight) - CGFloat(System.statusBarHeight), width: Screen.width, height: 62))
+        self.hideExactLocationView.hideExactLocationSwitch.addTarget(self, action: #selector(self.changeHideExactLocationValue(_:)), for: .valueChanged)
         self.view.addSubview(self.hideExactLocationView)
         
         // Current location button
@@ -89,10 +90,17 @@ class AddCarLocationViewController: UIViewController, GMSMapViewDelegate, CLLoca
     
     //MARK: Actions
     
+    func changeHideExactLocationValue(_ sender: UISwitch) {
+        self.carLocation.isExactLocationHidden = sender.isOn
+    }
+    
     func setDefaultSelection() {
         if let carLocation = NewCar.shared.carLocation {
             self.carLocation = carLocation
-            let camera = GMSCameraPosition.camera(withLatitude: (self.carLocation.carLocationCoordinate!.latitude), longitude:(self.carLocation.carLocationCoordinate!.longitude), zoom: 14)
+            if let isExactLocationHidden = self.carLocation.isExactLocationHidden {
+                self.hideExactLocationView.hideExactLocationSwitch.isOn = isExactLocationHidden
+            }
+            let camera = GMSCameraPosition.camera(withLatitude: (self.carLocation.carLocationCoordinate!.latitude), longitude:(self.carLocation.carLocationCoordinate!.longitude), zoom: 17)
             mapView.animate(to: camera)
             self.reverseGeocodeCoordinate(coordinate: self.carLocation.carLocationCoordinate!)
         }
@@ -126,6 +134,8 @@ class AddCarLocationViewController: UIViewController, GMSMapViewDelegate, CLLoca
             if let address = response?.firstResult() {
                 let lines = address.lines!
                 self.carLocationView.addressLabel.text = lines.joined(separator: "\n")
+                self.carLocation.address = lines[0]
+                self.carLocation.town = lines[1]
                 UIView.animate(withDuration: 0.25) {
                     self.view.layoutIfNeeded()
                 }

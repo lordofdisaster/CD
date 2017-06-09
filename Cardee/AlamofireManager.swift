@@ -47,18 +47,43 @@ class AlamofireManager: NSObject {
             }
         }
     }
+    
+    class func signUpWith(username: String, password: String, name: String, picture: UIImage?, completionHandler: booleanCompletionHandler? = nil) {
+        
+        var parameters = [
+            "login": username,
+            "password": password,
+            "pwd_confirm": password,
+            "name": name,
+        ]
+        
+        if let userImage = picture {
+            parameters["picture"] = Methods.encodeImageToBase64(image: userImage)
+        }
+        
+        let url = baseUrl + apiEndpoints.signUp
+        
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            let result = JSON(response.data!)
+            if result["success"].boolValue {
+                keychain.set(result["data"].stringValue, forKey: "access_token")
+                completionHandler!(true, nil)
+            } else {
+                completionHandler!(false, result["data"]["errors"]["description"].stringValue)
+            }
+        }
+    }
  
     class func loginWithSocial(type: SocialType, token: String, expirationDate: Date, completionHandler: booleanCompletionHandler? = nil) {
         
         let parameters = [
             kSocialProvider: type.rawValue,
-            kToken: token,
-            kExpiredIn: Methods.transformDateToString(date: expirationDate)
+            kToken: token
         ] as [String : Any]
         
         let url = baseUrl + apiEndpoints.socialLogin
         
-        SharedManager.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             let result = JSON(response.data!)
             if result["success"].boolValue {
                 keychain.set(result["data"].stringValue, forKey: "access_token")
@@ -95,10 +120,9 @@ class AlamofireManager: NSObject {
             
             "longitude": NewCar.shared.carLocation!.carLocationCoordinate!.longitude,
             "latitude": NewCar.shared.carLocation!.carLocationCoordinate!.latitude,
-            "town": "Test Town", //TO DO
-            "address": "Test Adress", //TO DO
-            "is_hide_exact_location": false, //TO DO
-            
+            "town": NewCar.shared.carLocation!.town!,
+            "address": NewCar.shared.carLocation!.address!,
+            "is_hide_exact_location": NewCar.shared.carLocation!.isExactLocationHidden!,            
             "car_documents": "",//NewCar.shared.carDocuments!.vehicleLogCard, //TO DO
             
             "personal_documents": "", //TO DO

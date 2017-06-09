@@ -56,14 +56,11 @@ class DIYCalendarCell: FSCalendarCell {
         
         if selectionType == .middle {
             self.selectionLayer.path = UIBezierPath(rect: self.selectionLayer.bounds).cgPath
-        }
-        else if selectionType == .leftBorder {
+        } else if selectionType == .leftBorder {
             self.selectionLayer.path = UIBezierPath(roundedRect: self.selectionLayer.bounds, byRoundingCorners: [.topLeft, .bottomLeft], cornerRadii: CGSize(width: self.selectionLayer.frame.width / 2, height: self.selectionLayer.frame.width / 2)).cgPath
-        }
-        else if selectionType == .rightBorder {
+        } else if selectionType == .rightBorder {
             self.selectionLayer.path = UIBezierPath(roundedRect: self.selectionLayer.bounds, byRoundingCorners: [.topRight, .bottomRight], cornerRadii: CGSize(width: self.selectionLayer.frame.width / 2, height: self.selectionLayer.frame.width / 2)).cgPath
-        }
-        else if selectionType == .single {
+        } else if selectionType == .single {
             let diameter: CGFloat = min(self.selectionLayer.frame.height, self.selectionLayer.frame.width)
             self.selectionLayer.path = UIBezierPath(ovalIn: CGRect(x: self.contentView.frame.width / 2 - diameter / 2, y: self.contentView.frame.height / 2 - diameter / 2, width: diameter, height: diameter)).cgPath
         }
@@ -74,5 +71,10 @@ class DIYCalendarCell: FSCalendarCell {
         if self.isPlaceholder {
             self.eventIndicator.isHidden = true
         }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.layer.borderWidth = 0
     }
 }
