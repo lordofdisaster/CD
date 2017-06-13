@@ -10,6 +10,17 @@ import UIKit
 
 class DetailRentalSettingsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var rentalTypeLabel: UILabel!
+    @IBOutlet weak var instantBookingSwitch: UISwitch!
+    @IBOutlet weak var curbsideDeliverySwitch: UISwitch!
+    @IBOutlet weak var acceptCashSwitch: UISwitch!
+    @IBOutlet weak var deliveryRatesButton: UIButton!
+    @IBOutlet weak var settingsInfoButton: UIButton!
+    
+    @IBOutlet weak var instantBookingImageView: UIImageView!
+    @IBOutlet weak var curbsideDeliveryImageView: UIImageView!
+    @IBOutlet weak var acceptCashImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

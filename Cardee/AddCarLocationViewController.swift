@@ -99,10 +99,14 @@ class AddCarLocationViewController: UIViewController, GMSMapViewDelegate, CLLoca
             self.carLocation = carLocation
             if let isExactLocationHidden = self.carLocation.isExactLocationHidden {
                 self.hideExactLocationView.hideExactLocationSwitch.isOn = isExactLocationHidden
+            } else {
+                self.carLocation.isExactLocationHidden = false
             }
             let camera = GMSCameraPosition.camera(withLatitude: (self.carLocation.carLocationCoordinate!.latitude), longitude:(self.carLocation.carLocationCoordinate!.longitude), zoom: 17)
             mapView.animate(to: camera)
             self.reverseGeocodeCoordinate(coordinate: self.carLocation.carLocationCoordinate!)
+        } else {
+            self.carLocation.isExactLocationHidden = false
         }
     }
     

@@ -10,6 +10,10 @@ import UIKit
 
 class DetailRentalFuelTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var rentalTypeLabel: UILabel!
+    @IBOutlet weak var editFuelPolicyButton: UIButton!
+    @IBOutlet weak var fuelPolicyLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

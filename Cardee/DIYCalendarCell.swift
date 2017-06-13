@@ -57,6 +57,12 @@ class DIYCalendarCell: FSCalendarCell {
         if selectionType == .middle {
             self.selectionLayer.path = UIBezierPath(rect: self.selectionLayer.bounds).cgPath
         } else if selectionType == .leftBorder {
+            
+//            let image = #imageLiteral(resourceName: "check_thick")
+//            let imageview = UIImageView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+//            imageview.image = image
+//            self.selectionLayer.addSublayer(imageview)
+            
             self.selectionLayer.path = UIBezierPath(roundedRect: self.selectionLayer.bounds, byRoundingCorners: [.topLeft, .bottomLeft], cornerRadii: CGSize(width: self.selectionLayer.frame.width / 2, height: self.selectionLayer.frame.width / 2)).cgPath
         } else if selectionType == .rightBorder {
             self.selectionLayer.path = UIBezierPath(roundedRect: self.selectionLayer.bounds, byRoundingCorners: [.topRight, .bottomRight], cornerRadii: CGSize(width: self.selectionLayer.frame.width / 2, height: self.selectionLayer.frame.width / 2)).cgPath

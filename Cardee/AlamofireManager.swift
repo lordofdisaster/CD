@@ -172,6 +172,34 @@ class AlamofireManager: NSObject {
                 car.carDescription = result["data"]["car_details"]["description"].stringValue
                 car.latitude = result["data"]["car_details"]["latitude"].doubleValue
                 car.longitude = result["data"]["car_details"]["longitude"].doubleValue
+                
+                // Rental Info
+                
+                car.isInstantBooking = (hourly: result["data"]["order_hourly_details"]["is_instant_booking"].boolValue, daily: result["data"]["order_daily_details"]["is_instant_booking"].boolValue)
+                car.isCurbsideDelivery = (hourly: result["data"]["order_hourly_details"]["is_curbside_delivery"].boolValue, daily: result["data"]["order_daily_details"]["is_curbside_delivery"].boolValue)
+                car.isAcceptCash = (hourly: result["data"]["order_hourly_details"]["is_accept_cash"].boolValue, daily: result["data"]["order_daily_details"]["is_accept_cash"].boolValue)
+                
+                // Curbside Delivery
+                
+                car.baseRate = result["data"]["delivery_rates"]["base_rate"].intValue
+                car.distanceRate = result["data"]["delivery_rates"]["distance_rate"].floatValue
+                car.isProvideFreeDelivery = result["data"]["delivery_rates"]["is_provide_free_delivery"].boolValue
+                car.rentalDuration = result["data"]["delivery_rates"]["rental_duration"].intValue
+                
+                // Rental Rates
+                
+                car.firstRates = (hourly: result["data"]["order_hourly_details"]["amnt_rate_first"].floatValue, daily: result["data"]["order_daily_details"]["amnt_rate_first"].floatValue)
+                car.secondRates = (hourly: result["data"]["order_hourly_details"]["amnt_rate_second"].floatValue, daily: result["data"]["order_daily_details"]["amnt_rate_second"].floatValue)
+                car.firstDiscount = (hourly: result["data"]["order_hourly_details"]["amnt_discount_first"].floatValue, daily: result["data"]["order_daily_details"]["amnt_discount_first"].floatValue)
+                car.secondDiscount = (hourly: result["data"]["order_hourly_details"]["amnt_discount_second"].floatValue, daily: result["data"]["order_daily_details"]["amnt_discount_second"].floatValue)
+                car.minimumRentalDuration = (hourly: result["data"]["order_hourly_details"]["min_rental_duration"].intValue, daily: result["data"]["order_daily_details"]["min_rental_duration"].intValue)
+                
+                // Fuel Policy
+                
+                car.fuelPolicyId = (hourly: result["data"]["order_hourly_details"]["fuel_policy"]["fuel_policy_id"].intValue, daily: result["data"]["order_daily_details"]["fuel_policy"]["fuel_policy_id"].intValue)
+                car.fuelPolicyName = (hourly: result["data"]["order_hourly_details"]["fuel_policy"]["fuel_policy_name"].stringValue, result["data"]["order_daily_details"]["fuel_policy"]["fuel_policy_name"].stringValue)
+                
+                
                 completionHandler!(car, nil)
             } else {
                 completionHandler!(false, result["data"]["errors"]["description"].stringValue)
@@ -211,6 +239,39 @@ class AlamofireManager: NSObject {
             "address": location.address,
             "is_hide_exact_location": location.isExactLocationHidden
         ] as [String: Any]
+        
+        SharedManager.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            let result = JSON(response.data!)
+            if result["success"].boolValue {
+                completinHandler!(true, nil)
+            } else {
+                completinHandler!(false, result["data"]["errors"]["description"].stringValue)
+            }
+        }
+    }
+    
+    class func changeDailyRentaInfoFor(car: Car, completinHandler: booleanCompletionHandler? = nil) {
+        
+        
+        let url = baseUrl + apiEndpoints.cars + "/\(car.carId)" + apiEndpoints.changeDailyRentalInfo
+        
+        let headers = [
+            "Authorization": self.keychain.get("access_token")!
+        ]
+        let parameters = [
+            "is_instant_booking": true,
+            "is_curbside_delivery": true,
+            "is_accept_cash": true,
+            "fuel_policy_id": 1,/// references/fuel_policy
+            "rate_first": 60.0,
+            "rate_second": 20.0,
+            "amnt_discount_first": 10.0,
+            "amnt_discount_second": 10.0,
+            "min_rental_duration": 5,
+            "time_pickup": Date(),
+            "time_return": Date(),
+            "amnt_pay_mileage": 5
+        ] as [String : Any]
         
         SharedManager.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             let result = JSON(response.data!)

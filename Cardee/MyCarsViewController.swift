@@ -24,7 +24,6 @@ class MyCarsViewController: CardeeViewController {
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add Car", style: .plain, target: self, action: #selector(self.addCar))
         
-        
         MBProgressHUD.showAdded(to: (self.navigationController?.view)!, animated: true)
         AlamofireManager.getOwnerProfile() { success, error in
             MBProgressHUD.hide(for: (self.navigationController?.view)!, animated: true)
@@ -32,7 +31,6 @@ class MyCarsViewController: CardeeViewController {
             self.cars = OwnerProfile.shared.cars
             self.tableView.reloadData()
         }
-        
         
         self.tableView = UITableView(frame: CGRect(x: 0, y: 0, width: Screen.width, height: Screen.height - CGFloat(System.tabBarHeight) - CGFloat(System.navigationBarHeight) - CGFloat(System.statusBarHeight)))
         self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 13, 0)
@@ -47,15 +45,21 @@ class MyCarsViewController: CardeeViewController {
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "Refresh...")
         self.refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
-        self.tableView.addSubview(self.refreshControl)
+        self.tableView.refreshControl = self.refreshControl
     }
     
     func refresh(_ sender: UIRefreshControl) {
-        
+        AlamofireManager.getOwnerProfile() { success, error in
+            self.refreshControl.endRefreshing()
+            self.cars.removeAll()
+            self.cars = OwnerProfile.shared.cars
+            self.tableView.reloadData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
     }
     
     //MARK: Actions

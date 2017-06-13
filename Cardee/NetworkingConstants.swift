@@ -29,6 +29,7 @@ struct apiEndpoints {
     
     //Cars
     static let cars = "/cars"
+    static let changeDailyRentalInfo = "/rental/daily"
     
     //Profile
     static let ownerProfile = "/profiles/owner"

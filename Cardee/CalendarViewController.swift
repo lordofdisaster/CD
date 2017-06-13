@@ -19,8 +19,16 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
     }()
     
     fileprivate weak var calendar: FSCalendar!
+    var selectedDaysButton: UIButton!
+    var dates = [Date]()
+    var present: DetailRentalViewController!
     
-    // MARK: Life cycle
+    // MARK: Controller Lifecycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.present = self.navigationController?.viewControllers[1].childViewControllers[0].childViewControllers[0] as! DetailRentalViewController
+    }
     
     override func loadView() {
         
@@ -43,25 +51,36 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
         calendar.appearance.caseOptions = FSCalendarCaseOptions.weekdayUsesSingleUpperCase
         calendar.scrollDirection = .vertical
         calendar.clipsToBounds = true
-        //calendar.appearance.weekdayTextColor = Color.grayText
         calendar.appearance.headerTitleColor = Color.grayText
+        
+        self.selectedDaysButton = UIButton(type: .system)
+        self.selectedDaysButton.frame = CGRect(x: 13, y: view.frame.size.height - 58 - 44 - 20, width: view.frame.size.width - 26, height: 45)
+        self.selectedDaysButton.backgroundColor = Color.green
+        self.selectedDaysButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightBold)
+        self.selectedDaysButton.setTitleColor(UIColor.white, for: .normal)
+        self.selectedDaysButton.setTitle("\(self.dates.count) days available  •  Save", for: .normal)
+        self.selectedDaysButton.layer.cornerRadius = 3
+        
+        view.addSubview(self.selectedDaysButton)
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "FSCalendar"
+        self.title = "Calendar"
 
-        let dates = [
-            self.gregorian.date(byAdding: .day, value: 1, to: Date())
-        ]
-        
-        dates.forEach { (date) in
+        self.dates.forEach { (date) in
             self.calendar.select(date, scrollToDate: false)
         }
         
         self.calendar.accessibilityIdentifier = "calendar"
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.present.dates = self.dates
+        self.present.reloadData()
     }
     
     // MARK: FSCalendarDataSource
@@ -103,27 +122,45 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
     }
     
     func minimumDate(for calendar: FSCalendar) -> Date {
-        return Date()
+        return self.gregorian.date(byAdding: .day, value: 1, to: Date())!
     }
-    
+ 
     func calendar(_ calendar: FSCalendar, shouldDeselect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
         return monthPosition == .current
     }
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         print("did select date \(self.formatter.string(from: date))")
+        self.dates.append(date)
+        self.selectedDaysButton.setTitle("\(self.dates.count) days available  •  Save", for: .normal)
         self.configureVisibleCells()
     }
     
     func calendar(_ calendar: FSCalendar, didDeselect date: Date) {
         print("did deselect date \(self.formatter.string(from: date))")
+        let index = self.dates.index(of: date)
+        self.dates.remove(at: index!)
+        self.selectedDaysButton.setTitle("\(self.dates.count) days available  •  Save", for: .normal)
         self.configureVisibleCells()
+    }
+    
+//    func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
+//        for currentDate in self.dates {
+//            if self.formatter.string(from: date)currentDate == date {
+//                return #imageLiteral(resourceName: "check_thick")
+//            }
+//        }
+//        return nil
+//    }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, imageOffsetFor date: Date) -> CGPoint {
+        return CGPoint(x: 10, y: -10)
     }
     
     // MARK: Private functions
     
     private func configureVisibleCells() {
-        calendar.visibleCells().forEach { (cell) in
+        self.calendar.visibleCells().forEach { (cell) in
             let date = calendar.date(for: cell)
             let position = calendar.monthPosition(for: cell)
             self.configure(cell: cell, for: date, at: position)
@@ -177,5 +214,6 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
         } else {
             diyCell.selectionLayer.isHidden = true
         }
+        
     }
 }
