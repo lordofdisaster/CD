@@ -8,7 +8,7 @@
 
 import UIKit
 import PageMenu
-
+import MBProgressHUD
 
 class VCViewController: CardeeViewController {
     
@@ -20,13 +20,11 @@ class VCViewController: CardeeViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "SLE8938Y"
-        
-        //MBProgressHUD.showAdded(to: self.view, animated: true)
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         AlamofireManager.getCarWith(id: self.carId) { object, error in
-            //MBProgressHUD.hide(for: self.view, animated: true)
+            MBProgressHUD.hide(for: self.view, animated: true)
             let car = object as! Car
-            
+            self.title = car.licensePlateNumber
             var controllerArray = [UIViewController]()
             
             let detailCarViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailCarViewControllerIdentifier") as! DetailCarViewController
@@ -57,16 +55,9 @@ class VCViewController: CardeeViewController {
             self.addChildViewController(self.pageMenu!)
             self.view.addSubview(self.pageMenu!.view)
             self.pageMenu?.didMove(toParentViewController: self)
-            //self.pageMenu?.setStartIndexToPage(index: 1)
-            
+
             self.view.bringSubview(toFront: self.bookingButton)
         }
-
-        
-        
-        
-        
-        
     }
 
     override func didReceiveMemoryWarning() {

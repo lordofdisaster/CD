@@ -11,6 +11,8 @@ import CoreData
 import GoogleMaps
 import FacebookCore
 import GoogleSignIn
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,9 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
-        
+        Fabric.with([Crashlytics.self])
         //var configureError: NSError?
-        
         //GGLContext.sharedInstance().configureWithError(&configureError)
         //assert(configureError == nil, "Error configuring Google services: \(configureError)")
         

@@ -6,6 +6,11 @@ enum SocialType: String {
     case google = "GOOGLE"
 }
 
+enum RentalType: Int {
+    case daily = 0
+    case hourly
+}
+
 struct Screen {
     static let width = UIScreen.main.bounds.width
     static let height = UIScreen.main.bounds.height

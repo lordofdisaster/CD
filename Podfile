@@ -19,4 +19,6 @@ target 'Cardee' do
     pod 'FacebookLogin'
     pod 'FacebookShare'
     pod 'Google/SignIn'
+    pod 'Fabric'
+    pod 'Crashlytics'
 end

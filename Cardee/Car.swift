@@ -21,6 +21,7 @@ class Car: NSObject {
     var carDescription: String?
     var latitude: Double!
     var longitude: Double!
+    var payMileage: Float!
     
     // Rental Info
     
@@ -33,22 +34,27 @@ class Car: NSObject {
     // -- Curbside Delivery
     
     var baseRate: Int!
-    var distanceRate: Float!
+    var distanceRate: Int!
     var isProvideFreeDelivery: Bool!
     var rentalDuration: Int!
     
     // -- Rental Rates
     
-    var firstRates: (hourly: Float, daily: Float)!
-    var secondRates: (hourly: Float, daily: Float)!
-    var firstDiscount: (hourly: Float, daily: Float)!
-    var secondDiscount: (hourly: Float, daily: Float)!
+    var firstRates: (hourly: Int, daily: Int)!
+    var secondRates: (hourly: Int, daily: Int)!
+    var firstDiscount: (hourly: Int, daily: Int)!
+    var secondDiscount: (hourly: Int, daily: Int)!
     var minimumRentalDuration: (hourly: Int, daily: Int)!
     
     // -- Fuel Policy
     
     var fuelPolicyId: (hourly: Int, daily: Int)!
     var fuelPolicyName: (hourly: String, daily: String)!
+    
+    // -- Rental Terms
+    
+    var driverExperience: Int!
+    var minimumAge: Int!
     
     override init() {
         super.init()

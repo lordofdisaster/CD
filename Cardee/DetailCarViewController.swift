@@ -12,7 +12,6 @@ import MBProgressHUD
 class DetailCarViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var carId = Int()
     var car = Car()
     
     override func viewDidLoad() {
@@ -22,15 +21,6 @@ class DetailCarViewController: UIViewController {
         self.tableView.estimatedRowHeight = 130.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 71, right: 0)
-        
-        /*
-        MBProgressHUD.showAdded(to: self.view, animated: true)
-        AlamofireManager.getCarWith(id: self.carId) { object, error in
-            MBProgressHUD.hide(for: self.view, animated: true)
-            self.car = object as! Car
-            self.parent?.title = self.car.licensePlateNumber
-            self.tableView.reloadData()
-        }*/
     }
     
     func updateCarInfo(car: Car) {

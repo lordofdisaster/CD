@@ -13,6 +13,9 @@
 		E80CAC881EBB0A3C0087B919 /* MyCarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80CAC871EBB0A3C0087B919 /* MyCarsViewController.swift */; };
 		E80CAC8C1EBB0B030087B919 /* CarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80CAC8B1EBB0B030087B919 /* CarTableViewCell.swift */; };
 		E80CAC8F1EBB52A40087B919 /* Mazda.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E80CAC8E1EBB52A40087B919 /* Mazda.jpg */; };
+		E81437F91EEFE4000089E919 /* EditDetailRentalDeliveryRatesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81437F81EEFE4000089E919 /* EditDetailRentalDeliveryRatesTableViewController.swift */; };
+		E81437FB1EF023370089E919 /* EditDetailRentalRatesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81437FA1EF023370089E919 /* EditDetailRentalRatesTableViewController.swift */; };
+		E81437FD1EF03BFD0089E919 /* EditDetailRentalFuelPolicyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81437FC1EF03BFD0089E919 /* EditDetailRentalFuelPolicyTableViewController.swift */; };
 		E82193E81EE7020A00D14753 /* Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82193E71EE7020A00D14753 /* Methods.swift */; };
 		E82193EB1EE7F63600D14753 /* OwnerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82193EA1EE7F63600D14753 /* OwnerProfile.swift */; };
 		E82193EE1EE7F7F600D14753 /* SimpleCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82193ED1EE7F7F600D14753 /* SimpleCar.swift */; };
@@ -41,6 +44,8 @@
 		E8255AAF1ECDDA290030AFA7 /* ProfileListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8255AAE1ECDDA290030AFA7 /* ProfileListItemTableViewCell.swift */; };
 		E8255AB31ECEDE050030AFA7 /* RenterProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8255AB21ECEDE050030AFA7 /* RenterProfileViewController.swift */; };
 		E8255AB71ECEDECE0030AFA7 /* RenterProfileHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8255AB61ECEDECE0030AFA7 /* RenterProfileHeaderTableViewCell.swift */; };
+		E828253A1EF12A9D0031778B /* EditRentalTermsRequirementsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82825391EF12A9D0031778B /* EditRentalTermsRequirementsTableViewController.swift */; };
+		E828253C1EF1396C0031778B /* EditRentaTermsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E828253B1EF1396C0031778B /* EditRentaTermsTableViewController.swift */; };
 		E82ECFA11EB090F600685F0F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82ECFA01EB090F600685F0F /* SignUpView.swift */; };
 		E85E28091EE572AC00438789 /* AlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85E28081EE572AC00438789 /* AlamofireManager.swift */; };
 		E85E280B1EE6886E00438789 /* NetworkingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85E280A1EE6886E00438789 /* NetworkingConstants.swift */; };
@@ -52,6 +57,8 @@
 		E862A1CD1ED4273300AE84FF /* BrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E862A1CC1ED4273300AE84FF /* BrowseViewController.swift */; };
 		E862A1D01ED430F200AE84FF /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E862A1CF1ED430F200AE84FF /* CalendarViewController.swift */; };
 		E862A1D61ED43E6900AE84FF /* DIYCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E862A1D51ED43E6900AE84FF /* DIYCalendarCell.swift */; };
+		E8665E991EF3CF60001380B1 /* EditRentalRatesWrapperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8665E981EF3CF60001380B1 /* EditRentalRatesWrapperViewController.swift */; };
+		E8665E9C1EF3F608001380B1 /* EditFuelPolicyWrapperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8665E9B1EF3F608001380B1 /* EditFuelPolicyWrapperViewController.swift */; };
 		E873B6E01ED308840031692E /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E873B6DF1ED308840031692E /* ButtonTableViewCell.swift */; };
 		E873B6E21ED30C4D0031692E /* PaymentMethodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E873B6E11ED30C4D0031692E /* PaymentMethodTableViewCell.swift */; };
 		E87F36001EA6036D00AC4DA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F35FF1EA6036D00AC4DA4 /* AppDelegate.swift */; };
@@ -105,6 +112,9 @@
 		E80CAC871EBB0A3C0087B919 /* MyCarsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCarsViewController.swift; sourceTree = "<group>"; };
 		E80CAC8B1EBB0B030087B919 /* CarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarTableViewCell.swift; sourceTree = "<group>"; };
 		E80CAC8E1EBB52A40087B919 /* Mazda.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Mazda.jpg; sourceTree = "<group>"; };
+		E81437F81EEFE4000089E919 /* EditDetailRentalDeliveryRatesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditDetailRentalDeliveryRatesTableViewController.swift; sourceTree = "<group>"; };
+		E81437FA1EF023370089E919 /* EditDetailRentalRatesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditDetailRentalRatesTableViewController.swift; sourceTree = "<group>"; };
+		E81437FC1EF03BFD0089E919 /* EditDetailRentalFuelPolicyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditDetailRentalFuelPolicyTableViewController.swift; sourceTree = "<group>"; };
 		E82193E71EE7020A00D14753 /* Methods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Methods.swift; sourceTree = "<group>"; };
 		E82193EA1EE7F63600D14753 /* OwnerProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerProfile.swift; sourceTree = "<group>"; };
 		E82193ED1EE7F7F600D14753 /* SimpleCar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleCar.swift; sourceTree = "<group>"; };
@@ -133,6 +143,8 @@
 		E8255AAE1ECDDA290030AFA7 /* ProfileListItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileListItemTableViewCell.swift; sourceTree = "<group>"; };
 		E8255AB21ECEDE050030AFA7 /* RenterProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenterProfileViewController.swift; sourceTree = "<group>"; };
 		E8255AB61ECEDECE0030AFA7 /* RenterProfileHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenterProfileHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		E82825391EF12A9D0031778B /* EditRentalTermsRequirementsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditRentalTermsRequirementsTableViewController.swift; sourceTree = "<group>"; };
+		E828253B1EF1396C0031778B /* EditRentaTermsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditRentaTermsTableViewController.swift; sourceTree = "<group>"; };
 		E82ECFA01EB090F600685F0F /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		E85E28081EE572AC00438789 /* AlamofireManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireManager.swift; sourceTree = "<group>"; };
 		E85E280A1EE6886E00438789 /* NetworkingConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingConstants.swift; sourceTree = "<group>"; };
@@ -146,6 +158,8 @@
 		E862A1CF1ED430F200AE84FF /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		E862A1D11ED4318700AE84FF /* Cardee-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cardee-Bridging-Header.h"; sourceTree = "<group>"; };
 		E862A1D51ED43E6900AE84FF /* DIYCalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIYCalendarCell.swift; sourceTree = "<group>"; };
+		E8665E981EF3CF60001380B1 /* EditRentalRatesWrapperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditRentalRatesWrapperViewController.swift; sourceTree = "<group>"; };
+		E8665E9B1EF3F608001380B1 /* EditFuelPolicyWrapperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditFuelPolicyWrapperViewController.swift; sourceTree = "<group>"; };
 		E873B6DF1ED308840031692E /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
 		E873B6E11ED30C4D0031692E /* PaymentMethodTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethodTableViewCell.swift; sourceTree = "<group>"; };
 		E87F35FC1EA6036D00AC4DA4 /* Cardee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cardee.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -261,6 +275,19 @@
 				E80CAC8E1EBB52A40087B919 /* Mazda.jpg */,
 			);
 			name = Temp;
+			sourceTree = "<group>";
+		};
+		E81437F71EEFE3DF0089E919 /* Edit Detail Rental Info */ = {
+			isa = PBXGroup;
+			children = (
+				E8665E9A1EF3D228001380B1 /* Wrappers */,
+				E82825381EF12A7F0031778B /* Rental Terms */,
+				E81437F81EEFE4000089E919 /* EditDetailRentalDeliveryRatesTableViewController.swift */,
+				E81437FA1EF023370089E919 /* EditDetailRentalRatesTableViewController.swift */,
+				E81437FC1EF03BFD0089E919 /* EditDetailRentalFuelPolicyTableViewController.swift */,
+				E828253B1EF1396C0031778B /* EditRentaTermsTableViewController.swift */,
+			);
+			name = "Edit Detail Rental Info";
 			sourceTree = "<group>";
 		};
 		E82193E61EE701FB00D14753 /* Methods */ = {
@@ -418,6 +445,14 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		E82825381EF12A7F0031778B /* Rental Terms */ = {
+			isa = PBXGroup;
+			children = (
+				E82825391EF12A9D0031778B /* EditRentalTermsRequirementsTableViewController.swift */,
+			);
+			name = "Rental Terms";
+			sourceTree = "<group>";
+		};
 		E85E28071EE5729000438789 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -450,6 +485,15 @@
 				E862A1D51ED43E6900AE84FF /* DIYCalendarCell.swift */,
 			);
 			name = Calendar;
+			sourceTree = "<group>";
+		};
+		E8665E9A1EF3D228001380B1 /* Wrappers */ = {
+			isa = PBXGroup;
+			children = (
+				E8665E981EF3CF60001380B1 /* EditRentalRatesWrapperViewController.swift */,
+				E8665E9B1EF3F608001380B1 /* EditFuelPolicyWrapperViewController.swift */,
+			);
+			name = Wrappers;
 			sourceTree = "<group>";
 		};
 		E87F35F31EA6036D00AC4DA4 = {
@@ -496,6 +540,7 @@
 		E87F36141EA6057200AC4DA4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E81437F71EEFE3DF0089E919 /* Edit Detail Rental Info */,
 				E88BC6811EDFD3A700199ECD /* Edit Detail Car Info */,
 				E8EC9F271EDEE5AC004AF6A0 /* Detailed Car */,
 				E862A1CB1ED4272100AE84FF /* Browse */,
@@ -684,6 +729,7 @@
 				E87F35FA1EA6036D00AC4DA4 /* Resources */,
 				7F7E474686335EA1B31DFFC6 /* [CP] Embed Pods Frameworks */,
 				5B2BBD435ADEE33BC0F36C9A /* [CP] Copy Pods Resources */,
+				E8665E9D1EF42431001380B1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -795,6 +841,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		E8665E9D1EF42431001380B1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 43cf398c31857524f204293af184783f906ebe32 2918b7f68a7c3b837bd6cad16b7f8ff0f5b7221bbe52ae3ad1ee8f1336ec4a85\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -812,6 +871,7 @@
 				E8B21B631EB1D66C007E90A9 /* OwnerProfileViewController.swift in Sources */,
 				E8C19CA41EDF41B000BF59F7 /* DetailRentalRatesTableViewCell.swift in Sources */,
 				E8C19C9C1EDEEE6700BF59F7 /* DetailCarInfoTableViewCell.swift in Sources */,
+				E828253C1EF1396C0031778B /* EditRentaTermsTableViewController.swift in Sources */,
 				E823DDBF1EBE47A2006C92DF /* NextButtonView.swift in Sources */,
 				E85E280D1EE6889600438789 /* CustomTypes.swift in Sources */,
 				E8255AAF1ECDDA290030AFA7 /* ProfileListItemTableViewCell.swift in Sources */,
@@ -842,16 +902,20 @@
 				E862A1CD1ED4273300AE84FF /* BrowseViewController.swift in Sources */,
 				E823DDE11EC0B466006C92DF /* AddContactInfoViewController.swift in Sources */,
 				E8B21B681EB1E3B1007E90A9 /* OwnerFeaturesView.swift in Sources */,
+				E81437FB1EF023370089E919 /* EditDetailRentalRatesTableViewController.swift in Sources */,
 				E8EC9F141EDDF86C004AF6A0 /* NewCar.swift in Sources */,
 				E80BD6201EE9596800775CE6 /* Car.swift in Sources */,
 				E8EC9F1E1EDEA9F6004AF6A0 /* CarLocation.swift in Sources */,
 				E8E72B001EB314B500FEC460 /* OwnerCarReviewTableViewCell.swift in Sources */,
+				E8665E9C1EF3F608001380B1 /* EditFuelPolicyWrapperViewController.swift in Sources */,
 				E862A1CA1ED4237C00AE84FF /* SettingsViewController.swift in Sources */,
 				E823DDD71EC05503006C92DF /* HideExactLocationView.swift in Sources */,
 				E823DDD51EC04F24006C92DF /* CarLocationView.swift in Sources */,
 				E8255AAD1ECDDA090030AFA7 /* ProfileHeaderTableViewCell.swift in Sources */,
 				E8C19C9E1EDF0A9300BF59F7 /* DetailRentalViewController.swift in Sources */,
 				E862A1D61ED43E6900AE84FF /* DIYCalendarCell.swift in Sources */,
+				E81437F91EEFE4000089E919 /* EditDetailRentalDeliveryRatesTableViewController.swift in Sources */,
+				E81437FD1EF03BFD0089E919 /* EditDetailRentalFuelPolicyTableViewController.swift in Sources */,
 				E823DDB91EBE235E006C92DF /* AddVehicleTypeViewController.swift in Sources */,
 				E8EC9F201EDEAE6B004AF6A0 /* CarDocuments.swift in Sources */,
 				E8C19CA21EDF418100BF59F7 /* DetailRentalSettingsTableViewCell.swift in Sources */,
@@ -866,6 +930,7 @@
 				E8255AB71ECEDECE0030AFA7 /* RenterProfileHeaderTableViewCell.swift in Sources */,
 				E8E72AFE1EB309E900FEC460 /* OwnerDescriptionTableViewCell.swift in Sources */,
 				E80CAC8C1EBB0B030087B919 /* CarTableViewCell.swift in Sources */,
+				E8665E991EF3CF60001380B1 /* EditRentalRatesWrapperViewController.swift in Sources */,
 				E8C19CA81EDF420000BF59F7 /* DetailRentalTermsTableViewCell.swift in Sources */,
 				E87F361E1EA6112500AC4DA4 /* LoginTextField.swift in Sources */,
 				E85E280F1EE688C800438789 /* ControllersConstants.swift in Sources */,
@@ -874,6 +939,7 @@
 				E87F36171EA6059500AC4DA4 /* LoginView.swift in Sources */,
 				E87F36001EA6036D00AC4DA4 /* AppDelegate.swift in Sources */,
 				E823DDC41EBF6A53006C92DF /* InsuranceInfoTableViewCell.swift in Sources */,
+				E828253A1EF12A9D0031778B /* EditRentalTermsRequirementsTableViewController.swift in Sources */,
 				E85E28121EE69A8500438789 /* CardeeAlert.swift in Sources */,
 				E823DDD21EBFB592006C92DF /* AddCarLocationViewController.swift in Sources */,
 				E823DDDB1EC09651006C92DF /* AddDocumentsTableViewCell.swift in Sources */,

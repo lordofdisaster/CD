@@ -14,6 +14,7 @@ class DetailRentalRatesTableViewCell: UITableViewCell {
     @IBOutlet weak var firstRateLabel: UILabel!
     @IBOutlet weak var secondRateLabel: UILabel!
     @IBOutlet weak var firstDiscountLabel: UILabel!
+    @IBOutlet weak var secondDiscountLabel: UILabel!
     @IBOutlet weak var ratesEditButton: UIButton!
     
     override func awakeFromNib() {

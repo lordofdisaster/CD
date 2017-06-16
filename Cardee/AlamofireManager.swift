@@ -97,7 +97,7 @@ class AlamofireManager: NSObject {
     //MARK: Cars
     
     class func addCar(completionHandler: booleanCompletionHandler? = nil) {
-    
+        
         let parameters = [
             "type_vehicle_id": NewCar.shared.vehicleType!.rawValue,
             "is_insurance_comprehensive": NewCar.shared.insuranceInfo!.comprehensiveInsurance,
@@ -120,7 +120,7 @@ class AlamofireManager: NSObject {
             
             "longitude": NewCar.shared.carLocation!.carLocationCoordinate!.longitude,
             "latitude": NewCar.shared.carLocation!.carLocationCoordinate!.latitude,
-            "town": NewCar.shared.carLocation!.town!,
+            "town": NewCar.shared.carLocation!.address!,
             "address": NewCar.shared.carLocation!.address!,
             "is_hide_exact_location": NewCar.shared.carLocation!.isExactLocationHidden!,            
             "car_documents": "",//NewCar.shared.carDocuments!.vehicleLogCard, //TO DO
@@ -181,24 +181,29 @@ class AlamofireManager: NSObject {
                 
                 // Curbside Delivery
                 
-                car.baseRate = result["data"]["delivery_rates"]["base_rate"].intValue
-                car.distanceRate = result["data"]["delivery_rates"]["distance_rate"].floatValue
+                car.baseRate = result["data"]["car_details"]["delivery_rates"]["base_rate"].intValue
+                car.distanceRate = result["data"]["car_details"]["delivery_rates"]["distance_rate"].intValue
                 car.isProvideFreeDelivery = result["data"]["delivery_rates"]["is_provide_free_delivery"].boolValue
-                car.rentalDuration = result["data"]["delivery_rates"]["rental_duration"].intValue
+                car.rentalDuration = result["data"]["car_details"]["delivery_rates"]["rental_duration"].intValue
                 
                 // Rental Rates
                 
-                car.firstRates = (hourly: result["data"]["order_hourly_details"]["amnt_rate_first"].floatValue, daily: result["data"]["order_daily_details"]["amnt_rate_first"].floatValue)
-                car.secondRates = (hourly: result["data"]["order_hourly_details"]["amnt_rate_second"].floatValue, daily: result["data"]["order_daily_details"]["amnt_rate_second"].floatValue)
-                car.firstDiscount = (hourly: result["data"]["order_hourly_details"]["amnt_discount_first"].floatValue, daily: result["data"]["order_daily_details"]["amnt_discount_first"].floatValue)
-                car.secondDiscount = (hourly: result["data"]["order_hourly_details"]["amnt_discount_second"].floatValue, daily: result["data"]["order_daily_details"]["amnt_discount_second"].floatValue)
+                car.firstRates = (hourly: result["data"]["order_hourly_details"]["amnt_rate_first"].intValue, daily: result["data"]["order_daily_details"]["amnt_rate_first"].intValue)
+                car.secondRates = (hourly: result["data"]["order_hourly_details"]["amnt_rate_second"].intValue, daily: result["data"]["order_daily_details"]["amnt_rate_second"].intValue)
+                car.firstDiscount = (hourly: result["data"]["order_hourly_details"]["amnt_discount_first"].intValue, daily: result["data"]["order_daily_details"]["amnt_discount_first"].intValue)
+                car.secondDiscount = (hourly: result["data"]["order_hourly_details"]["amnt_discount_second"].intValue, daily: result["data"]["order_daily_details"]["amnt_discount_second"].intValue)
                 car.minimumRentalDuration = (hourly: result["data"]["order_hourly_details"]["min_rental_duration"].intValue, daily: result["data"]["order_daily_details"]["min_rental_duration"].intValue)
                 
                 // Fuel Policy
                 
                 car.fuelPolicyId = (hourly: result["data"]["order_hourly_details"]["fuel_policy"]["fuel_policy_id"].intValue, daily: result["data"]["order_daily_details"]["fuel_policy"]["fuel_policy_id"].intValue)
                 car.fuelPolicyName = (hourly: result["data"]["order_hourly_details"]["fuel_policy"]["fuel_policy_name"].stringValue, result["data"]["order_daily_details"]["fuel_policy"]["fuel_policy_name"].stringValue)
+                car.payMileage = result["data"]["order_hourly_details"]["amnt_pay_mileage"].float
                 
+                // Rental Terms
+                
+                car.driverExperience = result["data"]["car_details"]["req_dr_exp"].intValue
+                car.minimumAge = result["data"]["car_details"]["req_min_age"].intValue
                 
                 completionHandler!(car, nil)
             } else {
@@ -252,25 +257,24 @@ class AlamofireManager: NSObject {
     
     class func changeDailyRentaInfoFor(car: Car, completinHandler: booleanCompletionHandler? = nil) {
         
-        
-        let url = baseUrl + apiEndpoints.cars + "/\(car.carId)" + apiEndpoints.changeDailyRentalInfo
+        let url = baseUrl + apiEndpoints.cars + "/\(car.carId!)" + apiEndpoints.changeDailyRentalInfo
         
         let headers = [
             "Authorization": self.keychain.get("access_token")!
         ]
         let parameters = [
-            "is_instant_booking": true,
-            "is_curbside_delivery": true,
-            "is_accept_cash": true,
-            "fuel_policy_id": 1,/// references/fuel_policy
-            "rate_first": 60.0,
-            "rate_second": 20.0,
-            "amnt_discount_first": 10.0,
-            "amnt_discount_second": 10.0,
-            "min_rental_duration": 5,
-            "time_pickup": Date(),
-            "time_return": Date(),
-            "amnt_pay_mileage": 5
+            "is_instant_booking": car.isInstantBooking.daily,
+            "is_curbside_delivery": car.isCurbsideDelivery.daily,
+            "is_accept_cash": car.isAcceptCash.daily,
+            "fuel_policy_id": car.fuelPolicyId.daily, //references/fuel_policy
+            "amnt_rate_first": car.firstRates.daily,
+            "amnt_rate_second": car.secondRates.daily,
+            "amnt_discount_first": car.firstDiscount.daily,
+            "amnt_discount_second": car.secondDiscount.daily,
+            "min_rental_duration": car.minimumRentalDuration.daily,
+            //"time_pickup": Date(), // TO DO
+            //"time_return": Date(), // TO DO
+            "amnt_pay_mileage": car.baseRate // TO DO
         ] as [String : Any]
         
         SharedManager.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
@@ -281,6 +285,98 @@ class AlamofireManager: NSObject {
                 completinHandler!(false, result["data"]["errors"]["description"].stringValue)
             }
         }
+    }
+    
+    class func changeHourlyRentaInfoFor(car: Car, completinHandler: booleanCompletionHandler? = nil) {
+        
+        let url = baseUrl + apiEndpoints.cars + "/\(car.carId!)" + apiEndpoints.changeHourlyRentalInfo
+        
+        let headers = [
+            "Authorization": self.keychain.get("access_token")!
+        ]
+        let parameters = [
+            "is_instant_booking": car.isInstantBooking.hourly,
+            "is_curbside_delivery": car.isCurbsideDelivery.hourly,
+            "is_accept_cash": car.isAcceptCash.hourly,
+            "fuel_policy_id": car.fuelPolicyId.hourly,
+            "amnt_rate_first": car.firstRates.hourly,
+            "amnt_rate_second": car.secondRates.hourly,
+            "min_rental_duration": car.minimumRentalDuration.hourly,
+            "amnt_pay_mileage": car.payMileage,
+            "amnt_discount_first": car.firstDiscount.hourly,
+            "amnt_discount_second": car.secondDiscount.hourly
+            //"time_pickup": Date(),
+            //"time_return": Date()
+        ] as [String : Any]
+        
+        SharedManager.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            let result = JSON(response.data!)
+            if result["success"].boolValue {
+                completinHandler!(true, nil)
+            } else {
+                completinHandler!(false, result["data"]["errors"]["description"].stringValue)
+            }
+        }
+    }
+    
+    class func changeRentalDeliveryRatesFor(car: Car, completinHandler: booleanCompletionHandler? = nil) {
+        
+        let url = baseUrl + apiEndpoints.cars + "/\(car.carId!)" + apiEndpoints.changeDeliveryRates
+        
+        let headers = [
+            "Authorization": self.keychain.get("access_token")!
+        ]
+        
+        let parameters = [
+            "is_provide_free_delivery": car.isProvideFreeDelivery,
+            "base_rate": car.baseRate,
+            "distance_rate": car.distanceRate,
+            "rental_duration": car.rentalDuration
+        ] as [String : Any]
+        
+        SharedManager.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            let result = JSON(response.data!)
+            if result["success"].boolValue {
+                completinHandler!(true, nil)
+            } else {
+                completinHandler!(false, result["data"]["errors"]["description"].stringValue)
+            }
+        }
+    }
+    
+    class func changeRentalTermsFor(car: Car, completinHandler: booleanCompletionHandler? = nil) {
+        
+        let url = baseUrl + apiEndpoints.cars + "/\(car.carId!)" + apiEndpoints.changeRentalTerms
+        
+        let headers = [
+            "Authorization": self.keychain.get("access_token")!
+        ]
+        
+        let parameters = [
+            "insurance_min_age": 1,
+            "insurance_min_year_dr_exp": 2,
+            
+            "is_req_security_deposit": true,
+            "security_deposit_description": "",
+            
+            "compensation_excess": "",
+            "compensation_other_guidelines": "",
+            
+            "add_ons": "",
+        
+            "additional_terms": ""
+            ] as [String : Any]
+        
+        SharedManager.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            let result = JSON(response.data!)
+            if result["success"].boolValue {
+                completinHandler!(true, nil)
+            } else {
+                completinHandler!(false, result["data"]["errors"]["description"].stringValue)
+            }
+        }
+        
+        
     }
 
     //MARK: Profile

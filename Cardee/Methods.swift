@@ -17,9 +17,10 @@ class Methods: NSObject {
     }
     
     class func encodeImageToBase64(image: UIImage) -> String {
-        let imageData: NSData = UIImagePNGRepresentation(image)! as NSData
+        let imageData: NSData = UIImageJPEGRepresentation(image, 0.1)! as NSData
         let imageStringRepresentation = imageData.base64EncodedString(options: .lineLength64Characters)
         return imageStringRepresentation
     }
 
 }
+
