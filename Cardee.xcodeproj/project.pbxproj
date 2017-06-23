@@ -46,6 +46,35 @@
 		E8255AB71ECEDECE0030AFA7 /* RenterProfileHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8255AB61ECEDECE0030AFA7 /* RenterProfileHeaderTableViewCell.swift */; };
 		E828253A1EF12A9D0031778B /* EditRentalTermsRequirementsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82825391EF12A9D0031778B /* EditRentalTermsRequirementsTableViewController.swift */; };
 		E828253C1EF1396C0031778B /* EditRentaTermsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E828253B1EF1396C0031778B /* EditRentaTermsTableViewController.swift */; };
+		E82DA8FE1EFD1034005E257A /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DA8EF1EFD1034005E257A /* CAPSPageMenu.swift */; };
+		E82DA8FF1EFD1034005E257A /* CAPSPageMenu+Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DA8F01EFD1034005E257A /* CAPSPageMenu+Options.swift */; };
+		E82DA9001EFD1034005E257A /* CAPSPageMenu+UIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DA8F11EFD1034005E257A /* CAPSPageMenu+UIConfiguration.swift */; };
+		E82DA9011EFD1034005E257A /* CAPSPageMenu+UIGestureRecognizerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DA8F21EFD1034005E257A /* CAPSPageMenu+UIGestureRecognizerDelegate.swift */; };
+		E82DA9021EFD1034005E257A /* CAPSPageMenu+UIScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DA8F31EFD1034005E257A /* CAPSPageMenu+UIScrollViewDelegate.swift */; };
+		E82DA9031EFD1034005E257A /* CAPSPageMenuConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DA8F41EFD1034005E257A /* CAPSPageMenuConfiguration.swift */; };
+		E82DA9041EFD1034005E257A /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82DA8F51EFD1034005E257A /* MenuItemView.swift */; };
+		E82DA9051EFD1034005E257A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E82DA8F61EFD1034005E257A /* Info.plist */; };
+		E82DA9061EFD1034005E257A /* PageMenu.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = E82DA8F81EFD1034005E257A /* PageMenu.xcconfig */; };
+		E82DA9071EFD1034005E257A /* PageMenu-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E82DA8F91EFD1034005E257A /* PageMenu-dummy.m */; };
+		E82DA9301EFD1062005E257A /* FSCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = E82DA9091EFD1062005E257A /* FSCalendar.m */; };
+		E82DA9311EFD1062005E257A /* FSCalendar+Deprecated.m in Sources */ = {isa = PBXBuildFile; fileRef = E82DA90A1EFD1062005E257A /* FSCalendar+Deprecated.m */; };
+		E82DA9321EFD1062005E257A /* FSCalendarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = E82DA90C1EFD1062005E257A /* FSCalendarAppearance.m */; };
+		E82DA9331EFD1062005E257A /* FSCalendarCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = E82DA90E1EFD1062005E257A /* FSCalendarCalculator.m */; };
+		E82DA9341EFD1062005E257A /* FSCalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E82DA9101EFD1062005E257A /* FSCalendarCell.m */; };
+		E82DA9351EFD1062005E257A /* FSCalendarCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E82DA9121EFD1062005E257A /* FSCalendarCollectionView.m */; };
+		E82DA9361EFD1062005E257A /* FSCalendarCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E82DA9141EFD1062005E257A /* FSCalendarCollectionViewLayout.m */; };
+		E82DA9371EFD1062005E257A /* FSCalendarConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = E82DA9161EFD1062005E257A /* FSCalendarConstants.m */; };
+		E82DA9381EFD1062005E257A /* FSCalendarDelegationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E82DA9181EFD1062005E257A /* FSCalendarDelegationFactory.m */; };
+		E82DA9391EFD1062005E257A /* FSCalendarDelegationProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = E82DA91A1EFD1062005E257A /* FSCalendarDelegationProxy.m */; };
+		E82DA93A1EFD1062005E257A /* FSCalendarExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E82DA91D1EFD1062005E257A /* FSCalendarExtensions.m */; };
+		E82DA93B1EFD1062005E257A /* FSCalendarHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E82DA91F1EFD1062005E257A /* FSCalendarHeaderView.m */; };
+		E82DA93C1EFD1062005E257A /* FSCalendarScopeHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = E82DA9211EFD1062005E257A /* FSCalendarScopeHandle.m */; };
+		E82DA93D1EFD1062005E257A /* FSCalendarStickyHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E82DA9231EFD1062005E257A /* FSCalendarStickyHeader.m */; };
+		E82DA93E1EFD1062005E257A /* FSCalendarTransitionCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = E82DA9251EFD1062005E257A /* FSCalendarTransitionCoordinator.m */; };
+		E82DA93F1EFD1062005E257A /* FSCalendarWeekdayView.m in Sources */ = {isa = PBXBuildFile; fileRef = E82DA9271EFD1062005E257A /* FSCalendarWeekdayView.m */; };
+		E82DA9401EFD1062005E257A /* FSCalendar.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = E82DA9291EFD1062005E257A /* FSCalendar.xcconfig */; };
+		E82DA9411EFD1062005E257A /* FSCalendar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E82DA92A1EFD1062005E257A /* FSCalendar-dummy.m */; };
+		E82DA9421EFD1062005E257A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E82DA92D1EFD1062005E257A /* Info.plist */; };
 		E82ECFA11EB090F600685F0F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82ECFA01EB090F600685F0F /* SignUpView.swift */; };
 		E85E28091EE572AC00438789 /* AlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85E28081EE572AC00438789 /* AlamofireManager.swift */; };
 		E85E280B1EE6886E00438789 /* NetworkingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85E280A1EE6886E00438789 /* NetworkingConstants.swift */; };
@@ -87,6 +116,7 @@
 		E8C19CA41EDF41B000BF59F7 /* DetailRentalRatesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C19CA31EDF41B000BF59F7 /* DetailRentalRatesTableViewCell.swift */; };
 		E8C19CA61EDF41D700BF59F7 /* DetailRentalFuelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C19CA51EDF41D700BF59F7 /* DetailRentalFuelTableViewCell.swift */; };
 		E8C19CA81EDF420000BF59F7 /* DetailRentalTermsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C19CA71EDF420000BF59F7 /* DetailRentalTermsTableViewCell.swift */; };
+		E8E30CB81EF80A5B000ED5F7 /* CardeePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E30CB71EF80A5B000ED5F7 /* CardeePickerViewController.swift */; };
 		E8E72AFE1EB309E900FEC460 /* OwnerDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E72AFD1EB309E900FEC460 /* OwnerDescriptionTableViewCell.swift */; };
 		E8E72B001EB314B500FEC460 /* OwnerCarReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E72AFF1EB314B500FEC460 /* OwnerCarReviewTableViewCell.swift */; };
 		E8E72B021EB32AE900FEC460 /* OwnerCarsCarouselTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E72B011EB32AE900FEC460 /* OwnerCarsCarouselTableViewCell.swift */; };
@@ -145,6 +175,57 @@
 		E8255AB61ECEDECE0030AFA7 /* RenterProfileHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenterProfileHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		E82825391EF12A9D0031778B /* EditRentalTermsRequirementsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditRentalTermsRequirementsTableViewController.swift; sourceTree = "<group>"; };
 		E828253B1EF1396C0031778B /* EditRentaTermsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditRentaTermsTableViewController.swift; sourceTree = "<group>"; };
+		E82DA8EF1EFD1034005E257A /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CAPSPageMenu.swift; path = Classes/CAPSPageMenu.swift; sourceTree = "<group>"; };
+		E82DA8F01EFD1034005E257A /* CAPSPageMenu+Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CAPSPageMenu+Options.swift"; path = "Classes/CAPSPageMenu+Options.swift"; sourceTree = "<group>"; };
+		E82DA8F11EFD1034005E257A /* CAPSPageMenu+UIConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CAPSPageMenu+UIConfiguration.swift"; path = "Classes/CAPSPageMenu+UIConfiguration.swift"; sourceTree = "<group>"; };
+		E82DA8F21EFD1034005E257A /* CAPSPageMenu+UIGestureRecognizerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CAPSPageMenu+UIGestureRecognizerDelegate.swift"; path = "Classes/CAPSPageMenu+UIGestureRecognizerDelegate.swift"; sourceTree = "<group>"; };
+		E82DA8F31EFD1034005E257A /* CAPSPageMenu+UIScrollViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CAPSPageMenu+UIScrollViewDelegate.swift"; path = "Classes/CAPSPageMenu+UIScrollViewDelegate.swift"; sourceTree = "<group>"; };
+		E82DA8F41EFD1034005E257A /* CAPSPageMenuConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CAPSPageMenuConfiguration.swift; path = Classes/CAPSPageMenuConfiguration.swift; sourceTree = "<group>"; };
+		E82DA8F51EFD1034005E257A /* MenuItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuItemView.swift; path = Classes/MenuItemView.swift; sourceTree = "<group>"; };
+		E82DA8F61EFD1034005E257A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E82DA8F71EFD1034005E257A /* PageMenu.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = PageMenu.modulemap; sourceTree = "<group>"; };
+		E82DA8F81EFD1034005E257A /* PageMenu.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = PageMenu.xcconfig; sourceTree = "<group>"; };
+		E82DA8F91EFD1034005E257A /* PageMenu-dummy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PageMenu-dummy.m"; sourceTree = "<group>"; };
+		E82DA8FA1EFD1034005E257A /* PageMenu-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PageMenu-prefix.pch"; sourceTree = "<group>"; };
+		E82DA8FB1EFD1034005E257A /* PageMenu-umbrella.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PageMenu-umbrella.h"; sourceTree = "<group>"; };
+		E82DA9081EFD1062005E257A /* FSCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSCalendar.h; path = FSCalendar/FSCalendar.h; sourceTree = "<group>"; };
+		E82DA9091EFD1062005E257A /* FSCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSCalendar.m; path = FSCalendar/FSCalendar.m; sourceTree = "<group>"; };
+		E82DA90A1EFD1062005E257A /* FSCalendar+Deprecated.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "FSCalendar+Deprecated.m"; path = "FSCalendar/FSCalendar+Deprecated.m"; sourceTree = "<group>"; };
+		E82DA90B1EFD1062005E257A /* FSCalendarAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSCalendarAppearance.h; path = FSCalendar/FSCalendarAppearance.h; sourceTree = "<group>"; };
+		E82DA90C1EFD1062005E257A /* FSCalendarAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSCalendarAppearance.m; path = FSCalendar/FSCalendarAppearance.m; sourceTree = "<group>"; };
+		E82DA90D1EFD1062005E257A /* FSCalendarCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSCalendarCalculator.h; path = FSCalendar/FSCalendarCalculator.h; sourceTree = "<group>"; };
+		E82DA90E1EFD1062005E257A /* FSCalendarCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSCalendarCalculator.m; path = FSCalendar/FSCalendarCalculator.m; sourceTree = "<group>"; };
+		E82DA90F1EFD1062005E257A /* FSCalendarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSCalendarCell.h; path = FSCalendar/FSCalendarCell.h; sourceTree = "<group>"; };
+		E82DA9101EFD1062005E257A /* FSCalendarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSCalendarCell.m; path = FSCalendar/FSCalendarCell.m; sourceTree = "<group>"; };
+		E82DA9111EFD1062005E257A /* FSCalendarCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSCalendarCollectionView.h; path = FSCalendar/FSCalendarCollectionView.h; sourceTree = "<group>"; };
+		E82DA9121EFD1062005E257A /* FSCalendarCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSCalendarCollectionView.m; path = FSCalendar/FSCalendarCollectionView.m; sourceTree = "<group>"; };
+		E82DA9131EFD1062005E257A /* FSCalendarCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSCalendarCollectionViewLayout.h; path = FSCalendar/FSCalendarCollectionViewLayout.h; sourceTree = "<group>"; };
+		E82DA9141EFD1062005E257A /* FSCalendarCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSCalendarCollectionViewLayout.m; path = FSCalendar/FSCalendarCollectionViewLayout.m; sourceTree = "<group>"; };
+		E82DA9151EFD1062005E257A /* FSCalendarConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSCalendarConstants.h; path = FSCalendar/FSCalendarConstants.h; sourceTree = "<group>"; };
+		E82DA9161EFD1062005E257A /* FSCalendarConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSCalendarConstants.m; path = FSCalendar/FSCalendarConstants.m; sourceTree = "<group>"; };
+		E82DA9171EFD1062005E257A /* FSCalendarDelegationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSCalendarDelegationFactory.h; path = FSCalendar/FSCalendarDelegationFactory.h; sourceTree = "<group>"; };
+		E82DA9181EFD1062005E257A /* FSCalendarDelegationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSCalendarDelegationFactory.m; path = FSCalendar/FSCalendarDelegationFactory.m; sourceTree = "<group>"; };
+		E82DA9191EFD1062005E257A /* FSCalendarDelegationProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSCalendarDelegationProxy.h; path = FSCalendar/FSCalendarDelegationProxy.h; sourceTree = "<group>"; };
+		E82DA91A1EFD1062005E257A /* FSCalendarDelegationProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSCalendarDelegationProxy.m; path = FSCalendar/FSCalendarDelegationProxy.m; sourceTree = "<group>"; };
+		E82DA91B1EFD1062005E257A /* FSCalendarDynamicHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSCalendarDynamicHeader.h; path = FSCalendar/FSCalendarDynamicHeader.h; sourceTree = "<group>"; };
+		E82DA91C1EFD1062005E257A /* FSCalendarExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSCalendarExtensions.h; path = FSCalendar/FSCalendarExtensions.h; sourceTree = "<group>"; };
+		E82DA91D1EFD1062005E257A /* FSCalendarExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSCalendarExtensions.m; path = FSCalendar/FSCalendarExtensions.m; sourceTree = "<group>"; };
+		E82DA91E1EFD1062005E257A /* FSCalendarHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSCalendarHeaderView.h; path = FSCalendar/FSCalendarHeaderView.h; sourceTree = "<group>"; };
+		E82DA91F1EFD1062005E257A /* FSCalendarHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSCalendarHeaderView.m; path = FSCalendar/FSCalendarHeaderView.m; sourceTree = "<group>"; };
+		E82DA9201EFD1062005E257A /* FSCalendarScopeHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSCalendarScopeHandle.h; path = FSCalendar/FSCalendarScopeHandle.h; sourceTree = "<group>"; };
+		E82DA9211EFD1062005E257A /* FSCalendarScopeHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSCalendarScopeHandle.m; path = FSCalendar/FSCalendarScopeHandle.m; sourceTree = "<group>"; };
+		E82DA9221EFD1062005E257A /* FSCalendarStickyHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSCalendarStickyHeader.h; path = FSCalendar/FSCalendarStickyHeader.h; sourceTree = "<group>"; };
+		E82DA9231EFD1062005E257A /* FSCalendarStickyHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSCalendarStickyHeader.m; path = FSCalendar/FSCalendarStickyHeader.m; sourceTree = "<group>"; };
+		E82DA9241EFD1062005E257A /* FSCalendarTransitionCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSCalendarTransitionCoordinator.h; path = FSCalendar/FSCalendarTransitionCoordinator.h; sourceTree = "<group>"; };
+		E82DA9251EFD1062005E257A /* FSCalendarTransitionCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSCalendarTransitionCoordinator.m; path = FSCalendar/FSCalendarTransitionCoordinator.m; sourceTree = "<group>"; };
+		E82DA9261EFD1062005E257A /* FSCalendarWeekdayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FSCalendarWeekdayView.h; path = FSCalendar/FSCalendarWeekdayView.h; sourceTree = "<group>"; };
+		E82DA9271EFD1062005E257A /* FSCalendarWeekdayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FSCalendarWeekdayView.m; path = FSCalendar/FSCalendarWeekdayView.m; sourceTree = "<group>"; };
+		E82DA9281EFD1062005E257A /* FSCalendar.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = FSCalendar.modulemap; sourceTree = "<group>"; };
+		E82DA9291EFD1062005E257A /* FSCalendar.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = FSCalendar.xcconfig; sourceTree = "<group>"; };
+		E82DA92A1EFD1062005E257A /* FSCalendar-dummy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FSCalendar-dummy.m"; sourceTree = "<group>"; };
+		E82DA92B1EFD1062005E257A /* FSCalendar-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FSCalendar-prefix.pch"; sourceTree = "<group>"; };
+		E82DA92C1EFD1062005E257A /* FSCalendar-umbrella.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FSCalendar-umbrella.h"; sourceTree = "<group>"; };
+		E82DA92D1EFD1062005E257A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E82ECFA01EB090F600685F0F /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		E85E28081EE572AC00438789 /* AlamofireManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireManager.swift; sourceTree = "<group>"; };
 		E85E280A1EE6886E00438789 /* NetworkingConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingConstants.swift; sourceTree = "<group>"; };
@@ -190,6 +271,7 @@
 		E8C19CA31EDF41B000BF59F7 /* DetailRentalRatesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRentalRatesTableViewCell.swift; sourceTree = "<group>"; };
 		E8C19CA51EDF41D700BF59F7 /* DetailRentalFuelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRentalFuelTableViewCell.swift; sourceTree = "<group>"; };
 		E8C19CA71EDF420000BF59F7 /* DetailRentalTermsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRentalTermsTableViewCell.swift; sourceTree = "<group>"; };
+		E8E30CB71EF80A5B000ED5F7 /* CardeePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardeePickerViewController.swift; sourceTree = "<group>"; };
 		E8E72AFD1EB309E900FEC460 /* OwnerDescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		E8E72AFF1EB314B500FEC460 /* OwnerCarReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerCarReviewTableViewCell.swift; sourceTree = "<group>"; };
 		E8E72B011EB32AE900FEC460 /* OwnerCarsCarouselTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerCarsCarouselTableViewCell.swift; sourceTree = "<group>"; };
@@ -357,6 +439,7 @@
 		E823DDC01EBE530C006C92DF /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				E8E30CB51EF80A3B000ED5F7 /* Cardee Picker */,
 				E82193E61EE701FB00D14753 /* Methods */,
 				E85E28101EE69A3100438789 /* Alerts */,
 				E823DDD01EBFA78B006C92DF /* Add Car */,
@@ -453,6 +536,91 @@
 			name = "Rental Terms";
 			sourceTree = "<group>";
 		};
+		E82DA8FC1EFD1034005E257A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E82DA8F61EFD1034005E257A /* Info.plist */,
+				E82DA8F71EFD1034005E257A /* PageMenu.modulemap */,
+				E82DA8F81EFD1034005E257A /* PageMenu.xcconfig */,
+				E82DA8F91EFD1034005E257A /* PageMenu-dummy.m */,
+				E82DA8FA1EFD1034005E257A /* PageMenu-prefix.pch */,
+				E82DA8FB1EFD1034005E257A /* PageMenu-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/PageMenu";
+			sourceTree = "<group>";
+		};
+		E82DA8FD1EFD1034005E257A /* PageMenu */ = {
+			isa = PBXGroup;
+			children = (
+				E82DA8EF1EFD1034005E257A /* CAPSPageMenu.swift */,
+				E82DA8F01EFD1034005E257A /* CAPSPageMenu+Options.swift */,
+				E82DA8F11EFD1034005E257A /* CAPSPageMenu+UIConfiguration.swift */,
+				E82DA8F21EFD1034005E257A /* CAPSPageMenu+UIGestureRecognizerDelegate.swift */,
+				E82DA8F31EFD1034005E257A /* CAPSPageMenu+UIScrollViewDelegate.swift */,
+				E82DA8F41EFD1034005E257A /* CAPSPageMenuConfiguration.swift */,
+				E82DA8F51EFD1034005E257A /* MenuItemView.swift */,
+				E82DA8FC1EFD1034005E257A /* Support Files */,
+			);
+			name = PageMenu;
+			path = Pods/PageMenu;
+			sourceTree = "<group>";
+		};
+		E82DA92E1EFD1062005E257A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E82DA9281EFD1062005E257A /* FSCalendar.modulemap */,
+				E82DA9291EFD1062005E257A /* FSCalendar.xcconfig */,
+				E82DA92A1EFD1062005E257A /* FSCalendar-dummy.m */,
+				E82DA92B1EFD1062005E257A /* FSCalendar-prefix.pch */,
+				E82DA92C1EFD1062005E257A /* FSCalendar-umbrella.h */,
+				E82DA92D1EFD1062005E257A /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/FSCalendar";
+			sourceTree = "<group>";
+		};
+		E82DA92F1EFD1062005E257A /* FSCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				E82DA9081EFD1062005E257A /* FSCalendar.h */,
+				E82DA9091EFD1062005E257A /* FSCalendar.m */,
+				E82DA90A1EFD1062005E257A /* FSCalendar+Deprecated.m */,
+				E82DA90B1EFD1062005E257A /* FSCalendarAppearance.h */,
+				E82DA90C1EFD1062005E257A /* FSCalendarAppearance.m */,
+				E82DA90D1EFD1062005E257A /* FSCalendarCalculator.h */,
+				E82DA90E1EFD1062005E257A /* FSCalendarCalculator.m */,
+				E82DA90F1EFD1062005E257A /* FSCalendarCell.h */,
+				E82DA9101EFD1062005E257A /* FSCalendarCell.m */,
+				E82DA9111EFD1062005E257A /* FSCalendarCollectionView.h */,
+				E82DA9121EFD1062005E257A /* FSCalendarCollectionView.m */,
+				E82DA9131EFD1062005E257A /* FSCalendarCollectionViewLayout.h */,
+				E82DA9141EFD1062005E257A /* FSCalendarCollectionViewLayout.m */,
+				E82DA9151EFD1062005E257A /* FSCalendarConstants.h */,
+				E82DA9161EFD1062005E257A /* FSCalendarConstants.m */,
+				E82DA9171EFD1062005E257A /* FSCalendarDelegationFactory.h */,
+				E82DA9181EFD1062005E257A /* FSCalendarDelegationFactory.m */,
+				E82DA9191EFD1062005E257A /* FSCalendarDelegationProxy.h */,
+				E82DA91A1EFD1062005E257A /* FSCalendarDelegationProxy.m */,
+				E82DA91B1EFD1062005E257A /* FSCalendarDynamicHeader.h */,
+				E82DA91C1EFD1062005E257A /* FSCalendarExtensions.h */,
+				E82DA91D1EFD1062005E257A /* FSCalendarExtensions.m */,
+				E82DA91E1EFD1062005E257A /* FSCalendarHeaderView.h */,
+				E82DA91F1EFD1062005E257A /* FSCalendarHeaderView.m */,
+				E82DA9201EFD1062005E257A /* FSCalendarScopeHandle.h */,
+				E82DA9211EFD1062005E257A /* FSCalendarScopeHandle.m */,
+				E82DA9221EFD1062005E257A /* FSCalendarStickyHeader.h */,
+				E82DA9231EFD1062005E257A /* FSCalendarStickyHeader.m */,
+				E82DA9241EFD1062005E257A /* FSCalendarTransitionCoordinator.h */,
+				E82DA9251EFD1062005E257A /* FSCalendarTransitionCoordinator.m */,
+				E82DA9261EFD1062005E257A /* FSCalendarWeekdayView.h */,
+				E82DA9271EFD1062005E257A /* FSCalendarWeekdayView.m */,
+				E82DA92E1EFD1062005E257A /* Support Files */,
+			);
+			name = FSCalendar;
+			path = Pods/FSCalendar;
+			sourceTree = "<group>";
+		};
 		E85E28071EE5729000438789 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -500,6 +668,8 @@
 			isa = PBXGroup;
 			children = (
 				E87F35FE1EA6036D00AC4DA4 /* Cardee */,
+				E82DA8FD1EFD1034005E257A /* PageMenu */,
+				E82DA92F1EFD1062005E257A /* FSCalendar */,
 				E87F35FD1EA6036D00AC4DA4 /* Products */,
 				0B53410537C83A1AB9BC07AE /* Pods */,
 				92324F2467F2CCB49AF1A331 /* Frameworks */,
@@ -662,6 +832,14 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		E8E30CB51EF80A3B000ED5F7 /* Cardee Picker */ = {
+			isa = PBXGroup;
+			children = (
+				E8E30CB71EF80A5B000ED5F7 /* CardeePickerViewController.swift */,
+			);
+			name = "Cardee Picker";
+			sourceTree = "<group>";
+		};
 		E8E72AFC1EB309BF00FEC460 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -787,9 +965,13 @@
 			files = (
 				E87F360D1EA6036D00AC4DA4 /* LaunchScreen.storyboard in Resources */,
 				E87F360A1EA6036D00AC4DA4 /* Assets.xcassets in Resources */,
+				E82DA9421EFD1062005E257A /* Info.plist in Resources */,
+				E82DA9051EFD1034005E257A /* Info.plist in Resources */,
 				E85E28151EE6C61E00438789 /* GoogleService-Info.plist in Resources */,
 				E80CAC8F1EBB52A40087B919 /* Mazda.jpg in Resources */,
+				E82DA9401EFD1062005E257A /* FSCalendar.xcconfig in Resources */,
 				E87F36051EA6036D00AC4DA4 /* Main.storyboard in Resources */,
+				E82DA9061EFD1034005E257A /* PageMenu.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -865,40 +1047,54 @@
 				E8C19CA01EDF411000BF59F7 /* DetailRentalAvailabilityTableViewCell.swift in Sources */,
 				E823DDB31EBE0C5B006C92DF /* AddCarViewController.swift in Sources */,
 				E82193EB1EE7F63600D14753 /* OwnerProfile.swift in Sources */,
+				E82DA9321EFD1062005E257A /* FSCalendarAppearance.m in Sources */,
+				E82DA93B1EFD1062005E257A /* FSCalendarHeaderView.m in Sources */,
 				E8EC9F221EDEB651004AF6A0 /* PersonalDocuments.swift in Sources */,
 				E8C19C9A1EDEEE3B00BF59F7 /* DetailCarImageTableViewCell.swift in Sources */,
 				E8EC9F291EDEE5C7004AF6A0 /* DetailCarViewController.swift in Sources */,
 				E8B21B631EB1D66C007E90A9 /* OwnerProfileViewController.swift in Sources */,
+				E82DA93E1EFD1062005E257A /* FSCalendarTransitionCoordinator.m in Sources */,
 				E8C19CA41EDF41B000BF59F7 /* DetailRentalRatesTableViewCell.swift in Sources */,
 				E8C19C9C1EDEEE6700BF59F7 /* DetailCarInfoTableViewCell.swift in Sources */,
+				E82DA9351EFD1062005E257A /* FSCalendarCollectionView.m in Sources */,
 				E828253C1EF1396C0031778B /* EditRentaTermsTableViewController.swift in Sources */,
 				E823DDBF1EBE47A2006C92DF /* NextButtonView.swift in Sources */,
 				E85E280D1EE6889600438789 /* CustomTypes.swift in Sources */,
 				E8255AAF1ECDDA290030AFA7 /* ProfileListItemTableViewCell.swift in Sources */,
 				E82ECFA11EB090F600685F0F /* SignUpView.swift in Sources */,
+				E82DA9001EFD1034005E257A /* CAPSPageMenu+UIConfiguration.swift in Sources */,
 				E8E72B021EB32AE900FEC460 /* OwnerCarsCarouselTableViewCell.swift in Sources */,
 				E87F361B1EA6060C00AC4DA4 /* GlobalConstants.swift in Sources */,
 				E823DDDF1EC0AAA7006C92DF /* AddPersonalDocumentsViewController.swift in Sources */,
 				E823DDBB1EBE3268006C92DF /* VehicleTypeTableViewCell.swift in Sources */,
 				E87F36081EA6036D00AC4DA4 /* Cardee.xcdatamodeld in Sources */,
+				E82DA9381EFD1062005E257A /* FSCalendarDelegationFactory.m in Sources */,
 				E80CAC881EBB0A3C0087B919 /* MyCarsViewController.swift in Sources */,
 				E8EC9F1C1EDEA09F004AF6A0 /* CarVerification.swift in Sources */,
+				E82DA93C1EFD1062005E257A /* FSCalendarScopeHandle.m in Sources */,
 				E88BC6831EDFD3C600199ECD /* EditDetailCarDescriptionViewController.swift in Sources */,
 				E823DDCD1EBFA6EA006C92DF /* AddCarVerificationImageViewController.swift in Sources */,
+				E82DA9311EFD1062005E257A /* FSCalendar+Deprecated.m in Sources */,
 				E87F36021EA6036D00AC4DA4 /* LoginViewController.swift in Sources */,
 				E8255AAA1ECDD9B00030AFA7 /* MoreProfileViewController.swift in Sources */,
+				E82DA9361EFD1062005E257A /* FSCalendarCollectionViewLayout.m in Sources */,
 				E87F36201EA62A7100AC4DA4 /* SocianLoginView.swift in Sources */,
+				E82DA9071EFD1034005E257A /* PageMenu-dummy.m in Sources */,
+				E82DA9331EFD1062005E257A /* FSCalendarCalculator.m in Sources */,
 				E8EC9F1A1EDE86AA004AF6A0 /* CarInfo.swift in Sources */,
 				E85E280B1EE6886E00438789 /* NetworkingConstants.swift in Sources */,
 				E87F36231EA62FF200AC4DA4 /* SocialButton.swift in Sources */,
 				E8EC9F181EDDFCF6004AF6A0 /* InsuranceInfo.swift in Sources */,
 				E82193E81EE7020A00D14753 /* Methods.swift in Sources */,
+				E82DA9391EFD1062005E257A /* FSCalendarDelegationProxy.m in Sources */,
 				E823DDC91EBF86CD006C92DF /* AddCarInfoViewController.swift in Sources */,
+				E8E30CB81EF80A5B000ED5F7 /* CardeePickerViewController.swift in Sources */,
 				E85E28091EE572AC00438789 /* AlamofireManager.swift in Sources */,
 				E8EC9F241EDEBDCA004AF6A0 /* ContactInfo.swift in Sources */,
 				E88BC6851EDFDD6100199ECD /* EditDetailCarLocationViewController.swift in Sources */,
 				E823DDC21EBF69B4006C92DF /* InsuranceInfoViewController.swift in Sources */,
 				E873B6E01ED308840031692E /* ButtonTableViewCell.swift in Sources */,
+				E82DA9031EFD1034005E257A /* CAPSPageMenuConfiguration.swift in Sources */,
 				E862A1CD1ED4273300AE84FF /* BrowseViewController.swift in Sources */,
 				E823DDE11EC0B466006C92DF /* AddContactInfoViewController.swift in Sources */,
 				E8B21B681EB1E3B1007E90A9 /* OwnerFeaturesView.swift in Sources */,
@@ -908,8 +1104,11 @@
 				E8EC9F1E1EDEA9F6004AF6A0 /* CarLocation.swift in Sources */,
 				E8E72B001EB314B500FEC460 /* OwnerCarReviewTableViewCell.swift in Sources */,
 				E8665E9C1EF3F608001380B1 /* EditFuelPolicyWrapperViewController.swift in Sources */,
+				E82DA8FF1EFD1034005E257A /* CAPSPageMenu+Options.swift in Sources */,
+				E82DA9011EFD1034005E257A /* CAPSPageMenu+UIGestureRecognizerDelegate.swift in Sources */,
 				E862A1CA1ED4237C00AE84FF /* SettingsViewController.swift in Sources */,
 				E823DDD71EC05503006C92DF /* HideExactLocationView.swift in Sources */,
+				E82DA93D1EFD1062005E257A /* FSCalendarStickyHeader.m in Sources */,
 				E823DDD51EC04F24006C92DF /* CarLocationView.swift in Sources */,
 				E8255AAD1ECDDA090030AFA7 /* ProfileHeaderTableViewCell.swift in Sources */,
 				E8C19C9E1EDF0A9300BF59F7 /* DetailRentalViewController.swift in Sources */,
@@ -918,18 +1117,25 @@
 				E81437FD1EF03BFD0089E919 /* EditDetailRentalFuelPolicyTableViewController.swift in Sources */,
 				E823DDB91EBE235E006C92DF /* AddVehicleTypeViewController.swift in Sources */,
 				E8EC9F201EDEAE6B004AF6A0 /* CarDocuments.swift in Sources */,
+				E82DA9341EFD1062005E257A /* FSCalendarCell.m in Sources */,
 				E8C19CA21EDF418100BF59F7 /* DetailRentalSettingsTableViewCell.swift in Sources */,
+				E82DA93A1EFD1062005E257A /* FSCalendarExtensions.m in Sources */,
 				E88013DD1ED2B4EE00F41CC2 /* AccountDetailsViewController.swift in Sources */,
+				E82DA93F1EFD1062005E257A /* FSCalendarWeekdayView.m in Sources */,
 				E8C19CA61EDF41D700BF59F7 /* DetailRentalFuelTableViewCell.swift in Sources */,
 				E862A1D01ED430F200AE84FF /* CalendarViewController.swift in Sources */,
+				E82DA9411EFD1062005E257A /* FSCalendar-dummy.m in Sources */,
+				E82DA8FE1EFD1034005E257A /* CAPSPageMenu.swift in Sources */,
 				E88E3EEB1EB48BDC00D4AD16 /* LauncherViewController.swift in Sources */,
 				E82193F01EE8181800D14753 /* CardeeTabBarController.swift in Sources */,
 				E823DDDD1EC09C67006C92DF /* AddCarDocumentsViewController.swift in Sources */,
 				E823DDC71EBF79A1006C92DF /* InsuranceInfoExampleTableViewCell.swift in Sources */,
 				E8B21B661EB1D7E0007E90A9 /* OwnerInfoTableViewCell.swift in Sources */,
+				E82DA9021EFD1034005E257A /* CAPSPageMenu+UIScrollViewDelegate.swift in Sources */,
 				E8255AB71ECEDECE0030AFA7 /* RenterProfileHeaderTableViewCell.swift in Sources */,
 				E8E72AFE1EB309E900FEC460 /* OwnerDescriptionTableViewCell.swift in Sources */,
 				E80CAC8C1EBB0B030087B919 /* CarTableViewCell.swift in Sources */,
+				E82DA9041EFD1034005E257A /* MenuItemView.swift in Sources */,
 				E8665E991EF3CF60001380B1 /* EditRentalRatesWrapperViewController.swift in Sources */,
 				E8C19CA81EDF420000BF59F7 /* DetailRentalTermsTableViewCell.swift in Sources */,
 				E87F361E1EA6112500AC4DA4 /* LoginTextField.swift in Sources */,
@@ -937,6 +1143,7 @@
 				E823DDCB1EBF87ED006C92DF /* AddCarInfoTableViewCell.swift in Sources */,
 				E8EC9F261EDEDEF1004AF6A0 /* VCViewController.swift in Sources */,
 				E87F36171EA6059500AC4DA4 /* LoginView.swift in Sources */,
+				E82DA9371EFD1062005E257A /* FSCalendarConstants.m in Sources */,
 				E87F36001EA6036D00AC4DA4 /* AppDelegate.swift in Sources */,
 				E823DDC41EBF6A53006C92DF /* InsuranceInfoTableViewCell.swift in Sources */,
 				E828253A1EF12A9D0031778B /* EditRentalTermsRequirementsTableViewController.swift in Sources */,
@@ -944,6 +1151,7 @@
 				E823DDD21EBFB592006C92DF /* AddCarLocationViewController.swift in Sources */,
 				E823DDDB1EC09651006C92DF /* AddDocumentsTableViewCell.swift in Sources */,
 				E82193EE1EE7F7F600D14753 /* SimpleCar.swift in Sources */,
+				E82DA9301EFD1062005E257A /* FSCalendar.m in Sources */,
 				E873B6E21ED30C4D0031692E /* PaymentMethodTableViewCell.swift in Sources */,
 				E8255AB31ECEDE050030AFA7 /* RenterProfileViewController.swift in Sources */,
 				E80CAC851EBB08530087B919 /* CardeeViewController.swift in Sources */,

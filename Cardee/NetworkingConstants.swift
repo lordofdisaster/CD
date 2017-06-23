@@ -33,6 +33,9 @@ struct apiEndpoints {
     static let changeHourlyRentalInfo = "/rental/hourly"
     static let changeDeliveryRates = "/delivery/rates"
     static let changeRentalTerms = "/rental/terms"
+    static let changeAvailability = "/availability"
+    static let changeAvailabilityHourly = "/availability/hourly"
+    static let changeAvailabilityDaily = "/availability/daily"
     
     //Profile
     static let ownerProfile = "/profiles/owner"

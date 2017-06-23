@@ -169,8 +169,8 @@ class LoginViewController: UIViewController {
         self.tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
         self.loginView = LoginView(frame: CGRect(x: 0, y: 0, width: Screen.width, height: Screen.height))
         //Test
-        //self.loginView.emailTextField.text = "alex"
-        //self.loginView.passwordTextField.text = "12345"
+        self.loginView.emailTextField.text = "alex"
+        self.loginView.passwordTextField.text = "12345"
         //
         self.loginView.addGestureRecognizer(self.tapGestureRecognizer)
         self.view.addSubview(self.loginView)

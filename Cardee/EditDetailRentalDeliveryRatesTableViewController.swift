@@ -109,17 +109,7 @@ class EditDetailRentalDeliveryRatesTableViewController: UITableViewController, U
         if indexPath.section == 0 {
             return 60
         } else {
-            return dynamicCellHeight
+            return self.dynamicCellHeight
         }
     }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
 }

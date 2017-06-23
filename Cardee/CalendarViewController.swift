@@ -20,7 +20,10 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
     
     fileprivate weak var calendar: FSCalendar!
     var selectedDaysButton: UIButton!
-    var dates = [Date]()
+    var sameDates: UIButton!
+
+    var car: Car!
+    var rentalType: RentalType!
     var present: DetailRentalViewController!
     
     // MARK: Controller Lifecycle
@@ -54,13 +57,29 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
         calendar.appearance.headerTitleColor = Color.grayText
         
         self.selectedDaysButton = UIButton(type: .system)
-        self.selectedDaysButton.frame = CGRect(x: 13, y: view.frame.size.height - 58 - 44 - 20, width: view.frame.size.width - 26, height: 45)
+        self.selectedDaysButton.frame = CGRect(x: 13, y: view.frame.size.height - 58 - 44 - 20 - 50, width: view.frame.size.width - 26, height: 45)
         self.selectedDaysButton.backgroundColor = Color.green
         self.selectedDaysButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightBold)
         self.selectedDaysButton.setTitleColor(UIColor.white, for: .normal)
-        self.selectedDaysButton.setTitle("\(self.dates.count) days available  •  Save", for: .normal)
-        self.selectedDaysButton.layer.cornerRadius = 3
+
+        if self.rentalType == .daily {
+            self.selectedDaysButton.setTitle("\(self.car.availabilityDailyDates.count) days available  •  Save", for: .normal)
+        } else {
+             self.selectedDaysButton.setTitle("\(self.car.availabilityHourlyDates.count) days available  •  Save", for: .normal)
+        }
         
+        self.selectedDaysButton.layer.cornerRadius = 3
+        self.selectedDaysButton.addTarget(self, action: #selector(self.saveDateInfo), for: .touchUpInside)
+        
+        self.sameDates = UIButton(type: .system)
+        self.sameDates.frame = CGRect(x: 0, y: view.frame.size.height - 107, width: view.frame.size.width, height: 43)
+        self.sameDates.setTitle("Use Same Dates For Hourly & Daily", for: .normal)
+        self.sameDates.layer.borderWidth = 0.5
+        self.sameDates.layer.borderColor = Color.darkGray.cgColor
+        self.sameDates.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        self.sameDates.setTitleColor(Color.darkGray, for: .normal)
+        
+        view.addSubview(self.sameDates)
         view.addSubview(self.selectedDaysButton)
         
     }
@@ -70,8 +89,18 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
         
         self.title = "Calendar"
 
-        self.dates.forEach { (date) in
-            self.calendar.select(date, scrollToDate: false)
+        if self.rentalType == .daily {
+            self.car.availabilityDailyDates.forEach { (date) in
+                if Methods.transformStringToDate(string: date) > Date() {
+                    self.calendar.select(Methods.transformStringToDate(string: date), scrollToDate: false)
+                }
+            }
+        } else {
+            self.car.availabilityHourlyDates.forEach { (date) in
+                if Methods.transformStringToDate(string: date) > self.gregorian.date(byAdding: .day, value: -1, to: Date())! {
+                    self.calendar.select(Methods.transformStringToDate(string: date), scrollToDate: false)
+                }
+            }
         }
         
         self.calendar.accessibilityIdentifier = "calendar"
@@ -79,8 +108,27 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.present.dates = self.dates
-        self.present.reloadData()
+        self.present.refreshDataOf(car: self.car)
+    }
+    
+    func saveDateInfo() {
+        if self.rentalType == .daily {
+            AlamofireManager.availabilityDailyForCar(car: self.car) { success, error in
+                if success {
+                    CardeeAlert.showAlert(withTitle: "Success", message: "You changes were succesfully saved", sender: self)
+                } else {
+                    CardeeAlert.showAlert(withTitle: "Error", message: error!, sender: self)
+                }
+            }
+        } else {
+            AlamofireManager.availabilityHourlyForCar(car: self.car) { success, error in
+                if success {
+                    CardeeAlert.showAlert(withTitle: "Success", message: "You changes were succesfully saved", sender: self)
+                } else {
+                    CardeeAlert.showAlert(withTitle: "Error", message: error!, sender: self)
+                }
+            }
+        }
     }
     
     // MARK: FSCalendarDataSource
@@ -104,15 +152,6 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
         return UIColor.white
     }
     
-//    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
-//        let checkDate = self.gregorian.date(byAdding: .day, value: -1, to: Date())
-//        if date >= checkDate! && date < calendar.currentPage {
-//            return Color.grayText
-//        } else {
-//            return UIColor.lightGray
-//        }
-//    }
-    
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
         self.calendar.frame.size.height = bounds.height
     }
@@ -122,7 +161,11 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
     }
     
     func minimumDate(for calendar: FSCalendar) -> Date {
-        return self.gregorian.date(byAdding: .day, value: 1, to: Date())!
+        if self.rentalType == .daily {
+            return self.gregorian.date(byAdding: .day, value: 1, to: Date())!
+        } else {
+            return Date()
+        }
     }
  
     func calendar(_ calendar: FSCalendar, shouldDeselect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
@@ -131,16 +174,28 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         print("did select date \(self.formatter.string(from: date))")
-        self.dates.append(date)
-        self.selectedDaysButton.setTitle("\(self.dates.count) days available  •  Save", for: .normal)
+        if self.rentalType == .daily {
+            self.car.availabilityDailyDates.append(self.formatter.string(from: date))
+            self.selectedDaysButton.setTitle("\(self.car.availabilityDailyDates.count) days available  •  Save", for: .normal)
+        } else {
+            self.car.availabilityHourlyDates.append(self.formatter.string(from: date))
+            self.selectedDaysButton.setTitle("\(self.car.availabilityHourlyDates.count) days available  •  Save", for: .normal)
+        }
+        
         self.configureVisibleCells()
     }
     
     func calendar(_ calendar: FSCalendar, didDeselect date: Date) {
         print("did deselect date \(self.formatter.string(from: date))")
-        let index = self.dates.index(of: date)
-        self.dates.remove(at: index!)
-        self.selectedDaysButton.setTitle("\(self.dates.count) days available  •  Save", for: .normal)
+        
+        if self.rentalType == .daily {
+            let index = self.car.availabilityDailyDates.index(of: self.formatter.string(from: date))
+            self.car.availabilityDailyDates.remove(at: index!)
+        } else {
+            let index = self.car.availabilityHourlyDates.index(of: self.formatter.string(from: date))
+            self.car.availabilityHourlyDates.remove(at: index!)
+        }
+        self.selectedDaysButton.setTitle("\(self.car.availabilityDailyDates.count) days available  •  Save", for: .normal)
         self.configureVisibleCells()
     }
     

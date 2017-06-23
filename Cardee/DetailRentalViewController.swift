@@ -16,7 +16,7 @@ class DetailRentalViewController: UIViewController {
     
     var dates = [Date]()
     var car = Car()
-    var rentalType: RentalType!
+    var rentalType = RentalType.daily
     
     var dailyDataSource = [String]()
     var hourlyDataSource = [String]()
@@ -32,7 +32,6 @@ class DetailRentalViewController: UIViewController {
         
         self.tableView.tableFooterView = UIView()
         self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 112, right: 0)
-        self.rentalType = .daily
         
         self.hourlyUnderscoreView = UIView(frame: CGRect(x: 0, y: self.hourlyButton.bounds.height - 3, width: self.hourlyButton.bounds.width, height: 3))
         self.hourlyUnderscoreView.backgroundColor = Color.darkBlue
@@ -165,23 +164,37 @@ class DetailRentalViewController: UIViewController {
     
     func editDate() {
         let calendarViewController = CalendarViewController()
-        calendarViewController.dates = self.dates
+        calendarViewController.car = self.car
+        calendarViewController.rentalType = self.rentalType
         self.navigationController?.pushViewController(calendarViewController, animated: true)
     }
     
     func editTime(_ sender: UIButton) {
-        ActionSheetMultipleStringPicker.show(withTitle: "Pickup and return timing", rows: [["1", "2", "3"], ["a", "b", "c"]], initialSelection: [0, 1], doneBlock: { (picker, index, value) in
-            print("Hello")
-        }, cancel: { (picker) in
-            print("Bye")
-        }, origin: sender)
+        let cardeePicker = CardeePickerViewController()
+        cardeePicker.car = self.car
+        cardeePicker.rentalType = self.rentalType
+        
+        if rentalType == .daily {
+            cardeePicker.pickerTitle = "Pickup and return timing"
+            cardeePicker.headers = ["Pickup from", "Return by"]
+        } else {
+            cardeePicker.pickerTitle = "Available timing"
+            cardeePicker.headers = ["From", "To"]
+        }
+        cardeePicker.values = ["12am", "01am", "02am", "03am", "04am", "05am", "06am", "07am", "08am", "09am", "10am", "11am", "12pm", "01pm", "02pm", "03pm", "04pm", "05pm", "06pm", "07pm", "08pm", "09pm", "10pm", "11pm"]
+        self.modalPresentationStyle = .overCurrentContext
+        self.present(cardeePicker, animated: true, completion: nil)
     }
 }
 
 extension DetailRentalViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return 200.0
+            if self.rentalType == .daily {
+                return 200.0
+            } else {
+                return 170.0
+            }
         } else if indexPath.row == 1 {
             return 235.0
         } else if indexPath.row == 2 {
@@ -207,11 +220,21 @@ extension DetailRentalViewController: UITableViewDelegate, UITableViewDataSource
             
             if self.rentalType == .daily {
                 cell.rentalTypeLabel.text = "(Daily)"
+                cell.availableDaysLabel.text = "\(self.car.availabilityDailyDates.count) available days"
+                
+                cell.pickupFromLabel.text = "Pickup car on or after \(Methods.transformFullTimeFormatToLocal(time: car.timePickup!))"
+                cell.returnToLabel.text = "Return car by \(Methods.transformFullTimeFormatToLocal(time: car.timeReturn)) (next day)"
             } else {
                 cell.rentalTypeLabel.text = "(Hourly)"
+                cell.availableDaysLabel.text = "\(self.car.availabilityHourlyDates.count) available days"
+                cell.returnToLabel.text = ""
+                if !(self.car.availabilityTimeBegin?.isEmpty)!, !(self.car.availabilityTimeEnd?.isEmpty)! {
+                    cell.pickupFromLabel.text = "Available timing \(Methods.transformFullTimeFormatToLocal(time: self.car.availabilityTimeBegin)) - \(Methods.transformFullTimeFormatToLocal(time: self.car.availabilityTimeEnd))"
+                } else {
+                    cell.pickupFromLabel.text = "Not available"
+                }
             }
             
-            cell.availableDaysLabel.text = "\(self.dates.count) available days"
             cell.editDateButton.addTarget(self, action: #selector(self.editDate), for: .touchUpInside)
             cell.editTimeButton.addTarget(self, action: #selector(self.editTime(_:)), for: .touchUpInside)
             return cell

@@ -26,7 +26,7 @@ class AlamofireManager: NSObject {
     
     public static let keychain = KeychainSwift()
     
-    //MARK: Authentication
+    //MARK: - Authentication
     
     class func loginWith(username: String, password: String, completionHandler: booleanCompletionHandler? = nil) {
         
@@ -94,9 +94,14 @@ class AlamofireManager: NSObject {
         }
     }
     
-    //MARK: Cars
+    //MARK: - Cars
     
-    class func addCar(completionHandler: booleanCompletionHandler? = nil) {
+    class func addCar(completionHandler: objectCompletionHandler? = nil) {
+        
+        let url = baseUrl + apiEndpoints.cars
+        let headers = [
+            "Authorization": keychain.get("access_token")!
+        ]
         
         let parameters = [
             "type_vehicle_id": NewCar.shared.vehicleType!.rawValue,
@@ -116,15 +121,15 @@ class AlamofireManager: NSObject {
             "car_transmission_id": NewCar.shared.carInfo!.transmission!.rawValue,
             "car_body_type_id": NewCar.shared.carInfo!.bodyType!.rawValue,
             
-            "car_image": Methods.encodeImageToBase64(image: NewCar.shared.carVerification!.carImage!),
+            //"car_image": Methods.encodeImageToBase64(image: NewCar.shared.carVerification!.carImage!),
             
             "longitude": NewCar.shared.carLocation!.carLocationCoordinate!.longitude,
             "latitude": NewCar.shared.carLocation!.carLocationCoordinate!.latitude,
             "town": NewCar.shared.carLocation!.address!,
             "address": NewCar.shared.carLocation!.address!,
             "is_hide_exact_location": NewCar.shared.carLocation!.isExactLocationHidden!,            
-            "car_documents": "",//NewCar.shared.carDocuments!.vehicleLogCard, //TO DO
             
+            "car_documents": "",//NewCar.shared.carDocuments!.vehicleLogCard, //TO DO
             "personal_documents": "", //TO DO
             
             "name": NewCar.shared.contactInfo!.name!,
@@ -132,22 +137,69 @@ class AlamofireManager: NSObject {
             "email": NewCar.shared.contactInfo!.email!
         ] as [String : Any]
         
-
-        let url = baseUrl + apiEndpoints.cars
-        let headers = [
-            "Authorization": keychain.get("access_token")!
-        ]
-        
         SharedManager.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             print(response)
             let result = JSON(response.data!)
             if result["success"].boolValue {
-                completionHandler!(true, nil)
+                completionHandler!(result["data"]["car_id"].intValue, nil)
             } else {
-                completionHandler!(false, result["data"]["errors"]["description"].stringValue)
+                completionHandler!(0, result["data"]["errors"]["description"].stringValue)
             }
         }
     }
+    
+    class func setImageFor(carId: Int, completionHandler: booleanCompletionHandler? = nil) {
+        
+        let headers = [
+            "Authorization": keychain.get("access_token")!
+        ]
+        
+        let url = try! URLRequest(url: URL(string: baseUrl + apiEndpoints.cars + "/\(carId)" + "/image")!, method: .put, headers: headers)
+        
+//        SharedManager.upload(multipartFormData: { multipartFormData in
+//            multipartFormData.append(UIImageJPEGRepresentation(NewCar.shared.carVerification!.carImage!, 0.8)!, withName: "car_image")
+//        }, with: url, encodingCompletion: { encodingResult in
+//            switch encodingResult {
+//            case .success(let upload, _, _):
+//                upload.responseJSON { response in
+//                    print("response: \(response)")
+//                    if ((response.result.value) != nil) {
+//                        print("RESPONSE: \(response)")
+//                    } else {
+//                        print("RESPONSE ERROR: \(response)")
+//                    }
+//                }
+//            case .failure( _):
+//                break
+//            }
+//        })
+        
+        
+        
+        
+           // let uploadUrl = self.uploadURL(for: object)!
+            //let request = try! URLRequest(url: uploadUrl, method: .post, headers: nil)
+            
+            SharedManager.upload(multipartFormData: { multipartFormData in
+                multipartFormData.append(UIImageJPEGRepresentation(NewCar.shared.carVerification!.carImage!, 0.8)!, withName: "car_image", fileName: "image.jpg", mimeType: "application/octet-stream")
+            }, with: url, encodingCompletion: {
+                encodingResult in
+                switch encodingResult {
+                case .success(let upload, _, _):
+                    print("RESULT: \(upload)")
+                    completionHandler!(true, nil)
+                case .failure(let encodingError):
+                    print("ERROR : \(encodingError.localizedDescription)")
+                    completionHandler!(true, nil)
+                }
+            })
+        
+        
+        
+        
+        
+    }
+    
     
     class func getCarWith(id: Int, completionHandler: objectCompletionHandler? = nil) {
         
@@ -179,6 +231,18 @@ class AlamofireManager: NSObject {
                 car.isCurbsideDelivery = (hourly: result["data"]["order_hourly_details"]["is_curbside_delivery"].boolValue, daily: result["data"]["order_daily_details"]["is_curbside_delivery"].boolValue)
                 car.isAcceptCash = (hourly: result["data"]["order_hourly_details"]["is_accept_cash"].boolValue, daily: result["data"]["order_daily_details"]["is_accept_cash"].boolValue)
                 
+                // Availability Daily
+                
+                car.availabilityDailyDates = result["data"]["car_availability_daily"].arrayValue.map {$0.stringValue}
+                car.timePickup = result["data"]["order_daily_details"]["time_pickup"].stringValue
+                car.timeReturn = result["data"]["order_daily_details"]["time_return"].stringValue
+                
+                // Availability Hourly
+                
+                car.availabilityHourlyDates = result["data"]["car_availability_hourly"].arrayValue.map {$0.stringValue}
+                car.availabilityTimeBegin = result["data"]["car_availability_time_begin"].stringValue
+                car.availabilityTimeEnd = result["data"]["car_availability_time_end"].stringValue
+
                 // Curbside Delivery
                 
                 car.baseRate = result["data"]["car_details"]["delivery_rates"]["base_rate"].intValue
@@ -211,6 +275,70 @@ class AlamofireManager: NSObject {
             }
         }
     }
+    
+    //MARK: - Car Availablity
+    
+    class func availabilityForCar(car: Car, completionHandler: booleanCompletionHandler? = nil) {
+        let url = baseUrl + apiEndpoints.cars + "/\(car.carId!)" + apiEndpoints.changeAvailability
+        let headers = [
+            "Authorization": self.keychain.get("access_token")!
+        ]
+        let parameters = [
+            "is_available_order_hours": true,
+            "is_available_order_days": true
+        ]
+        
+        SharedManager.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            let result = JSON(response.data!)
+            if result["success"].boolValue {
+                completionHandler!(true, nil)
+            } else {
+                completionHandler!(false, result["data"]["errors"]["description"].stringValue)
+            }
+        }
+    }
+    
+    class func availabilityHourlyForCar(car: Car, completionHandler: booleanCompletionHandler? = nil) {
+        let url = baseUrl + apiEndpoints.cars + "/\(car.carId!)" + apiEndpoints.changeAvailabilityHourly
+        let headers = [
+            "Authorization": self.keychain.get("access_token")!
+        ]
+        let parameters = [
+            "car_availability_time_begin": car.availabilityTimeBegin,
+            "car_availability_time_end": car.availabilityTimeEnd,
+            "car_availability_dates": car.availabilityHourlyDates
+        ] as [String : Any]
+        
+        SharedManager.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            let result = JSON(response.data!)
+            if result["success"].boolValue {
+                completionHandler!(true, nil)
+            } else {
+                completionHandler!(false, result["data"]["errors"]["description"].stringValue)
+            }
+        }
+    }
+    
+    class func availabilityDailyForCar(car: Car, completionHandler: booleanCompletionHandler? = nil) {
+        let url = baseUrl + apiEndpoints.cars + "/\(car.carId!)" + apiEndpoints.changeAvailabilityDaily
+        let headers = [
+            "Authorization": self.keychain.get("access_token")!
+        ]
+        let parameters = [
+            "car_availability_dates": car.availabilityDailyDates
+        ]
+        
+        SharedManager.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            let result = JSON(response.data!)
+            if result["success"].boolValue {
+                completionHandler!(true, nil)
+            } else {
+                completionHandler!(false, result["data"]["errors"]["description"].stringValue)
+            }
+        }
+    }
+    
+    //MARK: - Change Car Info
     
     class func change(description: String, forCarWith id: Int, completionHandler: booleanCompletionHandler? = nil) {
         let url = baseUrl + apiEndpoints.cars + "/\(id)" + "/description"
@@ -272,8 +400,8 @@ class AlamofireManager: NSObject {
             "amnt_discount_first": car.firstDiscount.daily,
             "amnt_discount_second": car.secondDiscount.daily,
             "min_rental_duration": car.minimumRentalDuration.daily,
-            //"time_pickup": Date(), // TO DO
-            //"time_return": Date(), // TO DO
+            "time_pickup": car.timePickup,
+            "time_return": car.timeReturn,
             "amnt_pay_mileage": car.baseRate // TO DO
         ] as [String : Any]
         
@@ -379,7 +507,7 @@ class AlamofireManager: NSObject {
         
     }
 
-    //MARK: Profile
+    //MARK: - Profile
     
     class func getOwnerProfile(completionHandler: booleanCompletionHandler? = nil) {
         

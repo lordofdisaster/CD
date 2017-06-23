@@ -31,10 +31,18 @@ class AddCarViewController: CardeeViewController {
     
     @IBAction func addCar(_ sender: Any) {
         MBProgressHUD.showAdded(to: (self.navigationController?.view)!, animated: true)
-        AlamofireManager.addCar() { success, error in
+        AlamofireManager.addCar() { object, error in
             MBProgressHUD.hide(for: (self.navigationController?.view)!, animated: true)
-            if success {
-                CardeeAlert.showAlert(withTitle: "Success", message: "Your car was succesfully added", sender: self)
+            if error == nil {
+                MBProgressHUD.showAdded(to: (self.navigationController?.view)!, animated: true)
+                AlamofireManager.setImageFor(carId: object as! Int) { success, error in
+                    MBProgressHUD.hide(for: (self.navigationController?.view)!, animated: true)
+                    if success {
+                        CardeeAlert.showAlert(withTitle: "Success", message: "Your car was succesfully added", sender: self)
+                    } else {
+                        CardeeAlert.showAlert(withTitle: "Error", message: error!, sender: self)
+                    }
+                }
             } else {
                 CardeeAlert.showAlert(withTitle: "Error", message: error!, sender: self)
             }

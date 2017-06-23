@@ -14,6 +14,8 @@ class DetailRentalAvailabilityTableViewCell: UITableViewCell {
     @IBOutlet weak var editDateButton: UIButton!
     @IBOutlet weak var editTimeButton: UIButton!
     @IBOutlet weak var availableDaysLabel: UILabel!
+    @IBOutlet weak var pickupFromLabel: UILabel!
+    @IBOutlet weak var returnToLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

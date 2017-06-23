@@ -23,13 +23,25 @@ class Car: NSObject {
     var longitude: Double!
     var payMileage: Float!
     
-    // Rental Info
+    // -- Rental Info
     
-    //var carAvailabilityHourly
-    //var carAvailabilityDaily
+    var carAvailabilityHourly: Bool!
+    var carAvailabilityDaily: Bool!
     var isInstantBooking: (hourly: Bool, daily: Bool)!
     var isCurbsideDelivery: (hourly: Bool, daily: Bool)!
     var isAcceptCash: (hourly: Bool, daily: Bool)!
+    
+    // -- Availability Daily
+    
+    var availabilityDailyDates = [String]()
+    var timePickup: String!
+    var timeReturn: String!
+    
+    // -- Availability Hourly
+    
+    var availabilityTimeBegin: String!
+    var availabilityTimeEnd: String!
+    var availabilityHourlyDates = [String]()
     
     // -- Curbside Delivery
     

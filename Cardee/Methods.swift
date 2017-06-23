@@ -16,6 +16,36 @@ class Methods: NSObject {
         return dateFormatter.string(from: date)
     }
     
+    class func transformStringToDate(string: String) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.date(from: string)!
+    }
+    
+    class func transformPickupTimeToString(pickupTime: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.amSymbol = "am"
+        dateFormatter.pmSymbol = "pm"
+        dateFormatter.dateFormat = "hha"
+        let date = dateFormatter.date(from: pickupTime)
+        
+        let finalDateFormatter = DateFormatter()
+        finalDateFormatter.dateFormat = "HH:mm:ssZ"
+        return finalDateFormatter.string(from: date!)
+    }
+    
+    class func transformFullTimeFormatToLocal(time: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm:ssZ"
+        let date = dateFormatter.date(from: time)
+        
+        let finalDateFormatter = DateFormatter()
+        finalDateFormatter.amSymbol = "am"
+        finalDateFormatter.pmSymbol = "pm"
+        finalDateFormatter.dateFormat = "ha"
+        return finalDateFormatter.string(from: date!)
+    }
+    
     class func encodeImageToBase64(image: UIImage) -> String {
         let imageData: NSData = UIImageJPEGRepresentation(image, 0.1)! as NSData
         let imageStringRepresentation = imageData.base64EncodedString(options: .lineLength64Characters)
