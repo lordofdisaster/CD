@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		795EA90F1F13A94900752A68 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 795EA90E1F13A94900752A68 /* Info.plist */; };
 		E6C2E42BCADA0484D873AF0D /* Pods_Cardee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C56DFBB096498260E3F2FDBD /* Pods_Cardee.framework */; };
 		E80BD6201EE9596800775CE6 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80BD61F1EE9596800775CE6 /* Car.swift */; };
 		E80CAC851EBB08530087B919 /* CardeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80CAC841EBB08530087B919 /* CardeeViewController.swift */; };
@@ -135,6 +136,7 @@
 
 /* Begin PBXFileReference section */
 		4732730EB245677CC1EE2BD8 /* Pods-Cardee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cardee.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cardee/Pods-Cardee.release.xcconfig"; sourceTree = "<group>"; };
+		795EA90E1F13A94900752A68 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C56DFBB096498260E3F2FDBD /* Pods_Cardee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cardee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8E59CFEF8ECE584958F598A /* Pods-Cardee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cardee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cardee/Pods-Cardee.debug.xcconfig"; sourceTree = "<group>"; };
 		E80BD61F1EE9596800775CE6 /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
@@ -250,7 +252,6 @@
 		E87F36071EA6036D00AC4DA4 /* Cardee.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cardee.xcdatamodel; sourceTree = "<group>"; };
 		E87F36091EA6036D00AC4DA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E87F360C1EA6036D00AC4DA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E87F360E1EA6036D00AC4DA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E87F36161EA6059500AC4DA4 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E87F361A1EA6060C00AC4DA4 /* GlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		E87F361D1EA6112500AC4DA4 /* LoginTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
@@ -698,9 +699,9 @@
 				E87F36031EA6036D00AC4DA4 /* Main.storyboard */,
 				E87F36091EA6036D00AC4DA4 /* Assets.xcassets */,
 				E87F360B1EA6036D00AC4DA4 /* LaunchScreen.storyboard */,
-				E87F360E1EA6036D00AC4DA4 /* Info.plist */,
 				E85E28141EE6C61E00438789 /* GoogleService-Info.plist */,
 				E87F36061EA6036D00AC4DA4 /* Cardee.xcdatamodeld */,
+				795EA90E1F13A94900752A68 /* Info.plist */,
 				E862A1D11ED4318700AE84FF /* Cardee-Bridging-Header.h */,
 				E8EC9F251EDEDEF1004AF6A0 /* VCViewController.swift */,
 			);
@@ -930,7 +931,7 @@
 				TargetAttributes = {
 					E87F35FB1EA6036D00AC4DA4 = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = NF35GG74E9;
+						DevelopmentTeam = 379294YDPQ;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -971,6 +972,7 @@
 				E80CAC8F1EBB52A40087B919 /* Mazda.jpg in Resources */,
 				E82DA9401EFD1062005E257A /* FSCalendar.xcconfig in Resources */,
 				E87F36051EA6036D00AC4DA4 /* Main.storyboard in Resources */,
+				795EA90F1F13A94900752A68 /* Info.plist in Resources */,
 				E82DA9061EFD1034005E257A /* PageMenu.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1020,7 +1022,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E8665E9D1EF42431001380B1 /* ShellScript */ = {
@@ -1286,7 +1288,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Cardee/Cardee.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = NF35GG74E9;
+				DEVELOPMENT_TEAM = 379294YDPQ;
 				INFOPLIST_FILE = Cardee/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1305,7 +1307,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Cardee/Cardee.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = NF35GG74E9;
+				DEVELOPMENT_TEAM = 379294YDPQ;
 				INFOPLIST_FILE = Cardee/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

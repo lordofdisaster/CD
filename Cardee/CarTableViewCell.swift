@@ -22,6 +22,43 @@ class CarTableViewCell: UITableViewCell {
     var editButton: UIButton!
     var separatorView: UIView!
 
+    
+    func configureCell(car: SimpleCar) {
+        if let carImg = car.carImage, let imageUrl = URL(string: carImg) {
+        
+            carImageView.af_setImage(withURL: imageUrl, placeholderImage: UIImage(), filter: nil, progress: { progress in
+                print("Progress \(progress)")
+            }, imageTransition: .crossDissolve(0.2), runImageTransitionIfCached: false) { data in
+                print(data)
+            }
+        }
+        
+        if let yearString = car.yearManufacture {
+            let yearAttribute = [ NSFontAttributeName: UIFont.systemFont(ofSize: 16, weight: UIFontWeightThin) ]
+            let yearAttributedString = NSAttributedString(string: yearString, attributes: yearAttribute)
+            let carNameString = car.carTitle + "  "
+            let carNameAttribute = [ NSFontAttributeName: UIFont.systemFont(ofSize: 16, weight: UIFontWeightBold) ]
+            let carNameAttributedString = NSAttributedString(string: carNameString, attributes: carNameAttribute)
+            
+            let result = NSMutableAttributedString()
+            result.append(carNameAttributedString)
+            result.append(yearAttributedString)
+            
+            carNameLabel.attributedText = result
+            carNumberLabel.text = car.licensePlateNumber
+        }
+        
+        
+
+        
+        
+        
+        
+        
+    }
+    
+    
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         

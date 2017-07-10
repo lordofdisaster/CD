@@ -16,6 +16,8 @@ class MyCarsViewController: CardeeViewController {
     var tableView: UITableView!
     var cars = [SimpleCar]()
     var refreshControl: UIRefreshControl!
+    let CarCellIdentifier = "CarCellIdentifier"
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +38,7 @@ class MyCarsViewController: CardeeViewController {
         self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 13, 0)
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.register(CarTableViewCell.self, forCellReuseIdentifier: "CarCellIdentifier")
+        self.tableView.register(CarTableViewCell.self, forCellReuseIdentifier: CarCellIdentifier)
         self.tableView.backgroundColor = Color.lightGray
         self.tableView.tableFooterView = UIView()
         self.tableView.separatorStyle = .none
@@ -97,32 +99,14 @@ extension MyCarsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CarCellIdentifier", for: indexPath) as! CarTableViewCell
-        
-        if let imageUrl = URL(string: self.cars[indexPath.row].carImage!) {
-            cell.carImageView.af_setImage(withURL: imageUrl, placeholderImage: UIImage(), filter: nil, progress: { progress in
-                print("Progress \(progress)")
-            }, imageTransition: .crossDissolve(0.2), runImageTransitionIfCached: false) { data in
-                print(data)
-            }
+        if let cell = tableView.dequeueReusableCell(withIdentifier: CarCellIdentifier, for: indexPath) as? CarTableViewCell {
+            let car = cars[indexPath.row]
+            cell.configureCell(car: car)
+    
+            return cell
         }
         
-        let yearString = self.cars[indexPath.row].yearManufacture
-        let yearAttribute = [ NSFontAttributeName: UIFont.systemFont(ofSize: 16, weight: UIFontWeightThin) ]
-        let yearAttributedString = NSAttributedString(string: yearString!, attributes: yearAttribute)
-        
-        let carNameString = self.cars[indexPath.row].carTitle + "  "
-        let carNameAttribute = [ NSFontAttributeName: UIFont.systemFont(ofSize: 16, weight: UIFontWeightBold) ]
-        let carNameAttributedString = NSAttributedString(string: carNameString, attributes: carNameAttribute)
-        
-        let result = NSMutableAttributedString()
-        result.append(carNameAttributedString)
-        result.append(yearAttributedString)
-        
-        cell.carNameLabel.attributedText = result
-        cell.carNumberLabel.text = self.cars[indexPath.row].licensePlateNumber
-        
-        return cell
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
