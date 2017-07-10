@@ -418,7 +418,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="My Cars" id="Cpz-m8-i4l">
                         <barButtonItem key="leftBarButtonItem" systemItem="search" id="NJd-7b-CYA"/>
-                        <barButtonItem key="rightBarButtonItem" title="Add Car" id="B25-8G-Unx"/>
+                        <barButtonItem key="rightBarButtonItem" title="Add Car" id="B25-8G-Unx">
+                            <connections>
+                                <action selector="addCar:" destination="gje-5a-DYE" id="sVP-6u-f9d"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="carsTableViews" destination="wVv-7P-3Ot" id="vc2-av-g7u"/>
