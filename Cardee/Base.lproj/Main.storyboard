@@ -392,6 +392,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="availableDaysLabel" destination="HAw-h2-L6B" id="mAr-Mx-gTY"/>
+                                            <outlet property="availableHoursLabel" destination="3H4-YR-gFP" id="WWN-sH-5D3"/>
                                             <outlet property="carImageView" destination="L1d-pK-A27" id="1Ie-Tk-sUN"/>
                                             <outlet property="carNameLabel" destination="ZrL-mZ-Tzd" id="iY3-HV-ql2"/>
                                             <outlet property="carNumberLabel" destination="YOe-5D-tNC" id="ovp-03-5kn"/>
