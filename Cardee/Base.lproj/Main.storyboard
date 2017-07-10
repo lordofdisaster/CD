@@ -227,7 +227,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CarCellIdentifier" rowHeight="366" id="z0u-m9-nwM" customClass="CarTableViewCell" customModule="Cardee" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CarCell" rowHeight="366" id="z0u-m9-nwM" customClass="CarTableViewCell" customModule="Cardee" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="366"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z0u-m9-nwM" id="sHJ-iP-NSm">
