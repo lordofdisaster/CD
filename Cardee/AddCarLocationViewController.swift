@@ -91,11 +91,11 @@ class AddCarLocationViewController: UIViewController, GMSMapViewDelegate, CLLoca
         let geocoder = GMSGeocoder()
         self.carLocation.carLocationCoordinate = coordinate
         print(coordinate)
-        self.carLocationView.addressLabel.text = "Loading..."
+        self.carLocationView.addressTextField.text = "Loading..."
         geocoder.reverseGeocodeCoordinate(coordinate) { response, error in
             if let address = response?.firstResult() {
                 let lines = address.lines!
-                self.carLocationView.addressLabel.text = lines.joined(separator: "\n")
+                self.carLocationView.addressTextField.text = lines.joined(separator: "\n")
                 self.carLocation.address = lines[0]
                 self.carLocation.town = lines[1]
                 UIView.animate(withDuration: 0.25) {

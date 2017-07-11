@@ -11,7 +11,6 @@ import UIKit
 class CarLocationView: UIView {
     
     var infoLabel: UILabel!
-    var addressLabel: UILabel!
     var addressTextField: UITextField!
 
     override init(frame: CGRect) {
@@ -27,7 +26,6 @@ class CarLocationView: UIView {
         self.layer.shadowOpacity = 0.5
         
         // Info label
-        
         let infoLabelX = 23
         let infoLabelY = 13
         let infoLabelWidth = frame.width - CGFloat(2 * infoLabelX)
@@ -46,13 +44,13 @@ class CarLocationView: UIView {
         let addressLabelWidth = frame.width - CGFloat(2 * infoLabelX)
         let addressLabelHeight = 20
         
-        self.addressLabel = UILabel(frame: CGRect(x: addressLabelX, y: addressLabelY, width: Int(addressLabelWidth), height: addressLabelHeight))
-        self.addressLabel.font = UIFont.systemFont(ofSize: 16)
-        self.addressLabel.textColor = Color.grayText
-        self.addressLabel.text = "Loading..."
+        self.addressTextField = UITextField(frame: CGRect(x: addressLabelX, y: addressLabelY, width: Int(addressLabelWidth), height: addressLabelHeight))
+        self.addressTextField.font = UIFont.systemFont(ofSize: 16)
+        self.addressTextField.textColor = Color.grayText
+        self.addressTextField.text = "Loading..."
         
         self.addSubview(self.infoLabel)
-        self.addSubview(self.addressLabel)
+        self.addSubview(self.addressTextField)
     }
     
     required init?(coder aDecoder: NSCoder) {
