@@ -191,6 +191,7 @@ class LoginViewController: UIViewController {
             fbButton.setImage(UIImage(named:"facebook"), for: .normal)
             fbButton.imageEdgeInsets = UIEdgeInsets(top: 15.0, left: -30.0, bottom: 15.0, right: 0.0)
             fbButton.imageView?.contentMode = .scaleAspectFit
+            fbButton.tintColor = .white
             
         }
         
@@ -201,8 +202,10 @@ class LoginViewController: UIViewController {
         
             gButton.addTarget(self, action: #selector(self.loginWithGoogleAction), for: .touchUpInside)
             gButton.setImage(UIImage(named:"googleplus"), for: .normal)
+            
             gButton.imageEdgeInsets = UIEdgeInsets(top: 15.0, left: -30.0, bottom: 15.0, right: 0.0)
             gButton.imageView?.contentMode = .scaleAspectFit
+            gButton.tintColor = .white
             
         }
         
