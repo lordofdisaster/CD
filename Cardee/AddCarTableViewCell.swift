@@ -14,4 +14,5 @@ class AddCarTableViewCell: UITableViewCell {
     @IBOutlet weak var filledInfoImageView: UIImageView!
     @IBOutlet weak var fillInfoButton: UIButton!
     
+        
 }

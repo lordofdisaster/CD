@@ -156,49 +156,54 @@ class AlamofireManager: NSObject {
         
         let url = try! URLRequest(url: URL(string: baseUrl + apiEndpoints.cars + "/\(carId)" + "/image")!, method: .put, headers: headers)
         
-//        SharedManager.upload(multipartFormData: { multipartFormData in
-//            multipartFormData.append(UIImageJPEGRepresentation(NewCar.shared.carVerification!.carImage!, 0.8)!, withName: "car_image")
-//        }, with: url, encodingCompletion: { encodingResult in
-//            switch encodingResult {
-//            case .success(let upload, _, _):
-//                upload.responseJSON { response in
-//                    print("response: \(response)")
-//                    if ((response.result.value) != nil) {
-//                        print("RESPONSE: \(response)")
-//                    } else {
-//                        print("RESPONSE ERROR: \(response)")
-//                    }
-//                }
-//            case .failure( _):
-//                break
-//            }
-//        })
         
-        
-        
-        
-           // let uploadUrl = self.uploadURL(for: object)!
-            //let request = try! URLRequest(url: uploadUrl, method: .post, headers: nil)
-            
-            SharedManager.upload(multipartFormData: { multipartFormData in
-                multipartFormData.append(UIImageJPEGRepresentation(NewCar.shared.carVerification!.carImage!, 0.8)!, withName: "car_image", fileName: "image.jpg", mimeType: "application/octet-stream")
-            }, with: url, encodingCompletion: {
-                encodingResult in
-                switch encodingResult {
-                case .success(let upload, _, _):
-                    print("RESULT: \(upload)")
-                    completionHandler!(true, nil)
-                case .failure(let encodingError):
-                    print("ERROR : \(encodingError.localizedDescription)")
-                    completionHandler!(true, nil)
-                }
-            })
-        
-        
-        
-        
-        
+        SharedManager.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(UIImageJPEGRepresentation(NewCar.shared.carVerification!.carImage!, 0.8)!, withName: "car_image", fileName: "image.jpg", mimeType: "application/octet-stream")
+        }, with: url, encodingCompletion: {
+            encodingResult in
+            switch encodingResult {
+            case .success(let upload, _, _):
+                print("RESULT: \(upload)")
+                completionHandler!(true, nil)
+            case .failure(let encodingError):
+                print("ERROR : \(encodingError.localizedDescription)")
+                completionHandler!(true, nil)
+            }
+        })
     }
+    /*
+     Method to upload image for car
+     - image: car image for uploading
+     - carId - id in database
+     */
+    class func setCarImage(image:UIImage, for carId: Int, completionHandler: booleanCompletionHandler? = nil) {
+        
+        let headers = [
+            "Authorization": keychain.get("access_token")!
+        ]
+        
+        let url = try! URLRequest(url: URL(string: baseUrl + apiEndpoints.cars + "/\(carId)" + "/image")!, method: .put, headers: headers)
+        
+        
+        SharedManager.upload(multipartFormData: { multipartFormData in
+            
+            if let imageJPEG = UIImageJPEGRepresentation(image, 0.8) {
+                
+                multipartFormData.append(imageJPEG, withName: "car_image", fileName: "image.jpg", mimeType: "application/octet-stream")
+            }
+        }, with: url, encodingCompletion: {
+            encodingResult in
+            switch encodingResult {
+            case .success(let upload, _, _):
+                print("RESULT: \(upload)")
+                completionHandler!(true, nil)
+            case .failure(let encodingError):
+                print("ERROR : \(encodingError.localizedDescription)")
+                completionHandler!(true, nil)
+            }
+        })
+    }
+
     
     
     class func getCarWith(id: Int, completionHandler: objectCompletionHandler? = nil) {
