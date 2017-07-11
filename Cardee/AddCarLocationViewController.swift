@@ -133,10 +133,31 @@ extension AddCarLocationViewController: GMSMapViewDelegate, CLLocationManagerDel
         }
     }
     
-    func reverseAddressToCoordinate(address: String) {
+    func reverseAddressToCoordinate(sender: UITextField) {
+        //output list of placemarks
         
+        guard let address = sender.text else {
+            return
+        }
+        
+        print(address)
+        
+        let geoCoder = CLGeocoder()
+        geoCoder.geocodeAddressString(address) { (placemarks, error) in
+            if let placemarks = placemarks  { //let location = placemarks.first?.location
+                // Use your location
+                print(placemarks)
+                
+            }
+            
+            
+        }
 
+        
     }
+    
+    
+    
     
     
 }
@@ -157,16 +178,12 @@ extension AddCarLocationViewController {
         // Init cat location view
         self.carLocationView = CarLocationView(frame: CGRect(x: 13, y: 13, width: Screen.width - 26, height: 63))
         self.view.addSubview(self.carLocationView)
-        self.carLocationView.addressTextField.addTarget(self, action: #selector(handleAddress), for: .editingChanged)
+        self.carLocationView.addressTextField.addTarget(self, action: #selector(reverseAddressToCoordinate), for: .editingChanged)
         
     }
     
     
-    func handleAddress(sender: UITextField) {
-        
-        print(sender.text)
-        
-    }
+    
     
     
     func initFooterHideExactLocationView() {
