@@ -584,7 +584,7 @@
                         <viewControllerLayoutGuide type="top" id="Smt-cY-Hqw"/>
                         <viewControllerLayoutGuide type="bottom" id="fGY-u9-wLi"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="dwb-gU-KF1">
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="dwb-gU-KF1">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -626,7 +626,7 @@
                         <viewControllerLayoutGuide type="top" id="iYq-GH-fxK"/>
                         <viewControllerLayoutGuide type="bottom" id="Gfg-4R-rXm"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="TUS-zi-XSC">
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="TUS-zi-XSC">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -672,7 +672,7 @@
                         <viewControllerLayoutGuide type="top" id="Ygj-oO-dEG"/>
                         <viewControllerLayoutGuide type="bottom" id="waP-LY-dSj"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="H5I-Ai-eA8">
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="H5I-Ai-eA8">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -730,7 +730,7 @@
                         <viewControllerLayoutGuide type="top" id="iN4-9P-R7Y"/>
                         <viewControllerLayoutGuide type="bottom" id="ozb-xj-8vU"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ldL-YS-j7B">
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="ldL-YS-j7B">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -766,7 +766,7 @@
                         <viewControllerLayoutGuide type="top" id="etl-dT-REF"/>
                         <viewControllerLayoutGuide type="bottom" id="Y7Y-7a-0ux"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="em1-0z-Zvq">
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="em1-0z-Zvq">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -2418,9 +2418,13 @@ of 12 to 14 km per litre</string>
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="239.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cty-1T-fvd">
+                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cty-1T-fvd">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="239.5"/>
                                                     <color key="backgroundColor" red="0.74602901939999999" green="0.76824331280000002" blue="0.788264513" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <gestureRecognizers/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="uWs-e5-qMI" appends="YES" id="zhC-7d-p70"/>
+                                                    </connections>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zgP-So-uwN">
                                                     <rect key="frame" x="0.0" y="203" width="320" height="36"/>
@@ -2453,17 +2457,6 @@ of 12 to 14 km per litre</string>
                                                         <constraint firstAttribute="height" constant="36" id="ztw-mv-ySe"/>
                                                     </constraints>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1LD-cN-VQQ">
-                                                    <rect key="frame" x="245" y="0.0" width="75" height="40"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="Fek-xf-YZA"/>
-                                                        <constraint firstAttribute="width" constant="75" id="NBw-tD-RoX"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                                    <state key="normal" title="edit">
-                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </state>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="zgP-So-uwN" secondAttribute="trailing" id="0W0-42-ZJ9"/>
@@ -2472,8 +2465,6 @@ of 12 to 14 km per litre</string>
                                                 <constraint firstItem="zgP-So-uwN" firstAttribute="leading" secondItem="hzO-sR-Hxe" secondAttribute="leading" id="6LU-Pa-4U5"/>
                                                 <constraint firstAttribute="bottom" secondItem="zgP-So-uwN" secondAttribute="bottom" id="CUx-Pd-fXL"/>
                                                 <constraint firstItem="cty-1T-fvd" firstAttribute="leading" secondItem="hzO-sR-Hxe" secondAttribute="leading" id="IKP-KH-DEh"/>
-                                                <constraint firstItem="1LD-cN-VQQ" firstAttribute="top" secondItem="hzO-sR-Hxe" secondAttribute="top" id="Rqx-Fq-UJV"/>
-                                                <constraint firstAttribute="trailing" secondItem="1LD-cN-VQQ" secondAttribute="trailing" id="ZTl-X2-YuJ"/>
                                                 <constraint firstAttribute="bottom" secondItem="cty-1T-fvd" secondAttribute="bottom" id="hsh-A4-cMc"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -2593,6 +2584,11 @@ of 12 to 14 km per litre</string>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hOR-ys-Wye" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="uWs-e5-qMI">
+                    <connections>
+                        <action selector="editPhoto" destination="3qp-Lu-ySI" id="ALM-dc-Jgf"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1694" y="143"/>
         </scene>
@@ -2745,7 +2741,7 @@ of 12 to 14 km per litre</string>
                         <viewControllerLayoutGuide type="top" id="PEP-T7-iZi"/>
                         <viewControllerLayoutGuide type="bottom" id="cOM-QE-BQt"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="7Jo-Ee-SkN">
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="7Jo-Ee-SkN">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2838,7 +2834,7 @@ of 12 to 14 km per litre</string>
                         <viewControllerLayoutGuide type="top" id="7hd-N4-hpl"/>
                         <viewControllerLayoutGuide type="bottom" id="CcM-Vi-ac3"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="DxY-jH-dHb">
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="DxY-jH-dHb">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
