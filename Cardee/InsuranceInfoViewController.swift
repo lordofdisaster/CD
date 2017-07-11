@@ -28,7 +28,12 @@ class InsuranceInfoViewController: UIViewController {
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(self.goToNextStep))
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "chevron_left"), style: .plain, target: self, action: #selector(self.goToParent))
+        setKeyboardObserver()
+        
     }
+    
+    
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -175,6 +180,45 @@ class InsuranceInfoViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 }
+
+
+// MARK: Work with keyboard
+extension InsuranceInfoViewController {
+    func setKeyboardObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(InsuranceInfoViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(InsuranceInfoViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    
+    func keyboardWillShow(_ notification:Notification) {
+        
+        if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+            var userInfo = notification.userInfo!
+            var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+            keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+            
+            var contentInset:UIEdgeInsets = self.tableView.contentInset
+            contentInset.bottom = keyboardFrame.size.height
+            self.tableView.contentInset = contentInset
+            
+            //get indexpath
+            let indexPath = IndexPath(row: 4, section: 0)
+            self.tableView.scrollToRow(at: indexPath, at: UITableViewScrollPosition.top, animated: true)
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue()) != nil {
+            let contentInset:UIEdgeInsets = UIEdgeInsetsZero
+            self.tbl.contentInset = contentInset
+        }
+    }
+    
+    
+    
+}
+
 
 //MARK: TableView Delegate + DataSource
 

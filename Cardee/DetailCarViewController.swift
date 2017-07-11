@@ -81,13 +81,27 @@ extension DetailCarViewController: UIImagePickerControllerDelegate,UINavigationC
         }
         
         if let image = selectedImage {
-            carImageView.image = image
-            //profileImageView.image = image
-            //profileImageView.contentMode = .scaleAspectFill
+            //upload new image
+            MBProgressHUD.showAdded(to: (self.navigationController?.view)!, animated: true)
+            AlamofireManager.setCarImage(image: image, for: car.carId) { success, error in
+                if success {
+                    CardeeAlert.showAlert(withTitle: "Success", message: "Your car image succesfully changed", sender: self)
+                } else {
+                    CardeeAlert.showAlert(withTitle: "Error", message: error!, sender: self)
+                }
+                MBProgressHUD.hide(for: (self.navigationController?.view)!, animated: true)
+                
+            }
+            
+            
         }
+        
+        
         dismiss(animated: true, completion: nil)
     }
 
+    
+    
     
     
 }
