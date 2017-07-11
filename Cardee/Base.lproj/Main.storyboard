@@ -3004,12 +3004,12 @@ of 12 to 14 km per litre</string>
         <image name="text_logo" width="270" height="58"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JGb-IU-eCX"/>
-        <segue reference="QxT-Eq-nMl"/>
         <segue reference="CUc-ed-tP1"/>
-        <segue reference="xS1-3Q-N6W"/>
+        <segue reference="JGb-IU-eCX"/>
+        <segue reference="Sis-kt-hUR"/>
+        <segue reference="QxT-Eq-nMl"/>
         <segue reference="Ebx-rI-56M"/>
         <segue reference="NUR-Ik-zb7"/>
-        <segue reference="FSq-8e-1dl"/>
+        <segue reference="Z1t-SM-sVB"/>
     </inferredMetricsTieBreakers>
 </document>
