@@ -216,9 +216,10 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
     
     private func configureVisibleCells() {
         self.calendar.visibleCells().forEach { (cell) in
-            let date = calendar.date(for: cell)
-            let position = calendar.monthPosition(for: cell)
-            self.configure(cell: cell, for: date, at: position)
+            if let date = calendar.date(for: cell) {
+                let position = calendar.monthPosition(for: cell)
+                self.configure(cell: cell, for: date, at: position)
+            }
         }
     }
     
