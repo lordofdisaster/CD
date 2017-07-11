@@ -10,7 +10,7 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 
-class AddCarLocationViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
+class AddCarLocationViewController: UIViewController {
     
     var locationManager = CLLocationManager()
     var mapView = GMSMapView()
@@ -23,8 +23,6 @@ class AddCarLocationViewController: UIViewController, GMSMapViewDelegate, CLLoca
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Car Location"
-        
         
         
         initMap()
@@ -32,13 +30,9 @@ class AddCarLocationViewController: UIViewController, GMSMapViewDelegate, CLLoca
         initFooterHideExactLocationView()
         initCurrentLocationButton()
         initCarPinView()
+        initNavigationBar()
         
-        // Init location manager
-        self.locationManager.delegate = self
-        self.locationManager.startUpdatingLocation()
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(self.goToNextStep))
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "chevron_left"), style: .plain, target: self, action: #selector(self.goToParent))
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -68,13 +62,47 @@ class AddCarLocationViewController: UIViewController, GMSMapViewDelegate, CLLoca
         }
     }
     
-    //MARK: Navigation Actions
+}
+
+
+//MARK: Navigation Actions
+extension AddCarLocationViewController: GMSMapViewDelegate, CLLocationManagerDelegate {
+    
+    func initMap() {
+        // Init location manager
+        self.locationManager.delegate = self
+        self.locationManager.startUpdatingLocation()
+        
+        
+        self.mapView = GMSMapView(frame: CGRect(x: 0, y: 0, width: Screen.width, height: self.view.frame.height - 62 - CGFloat(System.navigationBarHeight) - CGFloat(System.statusBarHeight)))
+        self.mapView.isMyLocationEnabled = true
+        self.mapView.delegate = self
+        
+        self.view.addSubview(self.mapView)
+        
+    }
+
+    
+    
+    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+        reverseGeocodeCoordinate(coordinate: position.target)
+    }
+    
+    // Get location
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations.last
+        let camera = GMSCameraPosition.camera(withLatitude: (location?.coordinate.latitude)!, longitude:(location?.coordinate.longitude)!, zoom: 17)
+        mapView.animate(to: camera)
+        self.locationManager.stopUpdatingLocation()
+        self.setDefaultSelection()
+    }
     
     func goToParent() {
         let vc = self.navigationController?.viewControllers[1] as! AddCarViewController
         self.navigationController?.popToViewController(vc, animated: true)
     }
-
+    
     func goToNextStep() {
         self.performSegue(withIdentifier: "nextSegue", sender: self)
     }
@@ -105,43 +133,38 @@ class AddCarLocationViewController: UIViewController, GMSMapViewDelegate, CLLoca
         }
     }
     
-    //MARK: Memory Warning
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    func reverseAddressToCoordinate(address: String) {
+        
+
     }
     
-    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
-        reverseGeocodeCoordinate(coordinate: position.target)
-    }
     
-    // Get location
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations.last
-        let camera = GMSCameraPosition.camera(withLatitude: (location?.coordinate.latitude)!, longitude:(location?.coordinate.longitude)!, zoom: 17)
-        mapView.animate(to: camera)
-        self.locationManager.stopUpdatingLocation()
-        self.setDefaultSelection()
-    }
 }
 
 
 // UI
 extension AddCarLocationViewController {
-    func initMap() {
-        self.mapView = GMSMapView(frame: CGRect(x: 0, y: 0, width: Screen.width, height: self.view.frame.height - 62 - CGFloat(System.navigationBarHeight) - CGFloat(System.statusBarHeight)))
-        self.mapView.isMyLocationEnabled = true
-        self.mapView.delegate = self
+    
+    func initNavigationBar() {
         
-        self.view.addSubview(self.mapView)
+        self.title = "Car Location"
         
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(self.goToNextStep))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "chevron_left"), style: .plain, target: self, action: #selector(self.goToParent))
     }
     
     func initAddressFieldInfo() {
         // Init cat location view
         self.carLocationView = CarLocationView(frame: CGRect(x: 13, y: 13, width: Screen.width - 26, height: 63))
         self.view.addSubview(self.carLocationView)
+        self.carLocationView.addressTextField.addTarget(self, action: #selector(handleAddress), for: .editingChanged)
+        
+    }
+    
+    
+    func handleAddress(sender: UITextField) {
+        
+        print(sender.text)
         
     }
     
