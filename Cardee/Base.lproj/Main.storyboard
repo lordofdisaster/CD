@@ -288,7 +288,7 @@
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8Kg-kj-XHV">
+                                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" onImage="check" offImage="cross" translatesAutoresizingMaskIntoConstraints="NO" id="8Kg-kj-XHV">
                                                                             <rect key="frame" x="72" y="0.0" width="51" height="31"/>
                                                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <color key="onTintColor" red="0.28651386335000001" green="0.49271918399444442" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -332,7 +332,7 @@
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uUO-WW-m1x">
+                                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" onImage="check" offImage="cross" translatesAutoresizingMaskIntoConstraints="NO" id="uUO-WW-m1x">
                                                                             <rect key="frame" x="61" y="0.0" width="51" height="31"/>
                                                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <color key="onTintColor" red="0.28651386340000001" green="0.49271918399999998" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -584,7 +584,7 @@
                         <viewControllerLayoutGuide type="top" id="Smt-cY-Hqw"/>
                         <viewControllerLayoutGuide type="bottom" id="fGY-u9-wLi"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="dwb-gU-KF1">
+                    <view key="view" contentMode="scaleToFill" id="dwb-gU-KF1">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -626,7 +626,7 @@
                         <viewControllerLayoutGuide type="top" id="iYq-GH-fxK"/>
                         <viewControllerLayoutGuide type="bottom" id="Gfg-4R-rXm"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="TUS-zi-XSC">
+                    <view key="view" contentMode="scaleToFill" id="TUS-zi-XSC">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -672,7 +672,7 @@
                         <viewControllerLayoutGuide type="top" id="Ygj-oO-dEG"/>
                         <viewControllerLayoutGuide type="bottom" id="waP-LY-dSj"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="H5I-Ai-eA8">
+                    <view key="view" contentMode="scaleToFill" id="H5I-Ai-eA8">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -730,7 +730,7 @@
                         <viewControllerLayoutGuide type="top" id="iN4-9P-R7Y"/>
                         <viewControllerLayoutGuide type="bottom" id="ozb-xj-8vU"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="ldL-YS-j7B">
+                    <view key="view" contentMode="scaleToFill" id="ldL-YS-j7B">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -766,7 +766,7 @@
                         <viewControllerLayoutGuide type="top" id="etl-dT-REF"/>
                         <viewControllerLayoutGuide type="bottom" id="Y7Y-7a-0ux"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="em1-0z-Zvq">
+                    <view key="view" contentMode="scaleToFill" id="em1-0z-Zvq">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -2745,7 +2745,7 @@ of 12 to 14 km per litre</string>
                         <viewControllerLayoutGuide type="top" id="PEP-T7-iZi"/>
                         <viewControllerLayoutGuide type="bottom" id="cOM-QE-BQt"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="7Jo-Ee-SkN">
+                    <view key="view" contentMode="scaleToFill" id="7Jo-Ee-SkN">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2838,7 +2838,7 @@ of 12 to 14 km per litre</string>
                         <viewControllerLayoutGuide type="top" id="7hd-N4-hpl"/>
                         <viewControllerLayoutGuide type="bottom" id="CcM-Vi-ac3"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="DxY-jH-dHb">
+                    <view key="view" contentMode="scaleToFill" id="DxY-jH-dHb">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
