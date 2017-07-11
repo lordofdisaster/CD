@@ -12,6 +12,7 @@ class CarLocationView: UIView {
     
     var infoLabel: UILabel!
     var addressLabel: UILabel!
+    var addressTextField: UITextField!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
