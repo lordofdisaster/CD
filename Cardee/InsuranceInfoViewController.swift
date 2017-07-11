@@ -209,9 +209,9 @@ extension InsuranceInfoViewController {
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue()) != nil {
-            let contentInset:UIEdgeInsets = UIEdgeInsetsZero
-            self.tbl.contentInset = contentInset
+        if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+            let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+            self.tableView.contentInset = contentInset
         }
     }
     
