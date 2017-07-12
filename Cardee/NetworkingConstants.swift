@@ -39,4 +39,5 @@ struct apiEndpoints {
     
     //Profile
     static let ownerProfile = "/profiles/owner"
+    static let profilePicture = "/profiles/picture"
 }

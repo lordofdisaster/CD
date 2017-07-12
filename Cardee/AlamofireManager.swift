@@ -133,7 +133,7 @@ class AlamofireManager: NSObject {
             "personal_documents": "", //TO DO
             
             "name": NewCar.shared.contactInfo!.name!,
-            "phone": NewCar.shared.contactInfo!.mobileNumber!,
+            "phone": Methods.transform(number: NewCar.shared.contactInfo!.mobileNumber!),
             "email": NewCar.shared.contactInfo!.email!
         ] as [String : Any]
         
@@ -156,50 +156,22 @@ class AlamofireManager: NSObject {
         
         let url = try! URLRequest(url: URL(string: baseUrl + apiEndpoints.cars + "/\(carId)" + "/image")!, method: .put, headers: headers)
         
-//        SharedManager.upload(multipartFormData: { multipartFormData in
-//            multipartFormData.append(UIImageJPEGRepresentation(NewCar.shared.carVerification!.carImage!, 0.8)!, withName: "car_image")
-//        }, with: url, encodingCompletion: { encodingResult in
-//            switch encodingResult {
-//            case .success(let upload, _, _):
-//                upload.responseJSON { response in
-//                    print("response: \(response)")
-//                    if ((response.result.value) != nil) {
-//                        print("RESPONSE: \(response)")
-//                    } else {
-//                        print("RESPONSE ERROR: \(response)")
-//                    }
-//                }
-//            case .failure( _):
-//                break
-//            }
-//        })
+        let imageData = UIImageJPEGRepresentation(NewCar.shared.carVerification!.carImage!, 1.0)!
         
-        
-        
-        
-           // let uploadUrl = self.uploadURL(for: object)!
-            //let request = try! URLRequest(url: uploadUrl, method: .post, headers: nil)
-            
-            SharedManager.upload(multipartFormData: { multipartFormData in
-                multipartFormData.append(UIImageJPEGRepresentation(NewCar.shared.carVerification!.carImage!, 0.8)!, withName: "car_image", fileName: "image.jpg", mimeType: "application/octet-stream")
-            }, with: url, encodingCompletion: {
+        SharedManager.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(imageData, withName: "car_image", fileName: "image.jpg", mimeType: "application/octet-stream")
+        }, with: url, encodingCompletion: {
                 encodingResult in
-                switch encodingResult {
-                case .success(let upload, _, _):
-                    print("RESULT: \(upload)")
-                    completionHandler!(true, nil)
-                case .failure(let encodingError):
-                    print("ERROR : \(encodingError.localizedDescription)")
-                    completionHandler!(true, nil)
-                }
-            })
-        
-        
-        
-        
-        
+            switch encodingResult {
+            case .success(let upload, _, _):
+                print("RESULT: \(upload)")
+                completionHandler!(true, nil)
+            case .failure(let encodingError):
+                print("ERROR : \(encodingError.localizedDescription)")
+                completionHandler!(true, nil)
+            }
+        })
     }
-    
     
     class func getCarWith(id: Int, completionHandler: objectCompletionHandler? = nil) {
         
@@ -541,5 +513,30 @@ class AlamofireManager: NSObject {
                 completionHandler!(false, result["data"]["errors"]["description"].stringValue)
             }
         }
+    }
+    
+    class func set(avatar: UIImage, completionHandler: booleanCompletionHandler? = nil) {
+        
+        let headers = [
+            "Authorization": keychain.get("access_token")!
+        ]
+        
+        let url = try! URLRequest(url: URL(string: baseUrl + apiEndpoints.profilePicture)!, method: .post, headers: headers)
+        
+        let imageData = UIImageJPEGRepresentation(avatar, 1.0)!
+        
+        SharedManager.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(imageData, withName: "data", fileName: "image.jpg", mimeType: "application/octet-stream")
+        }, with: url, encodingCompletion: {
+            encodingResult in
+            switch encodingResult {
+            case .success(let upload, _, _):
+                print("RESULT: \(upload)")
+                //completionHandler!(true, nil)
+            case .failure(let encodingError):
+                print("ERROR : \(encodingError.localizedDescription)")
+                //completionHandler!(true, nil)
+            }
+        })
     }
 }

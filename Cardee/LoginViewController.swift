@@ -13,27 +13,25 @@ import FacebookLogin
 
 class LoginViewController: UIViewController {
     
-    var isUserWantSignUp = true
     var loginView: LoginView!
     var signUpView: SignUpView!
+    var isUserWantSignUp = true
+    var showSignUpScreen = false
     var tapGestureRecognizer: UITapGestureRecognizer!
     let imagePicker = UIImagePickerController()
-    
-    enum LoginFlow: Int {
-        case Login = 0
-        case RegistrationName
-        case RegistrationPassword
-    }
-    
-    //MARK: Controller Lifecycle
+   
+    //MARK:- Controller Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initLoginView()
         self.initImagePicker()
+        if showSignUpScreen {
+            self.startSignUpAction()
+        }
     }
     
-    //MARK: Actions
+    //MARK:- Actions
     
     func loginAction() {
         self.view.endEditing(true)
@@ -41,7 +39,7 @@ class LoginViewController: UIViewController {
         AlamofireManager.loginWith(username: self.loginView.emailTextField.text!, password: self.loginView.passwordTextField.text!) { success, error in
             MBProgressHUD.hide(for: self.view, animated: true)
             if success {
-                self.performSegue(withIdentifier: "openCarListSegue", sender: self)
+                self.performSegue(withIdentifier: "openMyCarsListSegue", sender: self)
             } else {
                 CardeeAlert.showAlert(withTitle: "Error", message: error!, sender: self)
             }
@@ -120,7 +118,7 @@ class LoginViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    //MARK: States
+    //MARK:- States
     
     func setSignUpState() {
         self.loginView.signUpButton.setTitle(Login.noAccountString, for: .normal)
@@ -163,7 +161,7 @@ class LoginViewController: UIViewController {
         self.view.addSubview(self.signUpView)
     }
     
-    //MARK: Initializers
+    //MARK:- Initializers
     
     func initLoginView() {
         self.tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
@@ -185,14 +183,14 @@ class LoginViewController: UIViewController {
         self.imagePicker.delegate = self
     }
     
-    //MARK: Memory Warning
+    //MARK:- Memory Warning
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 }
 
-//MARK: Keyboard Behavior Handling
+//MARK:- Keyboard Behavior Handling
 
 extension LoginViewController {
     func keyboardWillShow(notification: NSNotification) {
@@ -202,6 +200,7 @@ extension LoginViewController {
             }
         }
     }
+    
     func keyboardWillHide(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y != 0 {
@@ -211,7 +210,7 @@ extension LoginViewController {
     }
 }
 
-//MARK: UIImagePicker Delegate
+//MARK:- UIImagePicker Delegate
 
 extension LoginViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     

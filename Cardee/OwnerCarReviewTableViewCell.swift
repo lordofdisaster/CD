@@ -24,11 +24,12 @@ class OwnerCarReviewTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         self.selectionStyle = .none
+        self.clipsToBounds = true
         
         // Review header
         
         let reviewHederLabelX = 26
-        let reviewHederLabelY = 18
+        let reviewHederLabelY = 14
         let reviewHederLabelWidth = Screen.width - CGFloat(2 * reviewHederLabelX)
         let reviewHederLabelHeight = 22
         
@@ -39,7 +40,7 @@ class OwnerCarReviewTableViewCell: UITableViewCell {
         
         // Author avatart image
         
-        let authorAvatarImageViewTopOffset = 12
+        let authorAvatarImageViewTopOffset = 16
         let authorAvatarImageViewX = 26
         let authorAvatarImageViewY = authorAvatarImageViewTopOffset + reviewHederLabelY + reviewHederLabelHeight
         let authorAvatarImageViewSize = 45

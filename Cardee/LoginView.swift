@@ -67,6 +67,7 @@ class LoginView: UIView {
         
         // Password textfield
         self.passwordTextField = LoginTextField(frame: CGRect(x: CGFloat(0), y: passwordTextFieldY, width: self.fieldView.frame.width, height: CGFloat(textFieldHeight)), customPlaceholder: "Password")
+        self.passwordTextField.isSecureTextEntry = true
         
         // Login button
         let loginButtonOffset = 40

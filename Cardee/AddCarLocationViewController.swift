@@ -12,12 +12,14 @@ import GooglePlaces
 
 class AddCarLocationViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
     
-    var locationManager = CLLocationManager()
-    var mapView = GMSMapView()
+    //MARK:- UI Variables
     var carLocationView: CarLocationView!
     var hideExactLocationView: HideExactLocationView!
     
+    //MARK:- Location Variables
+    var mapView = GMSMapView()
     var carLocation = CarLocation()
+    var locationManager = CLLocationManager()
     
     //MARK: Controller Lifecycle
 
@@ -77,7 +79,7 @@ class AddCarLocationViewController: UIViewController, GMSMapViewDelegate, CLLoca
         // Init location manager
         
         self.locationManager.delegate = self
-        self.locationManager.startUpdatingLocation()
+        self.setDefaultSelection()
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(self.goToNextStep))
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "chevron_left"), style: .plain, target: self, action: #selector(self.goToParent))
@@ -103,10 +105,11 @@ class AddCarLocationViewController: UIViewController, GMSMapViewDelegate, CLLoca
                 self.carLocation.isExactLocationHidden = false
             }
             let camera = GMSCameraPosition.camera(withLatitude: (self.carLocation.carLocationCoordinate!.latitude), longitude:(self.carLocation.carLocationCoordinate!.longitude), zoom: 17)
-            mapView.animate(to: camera)
+            self.mapView.animate(to: camera)
             self.reverseGeocodeCoordinate(coordinate: self.carLocation.carLocationCoordinate!)
         } else {
             self.carLocation.isExactLocationHidden = false
+            self.locationManager.startUpdatingLocation()
         }
     }
     
@@ -153,17 +156,18 @@ class AddCarLocationViewController: UIViewController, GMSMapViewDelegate, CLLoca
         super.didReceiveMemoryWarning()
     }
     
+    //MARK:- Google Maps Delegate
+    
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
         reverseGeocodeCoordinate(coordinate: position.target)
     }
     
-    // Get location
+    //MARK:- Location Manager Delegate
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.last
         let camera = GMSCameraPosition.camera(withLatitude: (location?.coordinate.latitude)!, longitude:(location?.coordinate.longitude)!, zoom: 17)
-        mapView.animate(to: camera)
+        self.mapView.animate(to: camera)
         self.locationManager.stopUpdatingLocation()
-        self.setDefaultSelection()
     }
 }

@@ -32,6 +32,7 @@ class AddContactInfoViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+
         NewCar.shared.contactInfo = self.contactInfo
     }
     
@@ -61,8 +62,42 @@ class AddContactInfoViewController: UIViewController {
     //MARK: Navigation Actions
     
     func goToParent() {
-        let vc = self.navigationController?.viewControllers[1] as! AddCarViewController
-        self.navigationController?.popToViewController(vc, animated: true)
+        
+        var emailIsValid = false
+        var phoneNumberIsValid = false
+        
+        if let email = self.contactInfo.email {
+            if !Methods.isValidEmail(email: email) {
+                CardeeAlert.showAlert(withTitle: "Error", message: "Your email is not valid. Please check it.", sender: self)
+            } else {
+                emailIsValid = true
+            }
+        } else {
+            emailIsValid = true
+        }
+        
+        if var mobileNumber = self.contactInfo.mobileNumber {
+            if mobileNumber.characters.count > 15 {
+                self.contactInfo.mobileNumber?.characters.removeLast()
+                mobileNumber = self.contactInfo.mobileNumber!
+                phoneNumberIsValid = true
+            } else if mobileNumber.characters.count == 15 {
+                phoneNumberIsValid = true
+            } else if mobileNumber.characters.count < 14 {
+                phoneNumberIsValid = false
+            }
+        } else {
+            phoneNumberIsValid = true
+        }
+    
+        if !emailIsValid {
+            CardeeAlert.showAlert(withTitle: "Error", message: "Your email is not valid. Please check it.", sender: self)
+        } else if !phoneNumberIsValid {
+            CardeeAlert.showAlert(withTitle: "Error", message: "Your phone number is not valid. Please check it.", sender: self)
+        } else {
+            let vc = self.navigationController?.viewControllers[1] as! AddCarViewController
+            self.navigationController?.popToViewController(vc, animated: true)
+        }
     }
     
     //MARK: Memory Warning
@@ -93,16 +128,21 @@ extension AddContactInfoViewController: UITableViewDelegate, UITableViewDataSour
         
         switch indexPath.row {
         case 0:
+            cell.infoTextField.keyboardType = .alphabet
             if let textFieldInfo = self.contactInfo.name {
                 cell.infoTextField.text = textFieldInfo
             }
             break
         case 1:
+            cell.infoTextField.keyboardType = .numberPad
             if let textFieldInfo = self.contactInfo.mobileNumber {
                 cell.infoTextField.text = textFieldInfo
+            } else {
+                cell.infoTextField.text = "+(65) "
             }
             break
         case 2:
+            cell.infoTextField.keyboardType = .emailAddress
             if let textFieldInfo = self.contactInfo.email {
                 cell.infoTextField.text = textFieldInfo
             }
@@ -113,6 +153,7 @@ extension AddContactInfoViewController: UITableViewDelegate, UITableViewDataSour
             }
             break
         case 4:
+            cell.infoTextField.keyboardType = .numberPad
             if let textFieldInfo = self.contactInfo.accountNumber {
                 cell.infoTextField.text = textFieldInfo
             }
@@ -143,7 +184,35 @@ extension AddContactInfoViewController: UITextFieldDelegate {
             break
         case 1:
             self.contactInfo.mobileNumber = editedString
-            break
+            let newString = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+            let components = newString.components(separatedBy: NSCharacterSet.decimalDigits.inverted)
+            
+            let decimalString = components.joined(separator: "") as NSString
+            let length = decimalString.length
+            
+            if length == 0 || length > 10 {
+                let newLength = (textField.text! as NSString).length + (string as NSString).length - range.length as Int
+                return (newLength > 9) ? false : true
+            }
+            var index = 0 as Int
+            let formattedString = NSMutableString()
+            
+            if (length - index) > 2 {
+                let areaCode = decimalString.substring(with: NSMakeRange(index, 2))
+                formattedString.appendFormat("+(%@) ", areaCode)
+                index += 2
+            }
+            if length - index > 4 {
+                let prefix = decimalString.substring(with: NSMakeRange(index, 4))
+                formattedString.appendFormat("%@-", prefix)
+                index += 4
+            }
+            
+            let remainder = decimalString.substring(from: index)
+            formattedString.append(remainder)
+            textField.text = formattedString as String
+            return false
+            //break
         case 2:
             self.contactInfo.email = editedString
             break
@@ -158,4 +227,5 @@ extension AddContactInfoViewController: UITextFieldDelegate {
         }
         return true
     }
+    
 }

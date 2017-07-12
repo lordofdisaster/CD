@@ -17,6 +17,7 @@ class OwnerCarsCarouselTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         self.selectionStyle = .none
+        self.clipsToBounds = true
         
         // Review header
         
@@ -28,11 +29,11 @@ class OwnerCarsCarouselTableViewCell: UITableViewCell {
         self.carHeaderLabel = UILabel(frame: CGRect(x: reviewHederLabelX, y: reviewHederLabelY, width: Int(reviewHederLabelWidth), height: reviewHederLabelHeight))
         self.carHeaderLabel.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightThin)
         self.carHeaderLabel.textColor = Color.grayText
-        self.carHeaderLabel.text = "2 Cars"
+        self.carHeaderLabel.text = "\(OwnerProfile.shared.cars.count) Cars"
         
         // Cars Carousel
         
-        let count = 10
+        let count = OwnerProfile.shared.cars.count
         
         let scrollViewSideOffset = 20
         let scrollViewX = 10
@@ -47,7 +48,14 @@ class OwnerCarsCarouselTableViewCell: UITableViewCell {
         
         for i in 0..<count {
             let view = CarCarouselView(frame: CGRect(x: 5 + i * 5 + i * 130, y: 5, width: 130, height: 90))
-            view.carImageView.image = UIImage(named: "Mazda.jpg")
+            if let imageUrl = URL(string: OwnerProfile.shared.cars[i].carImage!) {
+                view.carImageView.af_setImage(withURL: imageUrl, placeholderImage: UIImage(), filter: nil, progress: { progress in
+                    print("Progress \(progress)")
+                }, imageTransition: .crossDissolve(0.2), runImageTransitionIfCached: false) { data in
+                    print(data)
+                }
+            }
+            view.carNameLabel.text = OwnerProfile.shared.cars[i].carTitle
             self.carsArray.append(view)
             scrollView.addSubview(view)
         }

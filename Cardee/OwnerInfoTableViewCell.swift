@@ -29,9 +29,8 @@ class OwnerInfoTableViewCell: UITableViewCell {
         
         self.avatarImageView = UIImageView(frame: CGRect(x: avatarImageViewX, y: avatarImageViewY, width: avatarImageViewSize, height: avatarImageViewSize))
         self.avatarImageView.layer.cornerRadius = CGFloat(avatarImageViewSize/2)
-        self.avatarImageView.backgroundColor = UIColor.black
+        self.avatarImageView.backgroundColor = Color.lightGray
         self.avatarImageView.clipsToBounds = true
-        self.avatarImageView.image = #imageLiteral(resourceName: "avatar")
         self.avatarImageView.contentMode = .scaleAspectFill
         
         // Username label

@@ -59,10 +59,28 @@ class LauncherViewController: UIViewController {
         self.view.bringSubview(toFront: self.loginButton)
         self.view.bringSubview(toFront: self.signupButton)
     }
+    
+    @IBAction func openLoginScreen(_ sender: Any) {
+        self.performSegue(withIdentifier: "showLoginScreen", sender: self)
+    }
 
+    @IBAction func openSignUpScreen(_ sender: Any) {
+        self.performSegue(withIdentifier: "showSignUpScreen", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showSignUpScreen" {
+            if let loginViewController = segue.destination as? LoginViewController {
+                loginViewController.showSignUpScreen = true
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    
 }
 
 extension LauncherViewController: UIScrollViewDelegate {

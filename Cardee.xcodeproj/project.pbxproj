@@ -76,6 +76,9 @@
 		E82DA9411EFD1062005E257A /* FSCalendar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E82DA92A1EFD1062005E257A /* FSCalendar-dummy.m */; };
 		E82DA9421EFD1062005E257A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E82DA92D1EFD1062005E257A /* Info.plist */; };
 		E82ECFA11EB090F600685F0F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82ECFA01EB090F600685F0F /* SignUpView.swift */; };
+		E84781241F0E98C8006FA529 /* EarningsTotalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84781231F0E98C8006FA529 /* EarningsTotalTableViewCell.swift */; };
+		E84781261F0E9944006FA529 /* EarningsHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84781251F0E9944006FA529 /* EarningsHistoryTableViewCell.swift */; };
+		E84781281F0E99B8006FA529 /* EarningsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84781271F0E99B8006FA529 /* EarningsViewController.swift */; };
 		E85E28091EE572AC00438789 /* AlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85E28081EE572AC00438789 /* AlamofireManager.swift */; };
 		E85E280B1EE6886E00438789 /* NetworkingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85E280A1EE6886E00438789 /* NetworkingConstants.swift */; };
 		E85E280D1EE6889600438789 /* CustomTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85E280C1EE6889600438789 /* CustomTypes.swift */; };
@@ -116,6 +119,11 @@
 		E8C19CA41EDF41B000BF59F7 /* DetailRentalRatesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C19CA31EDF41B000BF59F7 /* DetailRentalRatesTableViewCell.swift */; };
 		E8C19CA61EDF41D700BF59F7 /* DetailRentalFuelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C19CA51EDF41D700BF59F7 /* DetailRentalFuelTableViewCell.swift */; };
 		E8C19CA81EDF420000BF59F7 /* DetailRentalTermsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C19CA71EDF420000BF59F7 /* DetailRentalTermsTableViewCell.swift */; };
+		E8D570661F0A760F00C587F8 /* AlertMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D570651F0A760F00C587F8 /* AlertMessageTableViewCell.swift */; };
+		E8D570681F0A76A700C587F8 /* AlertsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D570671F0A76A700C587F8 /* AlertsViewController.swift */; };
+		E8D5706D1F0A83EB00C587F8 /* ChatMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5706C1F0A83EB00C587F8 /* ChatMessageTableViewCell.swift */; };
+		E8D5706F1F0A841500C587F8 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5706E1F0A841500C587F8 /* ChatsViewController.swift */; };
+		E8D570711F0A85CA00C587F8 /* InboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D570701F0A85CA00C587F8 /* InboxViewController.swift */; };
 		E8E30CB81EF80A5B000ED5F7 /* CardeePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E30CB71EF80A5B000ED5F7 /* CardeePickerViewController.swift */; };
 		E8E72AFE1EB309E900FEC460 /* OwnerDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E72AFD1EB309E900FEC460 /* OwnerDescriptionTableViewCell.swift */; };
 		E8E72B001EB314B500FEC460 /* OwnerCarReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E72AFF1EB314B500FEC460 /* OwnerCarReviewTableViewCell.swift */; };
@@ -227,6 +235,9 @@
 		E82DA92C1EFD1062005E257A /* FSCalendar-umbrella.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FSCalendar-umbrella.h"; sourceTree = "<group>"; };
 		E82DA92D1EFD1062005E257A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E82ECFA01EB090F600685F0F /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		E84781231F0E98C8006FA529 /* EarningsTotalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarningsTotalTableViewCell.swift; sourceTree = "<group>"; };
+		E84781251F0E9944006FA529 /* EarningsHistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarningsHistoryTableViewCell.swift; sourceTree = "<group>"; };
+		E84781271F0E99B8006FA529 /* EarningsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarningsViewController.swift; sourceTree = "<group>"; };
 		E85E28081EE572AC00438789 /* AlamofireManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireManager.swift; sourceTree = "<group>"; };
 		E85E280A1EE6886E00438789 /* NetworkingConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingConstants.swift; sourceTree = "<group>"; };
 		E85E280C1EE6889600438789 /* CustomTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTypes.swift; sourceTree = "<group>"; };
@@ -271,6 +282,11 @@
 		E8C19CA31EDF41B000BF59F7 /* DetailRentalRatesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRentalRatesTableViewCell.swift; sourceTree = "<group>"; };
 		E8C19CA51EDF41D700BF59F7 /* DetailRentalFuelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRentalFuelTableViewCell.swift; sourceTree = "<group>"; };
 		E8C19CA71EDF420000BF59F7 /* DetailRentalTermsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRentalTermsTableViewCell.swift; sourceTree = "<group>"; };
+		E8D570651F0A760F00C587F8 /* AlertMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertMessageTableViewCell.swift; sourceTree = "<group>"; };
+		E8D570671F0A76A700C587F8 /* AlertsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsViewController.swift; sourceTree = "<group>"; };
+		E8D5706C1F0A83EB00C587F8 /* ChatMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageTableViewCell.swift; sourceTree = "<group>"; };
+		E8D5706E1F0A841500C587F8 /* ChatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
+		E8D570701F0A85CA00C587F8 /* InboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxViewController.swift; sourceTree = "<group>"; };
 		E8E30CB71EF80A5B000ED5F7 /* CardeePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardeePickerViewController.swift; sourceTree = "<group>"; };
 		E8E72AFD1EB309E900FEC460 /* OwnerDescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		E8E72AFF1EB314B500FEC460 /* OwnerCarReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerCarReviewTableViewCell.swift; sourceTree = "<group>"; };
@@ -621,6 +637,24 @@
 			path = Pods/FSCalendar;
 			sourceTree = "<group>";
 		};
+		E84781211F0E9888006FA529 /* Earnings */ = {
+			isa = PBXGroup;
+			children = (
+				E84781221F0E9890006FA529 /* Views */,
+				E84781271F0E99B8006FA529 /* EarningsViewController.swift */,
+			);
+			name = Earnings;
+			sourceTree = "<group>";
+		};
+		E84781221F0E9890006FA529 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E84781231F0E98C8006FA529 /* EarningsTotalTableViewCell.swift */,
+				E84781251F0E9944006FA529 /* EarningsHistoryTableViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		E85E28071EE5729000438789 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -710,6 +744,8 @@
 		E87F36141EA6057200AC4DA4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E84781211F0E9888006FA529 /* Earnings */,
+				E8D570611F0A75B000C587F8 /* Inbox */,
 				E81437F71EEFE3DF0089E919 /* Edit Detail Rental Info */,
 				E88BC6811EDFD3A700199ECD /* Edit Detail Car Info */,
 				E8EC9F271EDEE5AC004AF6A0 /* Detailed Car */,
@@ -830,6 +866,42 @@
 				E8C19CA71EDF420000BF59F7 /* DetailRentalTermsTableViewCell.swift */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		E8D570611F0A75B000C587F8 /* Inbox */ = {
+			isa = PBXGroup;
+			children = (
+				E8D570621F0A75D500C587F8 /* Views */,
+				E8D570671F0A76A700C587F8 /* AlertsViewController.swift */,
+				E8D5706E1F0A841500C587F8 /* ChatsViewController.swift */,
+				E8D570701F0A85CA00C587F8 /* InboxViewController.swift */,
+			);
+			name = Inbox;
+			sourceTree = "<group>";
+		};
+		E8D570621F0A75D500C587F8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E8D570641F0A75EF00C587F8 /* Chats */,
+				E8D570631F0A75E300C587F8 /* Alerts */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		E8D570631F0A75E300C587F8 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				E8D570651F0A760F00C587F8 /* AlertMessageTableViewCell.swift */,
+			);
+			name = Alerts;
+			sourceTree = "<group>";
+		};
+		E8D570641F0A75EF00C587F8 /* Chats */ = {
+			isa = PBXGroup;
+			children = (
+				E8D5706C1F0A83EB00C587F8 /* ChatMessageTableViewCell.swift */,
+			);
+			name = Chats;
 			sourceTree = "<group>";
 		};
 		E8E30CB51EF80A3B000ED5F7 /* Cardee Picker */ = {
@@ -1049,11 +1121,13 @@
 				E82193EB1EE7F63600D14753 /* OwnerProfile.swift in Sources */,
 				E82DA9321EFD1062005E257A /* FSCalendarAppearance.m in Sources */,
 				E82DA93B1EFD1062005E257A /* FSCalendarHeaderView.m in Sources */,
+				E8D5706F1F0A841500C587F8 /* ChatsViewController.swift in Sources */,
 				E8EC9F221EDEB651004AF6A0 /* PersonalDocuments.swift in Sources */,
 				E8C19C9A1EDEEE3B00BF59F7 /* DetailCarImageTableViewCell.swift in Sources */,
 				E8EC9F291EDEE5C7004AF6A0 /* DetailCarViewController.swift in Sources */,
 				E8B21B631EB1D66C007E90A9 /* OwnerProfileViewController.swift in Sources */,
 				E82DA93E1EFD1062005E257A /* FSCalendarTransitionCoordinator.m in Sources */,
+				E8D570681F0A76A700C587F8 /* AlertsViewController.swift in Sources */,
 				E8C19CA41EDF41B000BF59F7 /* DetailRentalRatesTableViewCell.swift in Sources */,
 				E8C19C9C1EDEEE6700BF59F7 /* DetailCarInfoTableViewCell.swift in Sources */,
 				E82DA9351EFD1062005E257A /* FSCalendarCollectionView.m in Sources */,
@@ -1064,7 +1138,9 @@
 				E82ECFA11EB090F600685F0F /* SignUpView.swift in Sources */,
 				E82DA9001EFD1034005E257A /* CAPSPageMenu+UIConfiguration.swift in Sources */,
 				E8E72B021EB32AE900FEC460 /* OwnerCarsCarouselTableViewCell.swift in Sources */,
+				E8D570661F0A760F00C587F8 /* AlertMessageTableViewCell.swift in Sources */,
 				E87F361B1EA6060C00AC4DA4 /* GlobalConstants.swift in Sources */,
+				E84781281F0E99B8006FA529 /* EarningsViewController.swift in Sources */,
 				E823DDDF1EC0AAA7006C92DF /* AddPersonalDocumentsViewController.swift in Sources */,
 				E823DDBB1EBE3268006C92DF /* VehicleTypeTableViewCell.swift in Sources */,
 				E87F36081EA6036D00AC4DA4 /* Cardee.xcdatamodeld in Sources */,
@@ -1074,6 +1150,7 @@
 				E82DA93C1EFD1062005E257A /* FSCalendarScopeHandle.m in Sources */,
 				E88BC6831EDFD3C600199ECD /* EditDetailCarDescriptionViewController.swift in Sources */,
 				E823DDCD1EBFA6EA006C92DF /* AddCarVerificationImageViewController.swift in Sources */,
+				E84781241F0E98C8006FA529 /* EarningsTotalTableViewCell.swift in Sources */,
 				E82DA9311EFD1062005E257A /* FSCalendar+Deprecated.m in Sources */,
 				E87F36021EA6036D00AC4DA4 /* LoginViewController.swift in Sources */,
 				E8255AAA1ECDD9B00030AFA7 /* MoreProfileViewController.swift in Sources */,
@@ -1115,6 +1192,7 @@
 				E862A1D61ED43E6900AE84FF /* DIYCalendarCell.swift in Sources */,
 				E81437F91EEFE4000089E919 /* EditDetailRentalDeliveryRatesTableViewController.swift in Sources */,
 				E81437FD1EF03BFD0089E919 /* EditDetailRentalFuelPolicyTableViewController.swift in Sources */,
+				E8D5706D1F0A83EB00C587F8 /* ChatMessageTableViewCell.swift in Sources */,
 				E823DDB91EBE235E006C92DF /* AddVehicleTypeViewController.swift in Sources */,
 				E8EC9F201EDEAE6B004AF6A0 /* CarDocuments.swift in Sources */,
 				E82DA9341EFD1062005E257A /* FSCalendarCell.m in Sources */,
@@ -1123,7 +1201,9 @@
 				E88013DD1ED2B4EE00F41CC2 /* AccountDetailsViewController.swift in Sources */,
 				E82DA93F1EFD1062005E257A /* FSCalendarWeekdayView.m in Sources */,
 				E8C19CA61EDF41D700BF59F7 /* DetailRentalFuelTableViewCell.swift in Sources */,
+				E8D570711F0A85CA00C587F8 /* InboxViewController.swift in Sources */,
 				E862A1D01ED430F200AE84FF /* CalendarViewController.swift in Sources */,
+				E84781261F0E9944006FA529 /* EarningsHistoryTableViewCell.swift in Sources */,
 				E82DA9411EFD1062005E257A /* FSCalendar-dummy.m in Sources */,
 				E82DA8FE1EFD1034005E257A /* CAPSPageMenu.swift in Sources */,
 				E88E3EEB1EB48BDC00D4AD16 /* LauncherViewController.swift in Sources */,
