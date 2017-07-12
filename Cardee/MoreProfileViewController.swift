@@ -17,9 +17,6 @@ class MoreProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-        
         initTable()
     }
     
@@ -28,16 +25,9 @@ class MoreProfileViewController: UIViewController {
         tableView.reloadData()
         self.navigationController?.navigationBar.isHidden = true
     }
-    
-    
     func setLastMenuItem() {
         statusMenu = OWNER_STATUS ? "Switch To Renteer" : "Switch To Owner"
-        
         self.menuLabels[self.menuLabels.count-1] = statusMenu
-        
-        
-        
-        
     }
     
 }
@@ -67,12 +57,6 @@ extension MoreProfileViewController: UITableViewDelegate, UITableViewDataSource 
         fotview.textAlignment = .center
         fotview.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightBold)
         
-        
-        
-        
-        
-        
-        
         self.tableView.tableFooterView = fotview
         self.view.addSubview(self.tableView)
         
@@ -100,31 +84,34 @@ extension MoreProfileViewController: UITableViewDelegate, UITableViewDataSource 
         case 2:
             self.performSegue(withIdentifier: "showAccountDetailsSegue", sender: self)
         case 5:
-            
-            
-            //and go to Rentee Storyboard
-            var vcID: String!
-            var storyBoardName: String!
-            if OWNER_STATUS {
-                vcID = "RenteeTabBarController"
-                storyBoardName = "Rentee"
-            } else {
-                vcID = "CardeeTabBarController"
-                storyBoardName = "Main"
-            
-            }
-            
-            OWNER_STATUS = !OWNER_STATUS
-            
-            let storyboard = UIStoryboard(name: storyBoardName, bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: vcID) as UIViewController
-            present(vc, animated: true, completion: nil)
-            
-            
-        
+            switchBetweenOwnerAndRentee()
         default:
             self.performSegue(withIdentifier: "showSettingsSegue", sender: self)
         }
+        
+        
+    }
+    
+    
+    func switchBetweenOwnerAndRentee() {
+        
+        //and go to Rentee Storyboard
+        var vcID: String!
+        var storyBoardName: String!
+        if OWNER_STATUS {
+            vcID = "RenteeTabBarController"
+            storyBoardName = "Rentee"
+        } else {
+            vcID = "CardeeTabBarController"
+            storyBoardName = "Main"
+            
+        }
+        
+        OWNER_STATUS = !OWNER_STATUS
+        
+        let storyboard = UIStoryboard(name: storyBoardName, bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: vcID) as UIViewController
+        present(vc, animated: true, completion: nil)
         
         
     }
