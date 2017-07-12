@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7909BC411F16026A00A7A184 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7909BC401F16026A00A7A184 /* MainTabBar.swift */; };
 		795EA90F1F13A94900752A68 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 795EA90E1F13A94900752A68 /* Info.plist */; };
 		E6C2E42BCADA0484D873AF0D /* Pods_Cardee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C56DFBB096498260E3F2FDBD /* Pods_Cardee.framework */; };
 		E80BD6201EE9596800775CE6 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80BD61F1EE9596800775CE6 /* Car.swift */; };
@@ -136,6 +137,7 @@
 
 /* Begin PBXFileReference section */
 		4732730EB245677CC1EE2BD8 /* Pods-Cardee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cardee.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cardee/Pods-Cardee.release.xcconfig"; sourceTree = "<group>"; };
+		7909BC401F16026A00A7A184 /* MainTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		795EA90E1F13A94900752A68 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C56DFBB096498260E3F2FDBD /* Pods_Cardee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cardee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8E59CFEF8ECE584958F598A /* Pods-Cardee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cardee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cardee/Pods-Cardee.debug.xcconfig"; sourceTree = "<group>"; };
@@ -814,6 +816,7 @@
 		E8C19C971EDEEE2300BF59F7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7909BC401F16026A00A7A184 /* MainTabBar.swift */,
 				E8C19C981EDEEE2900BF59F7 /* Cells */,
 			);
 			name = Views;
@@ -1083,6 +1086,7 @@
 				E87F36201EA62A7100AC4DA4 /* SocianLoginView.swift in Sources */,
 				E82DA9071EFD1034005E257A /* PageMenu-dummy.m in Sources */,
 				E82DA9331EFD1062005E257A /* FSCalendarCalculator.m in Sources */,
+				7909BC411F16026A00A7A184 /* MainTabBar.swift in Sources */,
 				E8EC9F1A1EDE86AA004AF6A0 /* CarInfo.swift in Sources */,
 				E85E280B1EE6886E00438789 /* NetworkingConstants.swift in Sources */,
 				E87F36231EA62FF200AC4DA4 /* SocialButton.swift in Sources */,

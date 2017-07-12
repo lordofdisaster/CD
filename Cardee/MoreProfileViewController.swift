@@ -17,6 +17,27 @@ class MoreProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        initTable()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+    }
+
+    
+    
+    
+    
+    
+    
+    
+}
+
+//MARK: TableView Delegate + DataSource
+
+extension MoreProfileViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func initTable() {
         self.tableView = UITableView(frame: CGRect(x: 0, y: -20, width: Screen.width, height: Screen.height + 50))
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -35,20 +56,9 @@ class MoreProfileViewController: UIViewController {
         
         self.tableView.tableFooterView = fotview
         self.view.addSubview(self.tableView)
+        
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.isHidden = true
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-}
-
-//MARK: TableView Delegate + DataSource
-
-extension MoreProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {

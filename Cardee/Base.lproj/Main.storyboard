@@ -2457,15 +2457,23 @@ of 12 to 14 km per litre</string>
                                                         <constraint firstAttribute="height" constant="36" id="ztw-mv-ySe"/>
                                                     </constraints>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="edit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZG2-RR-xgb">
+                                                    <rect key="frame" x="275" y="16" width="29" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="zgP-So-uwN" secondAttribute="trailing" id="0W0-42-ZJ9"/>
                                                 <constraint firstAttribute="trailing" secondItem="cty-1T-fvd" secondAttribute="trailing" id="3g0-Ov-shB"/>
                                                 <constraint firstItem="cty-1T-fvd" firstAttribute="top" secondItem="hzO-sR-Hxe" secondAttribute="top" id="6AQ-HL-xZY"/>
                                                 <constraint firstItem="zgP-So-uwN" firstAttribute="leading" secondItem="hzO-sR-Hxe" secondAttribute="leading" id="6LU-Pa-4U5"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ZG2-RR-xgb" secondAttribute="trailing" constant="8" id="7qo-nL-T1I"/>
                                                 <constraint firstAttribute="bottom" secondItem="zgP-So-uwN" secondAttribute="bottom" id="CUx-Pd-fXL"/>
                                                 <constraint firstItem="cty-1T-fvd" firstAttribute="leading" secondItem="hzO-sR-Hxe" secondAttribute="leading" id="IKP-KH-DEh"/>
                                                 <constraint firstAttribute="bottom" secondItem="cty-1T-fvd" secondAttribute="bottom" id="hsh-A4-cMc"/>
+                                                <constraint firstItem="ZG2-RR-xgb" firstAttribute="top" secondItem="hzO-sR-Hxe" secondAttribute="topMargin" constant="8" id="t5K-d1-WHo"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -2851,7 +2859,7 @@ of 12 to 14 km per litre</string>
         <scene sceneID="lFy-sg-Qj0">
             <objects>
                 <tabBarController id="TXE-dE-WjF" customClass="CardeeTabBarController" customModule="Cardee" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" itemPositioning="fill" id="kQa-86-CbT">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" itemPositioning="fill" id="kQa-86-CbT" customClass="MainTabBar" customModule="Cardee" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
