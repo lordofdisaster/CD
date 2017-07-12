@@ -10,6 +10,8 @@
 		7909BC411F16026A00A7A184 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7909BC401F16026A00A7A184 /* MainTabBar.swift */; };
 		7909BC441F16319900A7A184 /* RenteeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7909BC431F16319900A7A184 /* RenteeTabBarController.swift */; };
 		7909BC461F16355500A7A184 /* Rentee.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7909BC451F16355500A7A184 /* Rentee.storyboard */; };
+		7909BC481F164EFE00A7A184 /* BrowseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7909BC471F164EFE00A7A184 /* BrowseVC.swift */; };
+		7909BC4A1F164F7C00A7A184 /* BrowseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7909BC491F164F7C00A7A184 /* BrowseCell.swift */; };
 		795EA90F1F13A94900752A68 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 795EA90E1F13A94900752A68 /* Info.plist */; };
 		E6C2E42BCADA0484D873AF0D /* Pods_Cardee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C56DFBB096498260E3F2FDBD /* Pods_Cardee.framework */; };
 		E80BD6201EE9596800775CE6 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80BD61F1EE9596800775CE6 /* Car.swift */; };
@@ -142,6 +144,8 @@
 		7909BC401F16026A00A7A184 /* MainTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		7909BC431F16319900A7A184 /* RenteeTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenteeTabBarController.swift; sourceTree = "<group>"; };
 		7909BC451F16355500A7A184 /* Rentee.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Rentee.storyboard; sourceTree = "<group>"; };
+		7909BC471F164EFE00A7A184 /* BrowseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseVC.swift; sourceTree = "<group>"; };
+		7909BC491F164F7C00A7A184 /* BrowseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseCell.swift; sourceTree = "<group>"; };
 		795EA90E1F13A94900752A68 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C56DFBB096498260E3F2FDBD /* Pods_Cardee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cardee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8E59CFEF8ECE584958F598A /* Pods-Cardee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cardee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cardee/Pods-Cardee.debug.xcconfig"; sourceTree = "<group>"; };
@@ -500,6 +504,7 @@
 		E8255AB01ECDDA360030AFA7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				7909BC491F164F7C00A7A184 /* BrowseCell.swift */,
 				E8255AAC1ECDDA090030AFA7 /* ProfileHeaderTableViewCell.swift */,
 				E8255AAE1ECDDA290030AFA7 /* ProfileListItemTableViewCell.swift */,
 			);
@@ -718,6 +723,7 @@
 		E87F36141EA6057200AC4DA4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7909BC471F164EFE00A7A184 /* BrowseVC.swift */,
 				7909BC431F16319900A7A184 /* RenteeTabBarController.swift */,
 				E81437F71EEFE3DF0089E919 /* Edit Detail Rental Info */,
 				E88BC6811EDFD3A700199ECD /* Edit Detail Car Info */,
@@ -1060,6 +1066,7 @@
 				E823DDB31EBE0C5B006C92DF /* AddCarViewController.swift in Sources */,
 				E82193EB1EE7F63600D14753 /* OwnerProfile.swift in Sources */,
 				E82DA9321EFD1062005E257A /* FSCalendarAppearance.m in Sources */,
+				7909BC4A1F164F7C00A7A184 /* BrowseCell.swift in Sources */,
 				E82DA93B1EFD1062005E257A /* FSCalendarHeaderView.m in Sources */,
 				7909BC441F16319900A7A184 /* RenteeTabBarController.swift in Sources */,
 				E8EC9F221EDEB651004AF6A0 /* PersonalDocuments.swift in Sources */,
@@ -1128,6 +1135,7 @@
 				E8C19C9E1EDF0A9300BF59F7 /* DetailRentalViewController.swift in Sources */,
 				E862A1D61ED43E6900AE84FF /* DIYCalendarCell.swift in Sources */,
 				E81437F91EEFE4000089E919 /* EditDetailRentalDeliveryRatesTableViewController.swift in Sources */,
+				7909BC481F164EFE00A7A184 /* BrowseVC.swift in Sources */,
 				E81437FD1EF03BFD0089E919 /* EditDetailRentalFuelPolicyTableViewController.swift in Sources */,
 				E823DDB91EBE235E006C92DF /* AddVehicleTypeViewController.swift in Sources */,
 				E8EC9F201EDEAE6B004AF6A0 /* CarDocuments.swift in Sources */,
