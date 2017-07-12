@@ -14,6 +14,8 @@ class ProfileHeaderTableViewCell: UITableViewCell {
     var nameLabel: UILabel!
     var profileTypeLabel: UILabel!
     var forwardImageView: UIImageView!
+    
+    
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

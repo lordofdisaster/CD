@@ -2867,6 +2867,7 @@ of 12 to 14 km per litre</string>
                         <color key="selectedImageTintColor" red="0.070588235294117646" green="0.51372549019607838" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
+                        <segue destination="65f-yc-elm" kind="relationship" relationship="viewControllers" id="tjY-ZI-9xf"/>
                         <segue destination="iQG-0O-YKl" kind="relationship" relationship="viewControllers" id="q4p-T1-JsG"/>
                         <segue destination="IMr-OU-3v9" kind="relationship" relationship="viewControllers" id="H7e-JT-SEL"/>
                     </connections>
@@ -2913,6 +2914,25 @@ of 12 to 14 km per litre</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IPk-ot-DsQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="118" y="2468"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="ucY-Jl-rTr">
+            <objects>
+                <viewController id="65f-yc-elm" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0go-Lk-fbm"/>
+                        <viewControllerLayoutGuide type="bottom" id="B9y-6R-iYW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="M4X-7v-F5d">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" selectedImage="inbox" id="Akh-iT-78P"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3VC-Fj-zoQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-617" y="2268"/>
         </scene>
         <!--Browse-->
         <scene sceneID="aVX-rg-oo2">
@@ -3001,6 +3021,7 @@ of 12 to 14 km per litre</string>
         <image name="cross" width="20" height="20"/>
         <image name="delivery" width="30" height="30"/>
         <image name="ic_chat" width="37" height="34"/>
+        <image name="inbox" width="27" height="22"/>
         <image name="instant_booking" width="24" height="36"/>
         <image name="more" width="29" height="8"/>
         <image name="my_cars" width="31" height="26"/>

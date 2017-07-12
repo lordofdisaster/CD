@@ -18,3 +18,5 @@ struct Login {
     static let galleryString = "Gallery"
     static let cancelString = "Cancel"
 }
+
+var OWNER_STATUS = true
