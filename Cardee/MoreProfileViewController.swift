@@ -101,10 +101,25 @@ extension MoreProfileViewController: UITableViewDelegate, UITableViewDataSource 
             self.performSegue(withIdentifier: "showAccountDetailsSegue", sender: self)
         case 5:
             
-                //and go to Rentee Storyboard
-                let storyboard = UIStoryboard(name: "Rentee", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "RenteeTabBarController") as UIViewController
-                present(vc, animated: true, completion: nil)
+            
+            //and go to Rentee Storyboard
+            var vcID: String!
+            var storyBoardName: String!
+            if OWNER_STATUS {
+                vcID = "RenteeTabBarController"
+                storyBoardName = "Rentee"
+            } else {
+                vcID = "CardeeTabBarController"
+                storyBoardName = "Main"
+            
+            }
+            
+            OWNER_STATUS = !OWNER_STATUS
+            
+            let storyboard = UIStoryboard(name: storyBoardName, bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: vcID) as UIViewController
+            present(vc, animated: true, completion: nil)
+            
             
         
         default:

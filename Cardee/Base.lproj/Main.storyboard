@@ -2877,7 +2877,7 @@ of 12 to 14 km per litre</string>
         <!--Cardee Tab Bar Controller-->
         <scene sceneID="lFy-sg-Qj0">
             <objects>
-                <tabBarController id="TXE-dE-WjF" customClass="CardeeTabBarController" customModule="Cardee" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="CardeeTabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TXE-dE-WjF" customClass="CardeeTabBarController" customModule="Cardee" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" itemPositioning="fill" id="kQa-86-CbT" customClass="MainTabBar" customModule="Cardee" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
