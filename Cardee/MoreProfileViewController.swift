@@ -96,17 +96,17 @@ extension MoreProfileViewController: UITableViewDelegate, UITableViewDataSource 
         
         switch indexPath.row {
         case 0:
-            
-            self.performSegue(withIdentifier: "showRenterProfileSegue", sender: self)
-        case 5:
-            
-            let segueStr = OWNER_STATUS ? "showRenterProfileSegue" : "showOwnerProfileSegue"
-            
-            self.performSegue(withIdentifier: segueStr, sender: self)
-            
-            OWNER_STATUS = !OWNER_STATUS
+            self.performSegue(withIdentifier: "showOwnerProfileSegue", sender: self)
         case 2:
             self.performSegue(withIdentifier: "showAccountDetailsSegue", sender: self)
+        case 5:
+            
+                //and go to Rentee Storyboard
+                let storyboard = UIStoryboard(name: "Rentee", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "RenteeTabBarController") as UIViewController
+                present(vc, animated: true, completion: nil)
+            
+        
         default:
             self.performSegue(withIdentifier: "showSettingsSegue", sender: self)
         }

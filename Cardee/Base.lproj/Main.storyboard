@@ -201,7 +201,7 @@
                         <viewControllerLayoutGuide type="bottom" id="qvt-q9-X9t"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cuV-h5-nzl">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -640,6 +640,25 @@
             <point key="canvasLocation" x="4039" y="478"/>
         </scene>
         <!--More Profile View Controller-->
+        <scene sceneID="wdi-eA-du2">
+            <objects>
+                <viewController id="GT9-2W-GdQ" customClass="MoreProfileViewController" customModule="Cardee" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0wR-7P-uYs"/>
+                        <viewControllerLayoutGuide type="bottom" id="G3N-ha-x1l"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lY7-N8-v7z">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="mfD-Ek-hT2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ekw-cg-Php" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="616" y="2470"/>
+        </scene>
+        <!--More Profile View Controller-->
         <scene sceneID="XrB-Jt-WGS">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="X3M-Zj-lRG" customClass="MoreProfileViewController" customModule="Cardee" customModuleProvider="target" sceneMemberID="viewController">
@@ -648,7 +667,7 @@
                         <viewControllerLayoutGuide type="bottom" id="xcO-nF-Vdz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TAD-RB-pM7">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -672,8 +691,8 @@
                         <viewControllerLayoutGuide type="top" id="Ygj-oO-dEG"/>
                         <viewControllerLayoutGuide type="bottom" id="waP-LY-dSj"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="H5I-Ai-eA8">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                    <view key="view" contentMode="scaleToFill" id="H5I-Ai-eA8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -730,8 +749,8 @@
                         <viewControllerLayoutGuide type="top" id="iN4-9P-R7Y"/>
                         <viewControllerLayoutGuide type="bottom" id="ozb-xj-8vU"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="ldL-YS-j7B">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                    <view key="view" contentMode="scaleToFill" id="ldL-YS-j7B">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -749,7 +768,7 @@
                         <viewControllerLayoutGuide type="bottom" id="PoZ-53-jmg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4Zz-Z0-4II">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -2874,7 +2893,7 @@ of 12 to 14 km per litre</string>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NBz-tM-xzl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="118" y="1667"/>
+            <point key="canvasLocation" x="-1091" y="1182"/>
         </scene>
         <!--My Cars-->
         <scene sceneID="ubo-qL-yHS">
@@ -2908,14 +2927,14 @@ of 12 to 14 km per litre</string>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="X3M-Zj-lRG" kind="relationship" relationship="rootViewController" id="5p8-PZ-TQc"/>
+                        <segue destination="GT9-2W-GdQ" kind="relationship" relationship="rootViewController" id="nH9-9M-G5X"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IPk-ot-DsQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="118" y="2468"/>
+            <point key="canvasLocation" x="-469" y="1987"/>
         </scene>
-        <!--Item-->
+        <!--Inbox-->
         <scene sceneID="ucY-Jl-rTr">
             <objects>
                 <viewController id="65f-yc-elm" sceneMemberID="viewController">
@@ -2928,11 +2947,11 @@ of 12 to 14 km per litre</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" selectedImage="inbox" id="Akh-iT-78P"/>
+                    <tabBarItem key="tabBarItem" title="Inbox" image="inbox" id="Akh-iT-78P"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3VC-Fj-zoQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-617" y="2268"/>
+            <point key="canvasLocation" x="-1804" y="1987"/>
         </scene>
         <!--Browse-->
         <scene sceneID="aVX-rg-oo2">
@@ -3033,12 +3052,12 @@ of 12 to 14 km per litre</string>
         <image name="text_logo" width="270" height="58"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CUc-ed-tP1"/>
         <segue reference="JGb-IU-eCX"/>
         <segue reference="Sis-kt-hUR"/>
-        <segue reference="QxT-Eq-nMl"/>
-        <segue reference="Ebx-rI-56M"/>
         <segue reference="NUR-Ik-zb7"/>
+        <segue reference="QxT-Eq-nMl"/>
+        <segue reference="CUc-ed-tP1"/>
+        <segue reference="Ebx-rI-56M"/>
         <segue reference="Z1t-SM-sVB"/>
     </inferredMetricsTieBreakers>
 </document>
