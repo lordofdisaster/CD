@@ -25,10 +25,10 @@ class BrowseCell: UITableViewCell {
             }
             
             if let yearString = car.yearManufacture {
-                let yearAttribute = [ NSFontAttributeName: UIFont.systemFont(ofSize: 16, weight: UIFontWeightThin) ]
+                let yearAttribute = [ NSFontAttributeName: UIFont.systemFont(ofSize: 14, weight: UIFontWeightThin) ]
                 let yearAttributedString = NSAttributedString(string: yearString, attributes: yearAttribute)
                 let carNameString = car.carTitle! + "  "
-                let carNameAttribute = [ NSFontAttributeName: UIFont.systemFont(ofSize: 16, weight: UIFontWeightBold) ]
+                let carNameAttribute = [ NSFontAttributeName: UIFont.systemFont(ofSize: 14, weight: UIFontWeightBold) ]
                 let carNameAttributedString = NSAttributedString(string: carNameString, attributes: carNameAttribute)
                 
                 let result = NSMutableAttributedString()

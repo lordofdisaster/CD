@@ -12,6 +12,8 @@ import Alamofire
 
 class BrowseVC: UIViewController {
     @IBOutlet weak var topBarView: UIView!
+    @IBOutlet weak var periodBarView: UIView!
+    
     @IBOutlet weak var carsTableView: UITableView!
     var refreshControl: UIRefreshControl!
     var cars = [SimpleCar]()
@@ -21,14 +23,14 @@ class BrowseVC: UIViewController {
 
         refreshControlSetup()
         
-        MBProgressHUD.showAdded(to: (topBarView)!, animated: true)
+        MBProgressHUD.showAdded(to: (carsTableView)!, animated: true)
         AlamofireManager.getOwnerProfile() { success, error in
             
             self.cars.removeAll()
             self.cars = OwnerProfile.shared.cars
             self.carsTableView.reloadData()
             
-            MBProgressHUD.hide(for: (self.topBarView)!, animated: true)
+            MBProgressHUD.hide(for: (self.carsTableView)!, animated: true)
         }
 
     }

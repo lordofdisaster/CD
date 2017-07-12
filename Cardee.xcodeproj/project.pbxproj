@@ -12,6 +12,7 @@
 		7909BC461F16355500A7A184 /* Rentee.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7909BC451F16355500A7A184 /* Rentee.storyboard */; };
 		7909BC481F164EFE00A7A184 /* BrowseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7909BC471F164EFE00A7A184 /* BrowseVC.swift */; };
 		7909BC4A1F164F7C00A7A184 /* BrowseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7909BC491F164F7C00A7A184 /* BrowseCell.swift */; };
+		7909BC4C1F16650900A7A184 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7909BC4B1F16650900A7A184 /* ShadowView.swift */; };
 		795EA90F1F13A94900752A68 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 795EA90E1F13A94900752A68 /* Info.plist */; };
 		E6C2E42BCADA0484D873AF0D /* Pods_Cardee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C56DFBB096498260E3F2FDBD /* Pods_Cardee.framework */; };
 		E80BD6201EE9596800775CE6 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80BD61F1EE9596800775CE6 /* Car.swift */; };
@@ -146,6 +147,7 @@
 		7909BC451F16355500A7A184 /* Rentee.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Rentee.storyboard; sourceTree = "<group>"; };
 		7909BC471F164EFE00A7A184 /* BrowseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseVC.swift; sourceTree = "<group>"; };
 		7909BC491F164F7C00A7A184 /* BrowseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseCell.swift; sourceTree = "<group>"; };
+		7909BC4B1F16650900A7A184 /* ShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		795EA90E1F13A94900752A68 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C56DFBB096498260E3F2FDBD /* Pods_Cardee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cardee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8E59CFEF8ECE584958F598A /* Pods-Cardee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cardee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cardee/Pods-Cardee.debug.xcconfig"; sourceTree = "<group>"; };
@@ -318,6 +320,15 @@
 				4732730EB245677CC1EE2BD8 /* Pods-Cardee.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		7909BC4D1F16651800A7A184 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7909BC4B1F16650900A7A184 /* ShadowView.swift */,
+				7909BC401F16026A00A7A184 /* MainTabBar.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		92324F2467F2CCB49AF1A331 /* Frameworks */ = {
@@ -699,6 +710,7 @@
 		E87F35FE1EA6036D00AC4DA4 /* Cardee */ = {
 			isa = PBXGroup;
 			children = (
+				7909BC4D1F16651800A7A184 /* View */,
 				E85E28131EE6AE2800438789 /* Cardee.entitlements */,
 				E85E28071EE5729000438789 /* Networking */,
 				E823DDC01EBE530C006C92DF /* Modules */,
@@ -828,7 +840,6 @@
 		E8C19C971EDEEE2300BF59F7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7909BC401F16026A00A7A184 /* MainTabBar.swift */,
 				E8C19C981EDEEE2900BF59F7 /* Cells */,
 			);
 			name = Views;
@@ -1144,6 +1155,7 @@
 				E82DA93A1EFD1062005E257A /* FSCalendarExtensions.m in Sources */,
 				E88013DD1ED2B4EE00F41CC2 /* AccountDetailsViewController.swift in Sources */,
 				E82DA93F1EFD1062005E257A /* FSCalendarWeekdayView.m in Sources */,
+				7909BC4C1F16650900A7A184 /* ShadowView.swift in Sources */,
 				E8C19CA61EDF41D700BF59F7 /* DetailRentalFuelTableViewCell.swift in Sources */,
 				E862A1D01ED430F200AE84FF /* CalendarViewController.swift in Sources */,
 				E82DA9411EFD1062005E257A /* FSCalendar-dummy.m in Sources */,
