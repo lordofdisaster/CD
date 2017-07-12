@@ -12,7 +12,7 @@ class CardeeTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBarItem.imageInsets = UIEdgeInsetsMake(3, 3, 3, 3);
+        self.tabBarItem.imageInsets = UIEdgeInsetsMake(3, 3, 3, 3)
     }
 
     override func didReceiveMemoryWarning() {

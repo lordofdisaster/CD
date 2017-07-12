@@ -75,7 +75,6 @@ class MyCarsViewController: CardeeViewController {
 }
 
 //MARK: TableView Delegate + DataSource
-
 extension MyCarsViewController: UITableViewDelegate, UITableViewDataSource {
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return 325.0
