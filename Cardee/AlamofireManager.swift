@@ -498,6 +498,10 @@ class AlamofireManager: NSObject {
                 OwnerProfile.shared.bookingsCount = result["data"]["cnt_bookings"].intValue
                 OwnerProfile.shared.carsCount = result["data"]["car_cnt"].intValue
                 OwnerProfile.shared.reviewCount = result["data"]["review_cnt"].intValue
+                OwnerProfile.shared.acceptance = result["data"]["acceptance"].stringValue
+                (OwnerProfile.shared.acceptance?.isEmpty)! ? OwnerProfile.shared.acceptance = "0" : ()
+                OwnerProfile.shared.responseTime = result["data"]["response_time"].stringValue
+                (OwnerProfile.shared.responseTime?.isEmpty)! ? OwnerProfile.shared.responseTime = "0" : ()
                 OwnerProfile.shared.cars.removeAll()
                 for i in 0..<OwnerProfile.shared.carsCount {
                     let simpleCar = SimpleCar()

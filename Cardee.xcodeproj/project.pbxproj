@@ -79,6 +79,8 @@
 		E84781241F0E98C8006FA529 /* EarningsTotalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84781231F0E98C8006FA529 /* EarningsTotalTableViewCell.swift */; };
 		E84781261F0E9944006FA529 /* EarningsHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84781251F0E9944006FA529 /* EarningsHistoryTableViewCell.swift */; };
 		E84781281F0E99B8006FA529 /* EarningsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84781271F0E99B8006FA529 /* EarningsViewController.swift */; };
+		E84781381F17BBA2006FA529 /* BookingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84781371F17BBA2006FA529 /* BookingsTableViewCell.swift */; };
+		E847813A1F17C4EC006FA529 /* BookingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84781391F17C4EC006FA529 /* BookingsViewController.swift */; };
 		E85E28091EE572AC00438789 /* AlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85E28081EE572AC00438789 /* AlamofireManager.swift */; };
 		E85E280B1EE6886E00438789 /* NetworkingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85E280A1EE6886E00438789 /* NetworkingConstants.swift */; };
 		E85E280D1EE6889600438789 /* CustomTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85E280C1EE6889600438789 /* CustomTypes.swift */; };
@@ -238,6 +240,8 @@
 		E84781231F0E98C8006FA529 /* EarningsTotalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarningsTotalTableViewCell.swift; sourceTree = "<group>"; };
 		E84781251F0E9944006FA529 /* EarningsHistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarningsHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		E84781271F0E99B8006FA529 /* EarningsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarningsViewController.swift; sourceTree = "<group>"; };
+		E84781371F17BBA2006FA529 /* BookingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingsTableViewCell.swift; sourceTree = "<group>"; };
+		E84781391F17C4EC006FA529 /* BookingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingsViewController.swift; sourceTree = "<group>"; };
 		E85E28081EE572AC00438789 /* AlamofireManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireManager.swift; sourceTree = "<group>"; };
 		E85E280A1EE6886E00438789 /* NetworkingConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingConstants.swift; sourceTree = "<group>"; };
 		E85E280C1EE6889600438789 /* CustomTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTypes.swift; sourceTree = "<group>"; };
@@ -655,6 +659,23 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		E84781351F17BB7E006FA529 /* Bookings */ = {
+			isa = PBXGroup;
+			children = (
+				E84781361F17BB8C006FA529 /* Views */,
+				E84781391F17C4EC006FA529 /* BookingsViewController.swift */,
+			);
+			name = Bookings;
+			sourceTree = "<group>";
+		};
+		E84781361F17BB8C006FA529 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E84781371F17BBA2006FA529 /* BookingsTableViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		E85E28071EE5729000438789 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -744,6 +765,7 @@
 		E87F36141EA6057200AC4DA4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E84781351F17BB7E006FA529 /* Bookings */,
 				E84781211F0E9888006FA529 /* Earnings */,
 				E8D570611F0A75B000C587F8 /* Inbox */,
 				E81437F71EEFE3DF0089E919 /* Edit Detail Rental Info */,
@@ -1152,6 +1174,8 @@
 				E823DDCD1EBFA6EA006C92DF /* AddCarVerificationImageViewController.swift in Sources */,
 				E84781241F0E98C8006FA529 /* EarningsTotalTableViewCell.swift in Sources */,
 				E82DA9311EFD1062005E257A /* FSCalendar+Deprecated.m in Sources */,
+				E84781381F17BBA2006FA529 /* BookingsTableViewCell.swift in Sources */,
+				E847813A1F17C4EC006FA529 /* BookingsViewController.swift in Sources */,
 				E87F36021EA6036D00AC4DA4 /* LoginViewController.swift in Sources */,
 				E8255AAA1ECDD9B00030AFA7 /* MoreProfileViewController.swift in Sources */,
 				E82DA9361EFD1062005E257A /* FSCalendarCollectionViewLayout.m in Sources */,

@@ -81,7 +81,7 @@ extension OwnerProfileViewController: UITableViewDelegate, UITableViewDataSource
         case 1:
             return 126
         case 2:
-            if OwnerProfile.shared.cars.count < 0 {
+            if OwnerProfile.shared.cars.count > 0 {
                 return 170
             } else {
                 return 50

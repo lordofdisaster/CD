@@ -91,12 +91,15 @@ class OwnerInfoTableViewCell: UITableViewCell {
         let featuresViewWidth = Screen.width
         let featuresViewHeight = 60
         
+        let titles = ["Acceptance", "Response Time", "Bookings"]
+        let values = ["\(OwnerProfile.shared.acceptance!)%", "\(OwnerProfile.shared.responseTime!) mins", "\(OwnerProfile.shared.bookingsCount!)"]
+        
         for i in 0..<3 {
             var lastItem = true
             if i == 2 {
                 lastItem = false
             }
-            let featuresView = OwnerFeaturesView(frame: CGRect(x: CGFloat(i) * featuresViewWidth/3, y: CGFloat(featuresViewY), width: CGFloat(featuresViewWidth/3), height: CGFloat(featuresViewHeight)), isLastItem: lastItem)
+            let featuresView = OwnerFeaturesView(frame: CGRect(x: CGFloat(i) * featuresViewWidth/3, y: CGFloat(featuresViewY), width: CGFloat(featuresViewWidth/3), height: CGFloat(featuresViewHeight)), isLastItem: lastItem, title: titles[i], value: values[i])
             self.contentView.addSubview(featuresView)
             self.featuresViewSection.append(featuresView)
         }

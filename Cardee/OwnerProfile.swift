@@ -14,8 +14,8 @@ final class OwnerProfile {
     var profileId: Int!
     var profilePhoto: UIImage?
     var name: String?
-    //var acceptance
-    //var responseTime
+    var acceptance: String?
+    var responseTime: String?
     var bookingsCount: Int!
     //var note
     var carsCount: Int!

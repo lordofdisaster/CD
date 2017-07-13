@@ -13,7 +13,7 @@ class OwnerFeaturesView: UIView {
     var keyLabel: UILabel!
     var valueLabel: UILabel!
 
-    init(frame: CGRect, isLastItem: Bool) {
+    init(frame: CGRect, isLastItem: Bool, title: String, value: String) {
         super.init(frame: frame)
         
         // Key label
@@ -27,7 +27,7 @@ class OwnerFeaturesView: UIView {
         self.keyLabel.textAlignment = .center
         self.keyLabel.font = UIFont.systemFont(ofSize: 11)
         self.keyLabel.textColor = Color.lightGrayText
-        self.keyLabel.text = "Acceptance"
+        self.keyLabel.text = title
         
         // Value label
         
@@ -41,7 +41,7 @@ class OwnerFeaturesView: UIView {
         self.valueLabel.textAlignment = .center
         self.valueLabel.font = UIFont.systemFont(ofSize: 16)
         self.valueLabel.textColor = Color.grayText
-        self.valueLabel.text = "90%"
+        self.valueLabel.text = value
         
         // Separator view
         
