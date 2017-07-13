@@ -128,6 +128,12 @@ class LoginViewController: UIViewController {
         self.loginView.loginButton.setTitle(Login.loginString, for: .normal)
         self.loginView.loginButton.removeTarget(nil, action: nil, for: .allEvents)
         self.loginView.loginButton.addTarget(self, action: #selector(self.loginAction), for: .touchUpInside)
+        
+        
+        
+        
+        
+        
         self.loginView.socialLoginView.isHidden = false
         self.loginView.termsAndPolicyButton.isHidden = true
         self.isUserWantSignUp = true
@@ -167,14 +173,44 @@ class LoginViewController: UIViewController {
         self.tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
         self.loginView = LoginView(frame: CGRect(x: 0, y: 0, width: Screen.width, height: Screen.height))
         //Test
+        
+        self.loginView.passwordTextField.isSecureTextEntry = true
         self.loginView.emailTextField.text = "alex"
         self.loginView.passwordTextField.text = "12345"
         //
         self.loginView.addGestureRecognizer(self.tapGestureRecognizer)
         self.view.addSubview(self.loginView)
         self.loginView.loginButton.addTarget(self, action: #selector(self.loginAction), for: .touchUpInside)
-        self.loginView.socialLoginView.facebookButton.addTarget(self, action: #selector(self.loginWithFacebookAction), for: .touchUpInside)
-        self.loginView.socialLoginView.googleButton.addTarget(self, action: #selector(self.loginWithGoogleAction), for: .touchUpInside)
+        
+        if let fbButton = self.loginView.socialLoginView.facebookButton {
+        
+            fbButton.addTarget(self, action: #selector(self.loginWithFacebookAction), for: .touchUpInside)
+            
+            fbButton.setImage(UIImage(named:"facebook"), for: .normal)
+            fbButton.imageEdgeInsets = UIEdgeInsets(top: 15.0, left: -30.0, bottom: 15.0, right: 0.0)
+            fbButton.imageView?.contentMode = .scaleAspectFit
+            fbButton.tintColor = .white
+            
+        }
+        
+        
+        
+        
+        if let gButton = self.loginView.socialLoginView.googleButton {
+        
+            gButton.addTarget(self, action: #selector(self.loginWithGoogleAction), for: .touchUpInside)
+            gButton.setImage(UIImage(named:"googleplus"), for: .normal)
+            
+            gButton.imageEdgeInsets = UIEdgeInsets(top: 15.0, left: -30.0, bottom: 15.0, right: 0.0)
+            gButton.imageView?.contentMode = .scaleAspectFit
+            gButton.tintColor = .white
+            
+        }
+        
+        
+        
+        
+        
         self.loginView.signUpButton.addTarget(self, action: #selector(self.startSignUpAction), for: .touchUpInside)
         self.loginView.forgotPasswordButton.addTarget(self, action: #selector(self.forgotPasswordAction), for: .touchUpInside)
     }

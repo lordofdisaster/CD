@@ -36,9 +36,7 @@ class DetailCarViewController: UIViewController {
         self.performSegue(withIdentifier: "editDescriptionSegue", sender: self)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editDescriptionSegue" {
@@ -53,6 +51,63 @@ class DetailCarViewController: UIViewController {
         }
     }
 }
+
+
+//MARK: Edit Photo
+extension DetailCarViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+    
+    @IBAction func editPhoto() {
+        
+        print("Start editing photo")
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true, completion: nil)
+        
+    }
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        
+        var selectedImage: UIImage?
+        
+        if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage  {
+            selectedImage = editedImage
+        }
+            
+        else if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            selectedImage = originalImage
+        }
+        
+        if let image = selectedImage {
+            //upload new image
+            MBProgressHUD.showAdded(to: (self.navigationController?.view)!, animated: true)
+            AlamofireManager.setCarImage(image: image, for: car.carId) { success, error in
+                if success {
+                    CardeeAlert.showAlert(withTitle: "Success", message: "Your car image succesfully changed", sender: self)
+                } else {
+                    CardeeAlert.showAlert(withTitle: "Error", message: error!, sender: self)
+                }
+                MBProgressHUD.hide(for: (self.navigationController?.view)!, animated: true)
+                
+            }
+            
+            
+        }
+        
+        
+        dismiss(animated: true, completion: nil)
+    }
+
+    
+    
+    
+    
+}
+
+
+
 
 extension DetailCarViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
