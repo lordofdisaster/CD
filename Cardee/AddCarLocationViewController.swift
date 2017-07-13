@@ -108,8 +108,15 @@ extension AddCarLocationViewController: GMSMapViewDelegate, CLLocationManagerDel
     }
     
     func moveMapToCurrentLocation() {
-        let location = mapView.myLocation
-        let camera = GMSCameraPosition.camera(withLatitude: (location?.coordinate.latitude)!, longitude:(location?.coordinate.longitude)!, zoom: 17)
+        if let location = mapView.myLocation {
+            moveMapTo(location: location)
+        }
+    }
+    
+    
+    func moveMapTo(location: CLLocation) {
+        let location = location
+        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude:location.coordinate.longitude, zoom: 17)
         self.mapView.animate(to: camera)
     }
     
@@ -147,19 +154,13 @@ extension AddCarLocationViewController: GMSMapViewDelegate, CLLocationManagerDel
             if let placemarks = placemarks  { //let location = placemarks.first?.location
                 // Use your location
                 print(placemarks)
-                
+                if let firstPlacemark = placemarks.first, let location = firstPlacemark.location {
+                    self.moveMapTo(location: location)
+                    
+                }
             }
-            
-            
         }
-
-        
     }
-    
-    
-    
-    
-    
 }
 
 
@@ -178,7 +179,7 @@ extension AddCarLocationViewController {
         // Init cat location view
         self.carLocationView = CarLocationView(frame: CGRect(x: 13, y: 13, width: Screen.width - 26, height: 63))
         self.view.addSubview(self.carLocationView)
-        self.carLocationView.addressTextField.addTarget(self, action: #selector(reverseAddressToCoordinate), for: .editingChanged)
+        self.carLocationView.addressTextField.addTarget(self, action: #selector(reverseAddressToCoordinate), for: .editingDidEndOnExit)
         
     }
     

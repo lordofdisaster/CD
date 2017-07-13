@@ -325,10 +325,21 @@
 		7909BC4D1F16651800A7A184 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				794F1F141F17543700DD4372 /* Storyboards */,
 				7909BC4B1F16650900A7A184 /* ShadowView.swift */,
 				7909BC401F16026A00A7A184 /* MainTabBar.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		794F1F141F17543700DD4372 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E87F360B1EA6036D00AC4DA4 /* LaunchScreen.storyboard */,
+				E87F36031EA6036D00AC4DA4 /* Main.storyboard */,
+				7909BC451F16355500A7A184 /* Rentee.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 		92324F2467F2CCB49AF1A331 /* Frameworks */ = {
@@ -710,19 +721,15 @@
 		E87F35FE1EA6036D00AC4DA4 /* Cardee */ = {
 			isa = PBXGroup;
 			children = (
-				7909BC4D1F16651800A7A184 /* View */,
 				E85E28131EE6AE2800438789 /* Cardee.entitlements */,
 				E85E28071EE5729000438789 /* Networking */,
 				E823DDC01EBE530C006C92DF /* Modules */,
 				E80CAC8D1EBB52990087B919 /* Temp */,
 				E87F36191EA605FE00AC4DA4 /* Helpers */,
-				E87F36141EA6057200AC4DA4 /* Controllers */,
 				E8EC9F121EDDF7DB004AF6A0 /* Models */,
-				E87F35FF1EA6036D00AC4DA4 /* AppDelegate.swift */,
-				E87F36031EA6036D00AC4DA4 /* Main.storyboard */,
-				7909BC451F16355500A7A184 /* Rentee.storyboard */,
+				7909BC4D1F16651800A7A184 /* View */,
+				E87F36141EA6057200AC4DA4 /* Controllers */,
 				E87F36091EA6036D00AC4DA4 /* Assets.xcassets */,
-				E87F360B1EA6036D00AC4DA4 /* LaunchScreen.storyboard */,
 				E85E28141EE6C61E00438789 /* GoogleService-Info.plist */,
 				E87F36061EA6036D00AC4DA4 /* Cardee.xcdatamodeld */,
 				795EA90E1F13A94900752A68 /* Info.plist */,
@@ -735,6 +742,7 @@
 		E87F36141EA6057200AC4DA4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E87F35FF1EA6036D00AC4DA4 /* AppDelegate.swift */,
 				7909BC471F164EFE00A7A184 /* BrowseVC.swift */,
 				7909BC431F16319900A7A184 /* RenteeTabBarController.swift */,
 				E81437F71EEFE3DF0089E919 /* Edit Detail Rental Info */,
